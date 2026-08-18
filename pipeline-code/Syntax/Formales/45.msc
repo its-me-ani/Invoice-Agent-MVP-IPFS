@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:hello world
+cell:A2:vtf:t:Hello World:PROPER(A1)
+sheet:c:1:r:2

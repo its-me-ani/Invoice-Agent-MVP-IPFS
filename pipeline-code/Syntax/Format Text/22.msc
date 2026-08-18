@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:<ol><li>First</li><li>Second</li><li>Third</li></ol>:tvf:1
+sheet:c:1:r:1
+valueformat:1:text-html

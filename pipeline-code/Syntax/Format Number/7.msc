@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:v:1234.56:ntvf:1
+sheet:c:1:r:1
+valueformat:1:$#,##0.00

@@ -1,0 +1,6 @@
+version:1.5
+cell:A1:t:Top and Bottom Padding:l:1
+cell:A2:t:Left and Right Padding:l:2
+sheet:c:1:r:2
+layout:1:padding:25px * 25px *;vertical-align:*;
+layout:2:padding:* 25px * 25px;vertical-align:*;

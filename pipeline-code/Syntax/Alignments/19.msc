@@ -1,0 +1,15 @@
+version:1.5
+cell:A1:t:Name:cf:1:l:1
+cell:B1:t:Department:cf:1:l:1
+cell:C1:t:Salary:cf:2:l:1
+cell:A2:t:John Doe:cf:1:l:2
+cell:B2:t:Engineering:cf:1:l:2
+cell:C2:v:75000:cf:2:l:2
+cell:A3:t:Jane Smith:cf:1:l:2
+cell:B3:t:Marketing:cf:1:l:2
+cell:C3:v:68000:cf:2:l:2
+sheet:c:3:r:3
+cellformat:1:left
+cellformat:2:right
+layout:1:padding:8px * * 8px;vertical-align:middle;
+layout:2:padding:5px * * 5px;vertical-align:middle;

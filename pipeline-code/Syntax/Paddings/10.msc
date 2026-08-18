@@ -1,0 +1,8 @@
+version:1.5
+cell:A1:t:Minimal Top:l:1
+cell:A2:t:Medium All:l:2
+cell:A3:t:Heavy Bottom:l:3
+sheet:c:1:r:3
+layout:1:padding:1px * * *;vertical-align:top;
+layout:2:padding:12px 12px 12px 12px;vertical-align:middle;
+layout:3:padding:* * 40px *;vertical-align:bottom;

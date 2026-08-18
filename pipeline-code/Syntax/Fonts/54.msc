@@ -1,0 +1,8 @@
+version:1.5
+cell:A1:t:Orange Italic:f:1:c:1
+cell:B1:t:Purple Bold:f:2:c:2
+sheet:c:2:r:1
+font:1:italic normal 12pt Arial
+font:2:normal bold 12pt Arial
+color:1:rgb(255,165,0)
+color:2:rgb(128,0,128)

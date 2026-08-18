@@ -1,0 +1,15 @@
+version:1.5
+cell:B2:t:Title:colspan:3
+cell:C2:t:
+cell:D2:t:
+cell:E2:t:
+cell:B3:t:Name
+cell:C3:t:Description
+cell:D3:t:Price
+cell:E3:t:Stock
+sheet:c:5:r:4
+col:A:w:30
+col:B:w:80
+col:C:w:300
+col:D:w:100
+col:E:w:80

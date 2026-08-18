@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:TODO\\c\\n- Item 1\\n- Item 2\\n- Item 3\nsheet:c:1:r:1\n"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

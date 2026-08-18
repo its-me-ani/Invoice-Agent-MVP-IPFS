@@ -1,0 +1,5 @@
+version:1.5
+cell:A1:t:Google<<https\c//google.com>>:tvf:1
+cell:B1:t:GitHub<<https\c//github.com>>:tvf:1
+sheet:c:2:r:1
+valueformat:1:text-link

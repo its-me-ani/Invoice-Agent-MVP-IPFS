@@ -1,0 +1,18 @@
+version:1.5
+cell:A1:t:Report Title:colspan:4
+cell:B1:t:
+cell:C1:t:
+cell:D1:t:
+cell:A2:t:Section 1:colspan:2
+cell:B2:t:
+cell:C2:t:Section 2:colspan:2
+cell:D2:t:
+cell:A3:t:A3
+cell:B3:t:B3
+cell:C3:t:C3
+cell:D3:t:D3
+cell:A4:t:Total:colspan:4
+cell:B4:t:
+cell:C4:t:
+cell:D4:t:
+sheet:c:4:r:4

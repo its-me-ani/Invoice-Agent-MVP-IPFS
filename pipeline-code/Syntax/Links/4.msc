@@ -1,0 +1,5 @@
+version:1.5
+cell:A1:t:Visit Repository<<https\c//github.com/user/repo>>:tvf:1
+cell:B1:t:GitHub
+sheet:c:2:r:1
+valueformat:1:text-link

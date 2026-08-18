@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}" type="text/css" />
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block body %}
+<div class="auth-container">
+  <!-- Left Side: Illustration -->
+  <div class="auth-illustration">
+    <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0.6" />
+          <stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:0.2" />
+        </linearGradient>
+      </defs>
+      <!-- Background Blob -->
+      <path
+        d="M45.7,-76.3C58.8,-69.3,68.8,-56.9,76.3,-43.3C83.8,-29.7,88.7,-14.8,87.6,-0.6C86.5,13.6,79.4,27.2,70.5,39.2C61.6,51.2,50.9,61.6,38.6,68.9C26.3,76.2,12.4,80.4,-0.8,81.8C-14.1,83.2,-27.6,81.8,-40.4,74.7C-53.2,67.6,-65.3,54.8,-73.4,40.1C-81.5,25.4,-85.7,8.8,-83.9,-7.1C-82.1,-23,-74.3,-38.2,-63.3,-49.8C-52.3,-61.4,-38.1,-69.3,-23.4,-72.2C-8.7,-75.1,6.5,-73,20.8,-67"
+        transform="translate(250 200) scale(2.2)" fill="url(#grad1)" />
+      <!-- Security / Lock Abstract Items -->
+      <rect x="180" y="150" width="140" height="120" rx="10" ry="10" fill="#ffffff" stroke="#fff" stroke-width="2" />
+      <circle cx="250" cy="210" r="15" fill="#667eea" />
+      <path d="M250 150 V 110 A 40 40 0 0 1 290 110" stroke="#fff" stroke-width="8" fill="none"
+        stroke-linecap="round" />
+    </svg>
+  </div>
+
+  <!-- Right Side: Form -->
+  <div class="auth-form-container">
+    <div class="auth-form-header">
+      <h1 class="auth-title">Welcome Back</h1>
+      <p class="auth-subtitle">Log in to your Socialcalc AI account</p>
+    </div>
+
+    {% if error %}
+    <div
+      style="background-color: #fee2e2; color: #b91c1c; padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 1.5rem; border: 1px solid #fca5a5; font-size: 0.9rem;">
+      {{ error }}
+    </div>
+    {% endif %}
+
+    <form method="POST" action="{{ url_for('login_post') }}">
+      <div class="form-group">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="text" id="email" name="email" class="form-input" placeholder="name@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <div class="password-group">
+          <input type="password" id="password" name="password" class="form-input" placeholder="••••••••" required>
+          <span class="password-toggle" onclick="togglePassword()">Show</span>
+        </div>
+      </div>
+
+      <div class="checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" name="remember" class="checkbox-input">
+          Remember me
+        </label>
+        <a href="{{ url_for('lostpw_get') }}" class="auth-link" style="font-size: 0.9rem;">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="btn-primary">Log In</button>
+    </form>
+
+    <div class="auth-footer">
+      Don't have an account? <a href="{{ url_for('register_get') }}" class="auth-link">Sign up</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function togglePassword() {
+    var passwordInput = document.getElementById("password");
+    var toggleText = document.querySelector(".password-toggle");
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      toggleText.textContent = "Hide";
+    } else {
+      passwordInput.type = "password";
+      toggleText.textContent = "Show";
+    }
+  }
+</script>
+{% endblock %}

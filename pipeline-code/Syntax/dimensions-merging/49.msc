@@ -1,0 +1,26 @@
+version:1.5
+cell:A1:t:Grand Header:colspan:6:rowspan:1
+cell:B1:t:
+cell:C1:t:
+cell:D1:t:
+cell:E1:t:
+cell:F1:t:
+cell:A2:t:Section A:colspan:3
+cell:B2:t:
+cell:C2:t:
+cell:D2:t:Section B:colspan:3
+cell:E2:t:
+cell:F2:t:
+cell:A3:t:1
+cell:B3:t:2
+cell:C3:t:3
+cell:D3:t:4
+cell:E3:t:5
+cell:F3:t:6
+cell:A4:t:Grand Footer:colspan:6
+cell:B4:t:
+cell:C4:t:
+cell:D4:t:
+cell:E4:t:
+cell:F4:t:
+sheet:c:6:r:4

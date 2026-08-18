@@ -1,0 +1,10 @@
+version:1.5
+cell:A1:t:2x2 at A2:colspan:2:rowspan:2
+cell:B1:t:
+cell:A2:t:
+cell:B2:t:
+cell:A3:t:Below
+cell:B3:t:Merge
+cell:C1:t:Side
+cell:C2:t:Normal
+sheet:c:3:r:3

@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:https\\c//example.com:tvf
+sheet:c:1:r:1
+valueformat:1:text-link

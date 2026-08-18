@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Invoice Table:b:2:2:2:2:f:1\ncell:B1:t:Amount:b:2:2:2:0:f:1\ncell:A2:t:Item 1:b:0:1:0:1\ncell:B2:v:100:b:0:1:0:0\ncell:A3:t:Item 2:b:0:1:0:1\ncell:B3:v:200:b:0:1:0:0\ncell:A4:t:Total:b:1:1:1:1:f:1\ncell:B4:vtf:n:300:SUM(B2\\cB3):b:1:1:1:0:f:1\nsheet:c:2:r:4\nborder:1:1px solid rgb(0,0,0)\nborder:2:2px solid rgb(0,0,0)\nfont:1:normal bold 12pt Arial"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

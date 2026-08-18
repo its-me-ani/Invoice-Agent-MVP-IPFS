@@ -1,0 +1,7 @@
+version:1.5
+cell:A1:v:2
+cell:A2:t:apple
+cell:A3:t:banana
+cell:A4:t:cherry
+cell:A5:vtf:t:banana:CHOOSE(A1,A2,A3,A4)
+sheet:c:1:r:5

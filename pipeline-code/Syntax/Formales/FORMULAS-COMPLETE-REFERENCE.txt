@@ -1,0 +1,1189 @@
+SOCIALCALC FORMULA REFERENCE AND TRAINING DATA
+
+This document contains complete information about SocialCalc formula syntax, functions, operators, training examples, and usage patterns. All information is structured for direct LLM consumption.
+
+================================================================================
+FORMULA SYNTAX STRUCTURE
+================================================================================
+
+Basic Cell Formula Format:
+cell:<cellref>:vtf:<type>:<value>:<formula>
+
+Components:
+- cellref: Cell reference (e.g., A1, B2, C10)
+- vtf: Indicates value-text-formula type
+- type: Result data type
+- value: Computed result value
+- formula: The formula expression
+
+Result Types:
+n - Numeric result (e.g., 30, 3.14, -5)
+t - Text result (e.g., "Hello", "Yes")
+nd - Numeric date (e.g., 45951)
+nt - Numeric time (e.g., 0.5)
+nl - Numeric logical (1 for true, 0 for false)
+ne - Numeric error (e.g., #DIV/0!, #NAME?)
+
+Range Notation:
+Use \c (backslash-c) instead of colon for ranges
+Correct: SUM(A1\cA5)
+Incorrect: SUM(A1:A5)
+Reason: Colon conflicts with cell format delimiters
+
+Cell References:
+Case-sensitive A1 notation
+Valid: A1, B2, C10, AA1, Z99
+Column letter(s) followed by row number
+
+================================================================================
+ARITHMETIC OPERATORS
+================================================================================
+
+Addition: +
+Usage: A1+A2, 5+10, A1+5
+Example: cell:A3:vtf:n:30:A1+A2
+Input: A1=10, A2=20, Output: 30
+
+Subtraction: -
+Usage: A1-A2, 50-25, A1-5
+Example: cell:A3:vtf:n:25:A1-A2
+Input: A1=50, A2=25, Output: 25
+
+Multiplication: *
+Usage: A1*A2, 5*8, A1*2
+Example: cell:A3:vtf:n:40:A1*A2
+Input: A1=5, A2=8, Output: 40
+
+Division: /
+Usage: A1/A2, 100/4, A1/2
+Example: cell:A3:vtf:n:25:A1/A2
+Input: A1=100, A2=4, Output: 25
+
+Operator Precedence:
+1. Parentheses ()
+2. Multiplication * and Division /
+3. Addition + and Subtraction -
+Example: A1*2-A2/2 evaluates multiplication and division first
+
+Complex Arithmetic:
+cell:A5:vtf:n:10:A1*2-A2/2
+Input: A1=10, A2=20
+Calculation: 10*2 - 20/2 = 20 - 10 = 10
+
+================================================================================
+AGGREGATE FUNCTIONS
+================================================================================
+
+SUM Function:
+Syntax: SUM(range)
+Purpose: Add all values in range
+Example: SUM(A1\cA5)
+Input: A1=10, A2=20, A3=30
+Result: cell:A4:vtf:n:60:SUM(A1\cA3)
+Use case: Total calculations, summing columns/rows
+
+AVERAGE Function:
+Syntax: AVERAGE(range)
+Purpose: Calculate mean of values
+Example: AVERAGE(A1\cA5)
+Input: A1=10, A2=20, A3=30, A4=40, A5=50
+Result: cell:A6:vtf:n:30:AVERAGE(A1\cA5)
+Use case: Finding averages, statistical analysis
+
+MIN Function:
+Syntax: MIN(range)
+Purpose: Find smallest value in range
+Example: MIN(A1\cA4)
+Input: A1=5, A2=15, A3=8, A4=22
+Result: cell:A5:vtf:n:5:MIN(A1\cA4)
+Use case: Finding minimum values, lowest prices
+
+MAX Function:
+Syntax: MAX(range)
+Purpose: Find largest value in range
+Example: MAX(A1\cA4)
+Input: A1=5, A2=15, A3=8, A4=22
+Result: cell:A5:vtf:n:22:MAX(A1\cA4)
+Use case: Finding maximum values, highest scores
+
+COUNT Function:
+Syntax: COUNT(range)
+Purpose: Count numeric values in range
+Example: COUNT(A1\cA3)
+Input: A1=5, A2=10, A3=15
+Result: cell:A4:vtf:n:5:COUNT(A1\cA3)
+Note: Counts only numeric cells, ignores text
+Use case: Counting numeric entries
+
+COUNTA Function:
+Syntax: COUNTA(range)
+Purpose: Count non-empty cells in range
+Example: COUNTA(A1\cA3)
+Input: A1=10, A2=20, A3=30
+Result: cell:A4:vtf:n:3:COUNTA(A1\cA3)
+Note: Counts all non-empty cells including text
+Use case: Counting all filled cells
+
+================================================================================
+MATHEMATICAL FUNCTIONS
+================================================================================
+
+POWER Function:
+Syntax: POWER(base, exponent)
+Purpose: Raise base to exponent power
+Example: POWER(A1,A2)
+Input: A1=2, A2=3
+Result: cell:A3:vtf:n:8:POWER(A1,A2)
+Calculation: 2^3 = 8
+Use case: Exponential calculations, compound interest
+Additional: POWER(5,3) = 125
+
+SQRT Function:
+Syntax: SQRT(number)
+Purpose: Calculate square root
+Example: SQRT(A1)
+Input: A1=16
+Result: cell:A2:vtf:n:4:SQRT(A1)
+Calculation: √16 = 4
+Use case: Geometric calculations, standard deviation
+
+ABS Function:
+Syntax: ABS(number)
+Purpose: Get absolute value (remove negative sign)
+Example: ABS(A1)
+Input: A1=-25
+Result: cell:A2:vtf:n:25:ABS(A1)
+Calculation: |-25| = 25
+Use case: Distance calculations, variance
+
+ROUND Function:
+Syntax: ROUND(number, decimals)
+Purpose: Round number to specified decimal places
+Examples:
+ROUND(A1,0) - Round to integer
+Input: A1=3.7, Result: 4
+ROUND(A1,2) - Round to 2 decimals
+Input: A1=3.14159, Result: 3.14
+Result: cell:A2:vtf:n:3.14:ROUND(A1,2)
+Use case: Financial calculations, display formatting
+
+INT Function:
+Syntax: INT(number)
+Purpose: Get integer part, discard decimals
+Example: INT(A1)
+Input: A1=7.8
+Result: cell:A2:vtf:n:7:INT(A1)
+Note: Always rounds down
+Use case: Extracting whole numbers, counting units
+
+MOD Function:
+Syntax: MOD(number, divisor)
+Purpose: Get remainder after division
+Example: MOD(A1,A2)
+Input: A1=10, A2=3
+Result: cell:A3:vtf:n:1:MOD(A1,A2)
+Calculation: 10 mod 3 = 1
+Use case: Cyclic patterns, parity checks
+
+PI Function:
+Syntax: PI()
+Purpose: Return mathematical constant π (pi)
+Example: PI()
+Result: cell:A1:vtf:n:3.14159:PI()
+Value: 3.14159265358979
+Use case: Circle calculations, trigonometry
+Note: No parameters required
+
+================================================================================
+TEXT FUNCTIONS
+================================================================================
+
+UPPER Function:
+Syntax: UPPER(text)
+Purpose: Convert text to uppercase
+Example: UPPER(A1)
+Input: A1="hello"
+Result: cell:A2:vtf:t:HELLO:UPPER(A1)
+Use case: Standardizing text, formatting
+
+LOWER Function:
+Syntax: LOWER(text)
+Purpose: Convert text to lowercase
+Example: LOWER(A1)
+Input: A1="HELLO"
+Result: cell:A2:vtf:t:hello:LOWER(A1)
+Use case: Normalizing text, case-insensitive matching
+
+PROPER Function:
+Syntax: PROPER(text)
+Purpose: Convert text to proper case (title case)
+Example: PROPER(A1)
+Input: A1="hello world"
+Result: cell:A2:vtf:t:Hello World:PROPER(A1)
+Note: Capitalizes first letter of each word
+Use case: Name formatting, titles
+
+LEN Function:
+Syntax: LEN(text)
+Purpose: Get length of text string
+Example: LEN(A1)
+Input: A1="hello world"
+Result: cell:A2:vtf:n:11:LEN(A1)
+Note: Counts all characters including spaces
+Use case: Text validation, character limits
+
+LEFT Function:
+Syntax: LEFT(text, num)
+Purpose: Extract leftmost characters
+Example: LEFT(A1,2)
+Input: A1="hello"
+Result: cell:A2:vtf:t:he:LEFT(A1,2)
+Use case: Extracting prefixes, codes
+
+RIGHT Function:
+Syntax: RIGHT(text, num)
+Purpose: Extract rightmost characters
+Example: RIGHT(A1,2)
+Input: A1="hello"
+Result: cell:A2:vtf:t:lo:RIGHT(A1,2)
+Use case: Extracting suffixes, extensions
+
+MID Function:
+Syntax: MID(text, start, length)
+Purpose: Extract middle portion of text
+Example: MID(A1,2,3)
+Input: A1="hello"
+Result: cell:A2:vtf:t:ell:MID(A1,2,3)
+Note: Start position is 1-based
+Use case: Extracting substrings, parsing
+
+SUBSTITUTE Function:
+Syntax: SUBSTITUTE(text, old_text, new_text)
+Purpose: Replace text within string
+Example: SUBSTITUTE(A1,"ell","")
+Input: A1="hello"
+Result: cell:A3:vtf:t:ho:SUBSTITUTE(A1,"ell","")
+Use case: Text replacement, cleaning data
+
+FIND Function:
+Syntax: FIND(search_text, text)
+Purpose: Find position of substring
+Example: FIND("a",A1)
+Input: A1="abc"
+Result: cell:A2:vtf:n:1:FIND("a",A1)
+Note: Returns 1-based position, case-sensitive
+Use case: Text parsing, search operations
+
+Concatenation Operator: &
+Syntax: text1&text2
+Purpose: Join text strings
+Example: A1&A2
+Input: A1="hello", A2="world"
+Result: cell:A3:vtf:t:helloworld:A1&A2
+Note: No space added automatically
+Use case: Combining text, building strings
+
+================================================================================
+LOGICAL FUNCTIONS AND OPERATORS
+================================================================================
+
+Comparison Operators:
+> Greater than
+< Less than
+= Equal to
+>= Greater than or equal
+<= Less than or equal
+<> Not equal
+
+Greater Than Example:
+cell:A3:vtf:nl:1:A1>A2
+Input: A1=10, A2=5
+Result: 1 (true)
+
+Equality Example:
+cell:A3:vtf:nl:1:A1=A2
+Input: A1=10, A2=10
+Result: 1 (true)
+
+IF Function:
+Syntax: IF(condition, true_value, false_value)
+Purpose: Return different values based on condition
+Example: IF(A1>A2,"Yes","No")
+Input: A1=10, A2=5
+Result: cell:A3:vtf:t:Yes:IF(A1>A2,"Yes","No")
+Note: Text values must be in quotes
+Use case: Conditional logic, decision making
+
+AND Function:
+Syntax: AND(condition1, condition2, ...)
+Purpose: Check if all conditions are true
+Example: AND(A1,A2)
+Input: A1=1, A2=1
+Result: cell:A3:vtf:nl:1:AND(A1,A2)
+Returns: 1 if all true, 0 if any false
+Use case: Multiple condition checking
+
+OR Function:
+Syntax: OR(condition1, condition2, ...)
+Purpose: Check if any condition is true
+Example: OR(A1,A2)
+Input: A1=0, A2=1
+Result: cell:A3:vtf:nl:1:OR(A1,A2)
+Returns: 1 if any true, 0 if all false
+Use case: Alternative condition checking
+
+NOT Function:
+Syntax: NOT(condition)
+Purpose: Negate boolean value
+Example: NOT(A1)
+Input: A1=0
+Result: cell:A2:vtf:nl:1:NOT(A1)
+Returns: 1 if input is 0, 0 if input is non-zero
+Use case: Inverting logic
+
+TRUE Function:
+Syntax: TRUE()
+Purpose: Return boolean true value
+Result: cell:A1:vtf:nl:1:TRUE()
+Returns: 1
+Use case: Explicit true values
+
+FALSE Function:
+Syntax: FALSE()
+Purpose: Return boolean false value
+Result: cell:A2:vtf:nl:0:FALSE()
+Returns: 0
+Use case: Explicit false values
+
+================================================================================
+CONDITIONAL AGGREGATE FUNCTIONS
+================================================================================
+
+SUMIF Function:
+Syntax: SUMIF(range, criteria)
+Purpose: Sum cells that meet criteria
+Example: SUMIF(A1\cA4,">10")
+Input: A1=10, A2=20, A3=15, A4=8
+Result: cell:A5:vtf:n:50:SUMIF(A1\cA4,">10")
+Calculation: 20+15+15 = 50 (values >10)
+Note: Criteria must be in quotes
+Use case: Conditional sums, filtered totals
+
+COUNTIF Function:
+Syntax: COUNTIF(range, criteria)
+Purpose: Count cells that meet criteria
+Example: COUNTIF(A1\cA4,">10")
+Input: A1=10, A2=20, A3=5, A4=15
+Result: cell:A5:vtf:n:2:COUNTIF(A1\cA4,">10")
+Calculation: 2 cells (20 and 15)
+Use case: Conditional counting, threshold checking
+
+Criteria Formats:
+">10" - Greater than 10
+"<5" - Less than 5
+">=100" - Greater than or equal to 100
+"=50" - Equal to 50
+"<>0" - Not equal to 0
+
+================================================================================
+DATE AND TIME FUNCTIONS
+================================================================================
+
+Date/Time Representation:
+Dates stored as serial numbers
+Date 1/1/1900 = 1
+Each day increments by 1
+Time represented as decimal fraction
+0.5 = 12:00 noon
+0.25 = 6:00 AM
+
+TODAY Function:
+Syntax: TODAY()
+Purpose: Get current date
+Result: cell:A1:vtf:nd:45951:TODAY()
+Returns: Serial number for current date
+Use case: Dynamic date stamping, age calculations
+
+NOW Function:
+Syntax: NOW()
+Purpose: Get current date and time
+Result: cell:A1:vtf:nd:45951.5:NOW()
+Returns: Serial number with time fraction
+Use case: Timestamps, time tracking
+
+DATE Function:
+Syntax: DATE(year, month, day)
+Purpose: Create date from components
+Example: DATE(2006,1,4)
+Result: cell:A1:vtf:n:38718:DATE(2006,1,4)
+Use case: Building dates, date calculations
+
+YEAR Function:
+Syntax: YEAR(date)
+Purpose: Extract year from date
+Example: YEAR(A1)
+Input: A1=38718 (January 4, 2006)
+Result: cell:A2:vtf:n:2006:YEAR(A1)
+Use case: Year extraction, grouping
+
+MONTH Function:
+Syntax: MONTH(date)
+Purpose: Extract month from date
+Example: MONTH(A1)
+Input: A1=38718 (January 4, 2006)
+Result: cell:A2:vtf:n:1:MONTH(A1)
+Returns: 1-12
+Use case: Month extraction, filtering
+
+DAY Function:
+Syntax: DAY(date)
+Purpose: Extract day from date
+Example: DAY(A1)
+Input: A1=38718 (January 4, 2006)
+Result: cell:A2:vtf:n:4:DAY(A1)
+Returns: 1-31
+Use case: Day extraction, scheduling
+
+HOUR Function:
+Syntax: HOUR(time)
+Purpose: Extract hour from time
+Example: HOUR(A1)
+Input: A1=0.5 (12:00 noon)
+Result: cell:A2:vtf:n:12:HOUR(A1)
+Returns: 0-23
+Use case: Time parsing, scheduling
+
+================================================================================
+FINANCIAL FUNCTIONS
+================================================================================
+
+PMT Function:
+Syntax: PMT(rate, nper, pv)
+Purpose: Calculate periodic payment for loan
+Parameters:
+- rate: Interest rate per period
+- nper: Number of payment periods
+- pv: Present value (loan amount, negative)
+Example: PMT(A2/12,A3,-A1)
+Input: A1=100 (loan), A2=0.05 (5% annual), A3=12 (months)
+Result: cell:A4:vtf:n:5.24:PMT(A2/12,A3,-A1)
+Calculation: Monthly payment for loan
+Note: Rate divided by 12 for monthly payments
+Use case: Loan calculations, mortgage payments
+
+================================================================================
+LOOKUP FUNCTIONS
+================================================================================
+
+CHOOSE Function:
+Syntax: CHOOSE(index, value1, value2, value3, ...)
+Purpose: Select value from list by index position
+Example: CHOOSE(A1,A2,A3,A4)
+Input: A1=2, A2="apple", A3="banana", A4="cherry"
+Result: cell:A5:vtf:t:banana:CHOOSE(A1,A2,A3,A4)
+Note: Index is 1-based
+Use case: Selection from options, lookup tables
+
+================================================================================
+TRAINING EXAMPLES - 50 COMPLETE PATTERNS
+================================================================================
+
+Example 1 - Basic Addition:
+Instruction: Add two cell values using + operator
+Formula: A1+A2
+Complete: cell:A3:vtf:n:30:A1+A2
+Input: A1=10, A2=20
+Output: 30
+
+Example 2 - Basic Subtraction:
+Instruction: Subtract two cell values using - operator
+Formula: A1-A2
+Complete: cell:A3:vtf:n:25:A1-A2
+Input: A1=50, A2=25
+Output: 25
+
+Example 3 - Basic Multiplication:
+Instruction: Multiply cell values using * operator
+Formula: A1*A2
+Complete: cell:A3:vtf:n:40:A1*A2
+Input: A1=5, A2=8
+Output: 40
+
+Example 4 - Basic Division:
+Instruction: Divide cell values using / operator
+Formula: A1/A2
+Complete: cell:A3:vtf:n:25:A1/A2
+Input: A1=100, A2=4
+Output: 25
+
+Example 5 - SUM Range:
+Instruction: Calculate sum of cell range using SUM function
+Formula: SUM(A1\cA3)
+Complete: cell:A4:vtf:n:60:SUM(A1\cA3)
+Input: A1=10, A2=20, A3=30
+Output: 60
+
+Example 6 - AVERAGE Range:
+Instruction: Calculate average of cell range using AVERAGE function
+Formula: AVERAGE(A1\cA5)
+Complete: cell:A6:vtf:n:30:AVERAGE(A1\cA5)
+Input: A1=10, A2=20, A3=30, A4=40, A5=50
+Output: 30
+
+Example 7 - MIN Value:
+Instruction: Find minimum value in cell range using MIN function
+Formula: MIN(A1\cA4)
+Complete: cell:A5:vtf:n:5:MIN(A1\cA4)
+Input: A1=5, A2=15, A3=8, A4=22
+Output: 5
+
+Example 8 - MAX Value:
+Instruction: Find maximum value in cell range using MAX function
+Formula: MAX(A1\cA4)
+Complete: cell:A5:vtf:n:22:MAX(A1\cA4)
+Input: A1=5, A2=15, A3=8, A4=22
+Output: 22
+
+Example 9 - COUNT Range:
+Instruction: Count numeric values in range using COUNT function
+Formula: COUNT(A1\cA3)
+Complete: cell:A4:vtf:n:5:COUNT(A1\cA3)
+Input: A1=5, A2=10, A3=15
+Output: 5
+
+Example 10 - POWER Function:
+Instruction: Calculate power/exponent using POWER function
+Formula: POWER(A1,A2)
+Complete: cell:A3:vtf:n:8:POWER(A1,A2)
+Input: A1=2, A2=3
+Output: 8
+
+Example 11 - SQRT Function:
+Instruction: Calculate square root using SQRT function
+Formula: SQRT(A1)
+Complete: cell:A2:vtf:n:4:SQRT(A1)
+Input: A1=16
+Output: 4
+
+Example 12 - ABS Function:
+Instruction: Get absolute value using ABS function
+Formula: ABS(A1)
+Complete: cell:A2:vtf:n:25:ABS(A1)
+Input: A1=-25
+Output: 25
+
+Example 13 - ROUND to Integer:
+Instruction: Round number to specified decimals using ROUND function
+Formula: ROUND(A1,0)
+Complete: cell:A2:vtf:n:4:ROUND(A1,0)
+Input: A1=3.7
+Output: 4
+
+Example 14 - ROUND to Decimals:
+Instruction: Round number to specified decimals using ROUND function
+Formula: ROUND(A1,2)
+Complete: cell:A2:vtf:n:3.14:ROUND(A1,2)
+Input: A1=3.14159
+Output: 3.14
+
+Example 15 - INT Function:
+Instruction: Get integer part of number using INT function
+Formula: INT(A1)
+Complete: cell:A2:vtf:n:7:INT(A1)
+Input: A1=7.8
+Output: 7
+
+Example 16 - MOD Function:
+Instruction: Calculate modulus remainder using MOD function
+Formula: MOD(A1,A2)
+Complete: cell:A3:vtf:n:1:MOD(A1,A2)
+Input: A1=10, A2=3
+Output: 1
+
+Example 17 - UPPER Function:
+Instruction: Convert text to uppercase using UPPER function
+Formula: UPPER(A1)
+Complete: cell:A2:vtf:t:HELLO:UPPER(A1)
+Input: A1="hello"
+Output: "HELLO"
+
+Example 18 - LOWER Function:
+Instruction: Convert text to lowercase using LOWER function
+Formula: LOWER(A1)
+Complete: cell:A2:vtf:t:hello:LOWER(A1)
+Input: A1="HELLO"
+Output: "hello"
+
+Example 19 - LEN Function:
+Instruction: Get text length using LEN function
+Formula: LEN(A1)
+Complete: cell:A2:vtf:n:11:LEN(A1)
+Input: A1="hello world"
+Output: 11
+
+Example 20 - Concatenation:
+Instruction: Concatenate text strings using & operator
+Formula: A1&A2
+Complete: cell:A3:vtf:t:helloworld:A1&A2
+Input: A1="hello", A2="world"
+Output: "helloworld"
+
+Example 21 - LEFT Function:
+Instruction: Extract leftmost characters using LEFT function
+Formula: LEFT(A1,2)
+Complete: cell:A2:vtf:t:he:LEFT(A1,2)
+Input: A1="hello"
+Output: "he"
+
+Example 22 - RIGHT Function:
+Instruction: Extract rightmost characters using RIGHT function
+Formula: RIGHT(A1,2)
+Complete: cell:A2:vtf:t:lo:RIGHT(A1,2)
+Input: A1="hello"
+Output: "lo"
+
+Example 23 - MID Function:
+Instruction: Extract middle portion of text using MID function
+Formula: MID(A1,2,3)
+Complete: cell:A2:vtf:t:ell:MID(A1,2,3)
+Input: A1="hello"
+Output: "ell"
+
+Example 24 - Greater Than:
+Instruction: Compare if one value is greater than another
+Formula: A1>A2
+Complete: cell:A3:vtf:nl:1:A1>A2
+Input: A1=10, A2=5
+Output: 1 (true)
+
+Example 25 - Equality:
+Instruction: Check if two values are equal
+Formula: A1=A2
+Complete: cell:A3:vtf:nl:1:A1=A2
+Input: A1=10, A2=10
+Output: 1 (true)
+
+Example 26 - IF Function:
+Instruction: Create conditional IF formula that returns different values based on condition
+Formula: IF(A1>A2,"Yes","No")
+Complete: cell:A3:vtf:t:Yes:IF(A1>A2,"Yes","No")
+Input: A1=10, A2=5
+Output: "Yes"
+
+Example 27 - AND Function:
+Instruction: Check if all conditions are true using AND function
+Formula: AND(A1,A2)
+Complete: cell:A3:vtf:nl:1:AND(A1,A2)
+Input: A1=1, A2=1
+Output: 1
+
+Example 28 - OR Function:
+Instruction: Check if any condition is true using OR function
+Formula: OR(A1,A2)
+Complete: cell:A3:vtf:nl:1:OR(A1,A2)
+Input: A1=0, A2=1
+Output: 1
+
+Example 29 - NOT Function:
+Instruction: Negate boolean value using NOT function
+Formula: NOT(A1)
+Complete: cell:A2:vtf:nl:1:NOT(A1)
+Input: A1=0
+Output: 1
+
+Example 30 - PI Constant:
+Instruction: Use mathematical constant PI in calculation
+Formula: PI()
+Complete: cell:A1:vtf:n:3.14159:PI()
+Output: 3.14159
+
+Example 31 - COUNTA Function:
+Instruction: Count non-empty cells in range using COUNTA function
+Formula: COUNTA(A1\cA3)
+Complete: cell:A4:vtf:n:3:COUNTA(A1\cA3)
+Input: A1=10, A2=20, A3=30
+Output: 3
+
+Example 32 - SUMIF Function:
+Instruction: Sum cells matching criteria using SUMIF function
+Formula: SUMIF(A1\cA4,">10")
+Complete: cell:A5:vtf:n:50:SUMIF(A1\cA4,">10")
+Input: A1=10, A2=20, A3=15, A4=8
+Output: 50
+
+Example 33 - COUNTIF Function:
+Instruction: Count cells matching criteria using COUNTIF function
+Formula: COUNTIF(A1\cA4,">10")
+Complete: cell:A5:vtf:n:2:COUNTIF(A1\cA4,">10")
+Input: A1=10, A2=20, A3=5, A4=15
+Output: 2
+
+Example 34 - PMT Financial:
+Instruction: Calculate loan payment using PMT function
+Formula: PMT(A2/12,A3,-A1)
+Complete: cell:A4:vtf:n:5.24:PMT(A2/12,A3,-A1)
+Input: A1=100, A2=0.05, A3=12
+Output: 5.24
+
+Example 35 - TODAY Function:
+Instruction: Get current date using TODAY function
+Formula: TODAY()
+Complete: cell:A1:vtf:nd:45951:TODAY()
+Output: 45951
+
+Example 36 - NOW Function:
+Instruction: Get current date and time using NOW function
+Formula: NOW()
+Complete: cell:A1:vtf:nd:45951.5:NOW()
+Output: 45951.5
+
+Example 37 - DATE Function:
+Instruction: Create date from year, month, day using DATE function
+Formula: DATE(2006,1,4)
+Complete: cell:A1:vtf:n:38718:DATE(2006,1,4)
+Output: 38718
+
+Example 38 - YEAR Function:
+Instruction: Extract year from date using YEAR function
+Formula: YEAR(A1)
+Complete: cell:A2:vtf:n:2006:YEAR(A1)
+Input: A1=38718
+Output: 2006
+
+Example 39 - MONTH Function:
+Instruction: Extract month from date using MONTH function
+Formula: MONTH(A1)
+Complete: cell:A2:vtf:n:1:MONTH(A1)
+Input: A1=38718
+Output: 1
+
+Example 40 - DAY Function:
+Instruction: Extract day from date using DAY function
+Formula: DAY(A1)
+Complete: cell:A2:vtf:n:4:DAY(A1)
+Input: A1=38718
+Output: 4
+
+Example 41 - CHOOSE Function:
+Instruction: Select value from list by index using CHOOSE function
+Formula: CHOOSE(A1,A2,A3,A4)
+Complete: cell:A5:vtf:t:banana:CHOOSE(A1,A2,A3,A4)
+Input: A1=2, A2="apple", A3="banana", A4="cherry"
+Output: "banana"
+
+Example 42 - Complex Arithmetic:
+Instruction: Calculate using multiple arithmetic operations
+Formula: A1*2-A2/2
+Complete: cell:A5:vtf:n:10:A1*2-A2/2
+Input: A1=10, A2=20
+Output: 10
+
+Example 43 - POWER Advanced:
+Instruction: Calculate power/exponent using POWER function
+Formula: POWER(A1,A2)
+Complete: cell:A3:vtf:n:125:POWER(A1,A2)
+Input: A1=5, A2=3
+Output: 125
+
+Example 44 - Multi-Cell Product Table:
+Instruction: Calculate sum of cell range using SUM function
+Formulas: Multiple formulas in one sheet
+Complete:
+cell:C1:vtf:n:1000:A1*B1
+cell:C2:vtf:n:4000:A2*B2
+cell:C3:vtf:n:9000:A3*B3
+cell:C4:vtf:n:14000:SUM(C1\cC3)
+Input: A1=10,B1=100 | A2=20,B2=200 | A3=30,B3=300
+Output: C1=1000, C2=4000, C3=9000, C4=14000
+
+Example 45 - PROPER Function:
+Instruction: Convert text to proper case using PROPER function
+Formula: PROPER(A1)
+Complete: cell:A2:vtf:t:Hello World:PROPER(A1)
+Input: A1="hello world"
+Output: "Hello World"
+
+Example 46 - SUBSTITUTE Function:
+Instruction: Replace text within string using SUBSTITUTE function
+Formula: SUBSTITUTE(A1,"ell","")
+Complete: cell:A3:vtf:t:ho:SUBSTITUTE(A1,"ell","")
+Input: A1="hello"
+Output: "ho"
+
+Example 47 - FIND Function:
+Instruction: Find position of substring using FIND function
+Formula: FIND("a",A1)
+Complete: cell:A2:vtf:n:1:FIND("a",A1)
+Input: A1="abc"
+Output: 1
+
+Example 48 - HOUR Function:
+Instruction: Extract hour from time using HOUR function
+Formula: HOUR(A1)
+Complete: cell:A2:vtf:n:12:HOUR(A1)
+Input: A1=0.5
+Output: 12
+
+Example 49 - Boolean Constants:
+Instruction: Use boolean TRUE value in formula
+Formulas: TRUE(), FALSE()
+Complete:
+cell:A1:vtf:nl:1:TRUE()
+cell:A2:vtf:nl:0:FALSE()
+Output: A1=1, A2=0
+
+Example 50 - Complete Pricing Table:
+Instruction: Calculate sum of cell range using SUM function
+Multiple formulas for pricing calculation
+Complete:
+cell:A1:t:Price
+cell:A2:t:Quantity
+cell:A3:t:Total
+cell:B1:v:10.50
+cell:B2:v:5
+cell:B3:vtf:n:52.5:B1*B2
+cell:C1:v:25.00
+cell:C2:v:3
+cell:C3:vtf:n:75:C1*C2
+cell:D1:v:8.99
+cell:D2:v:10
+cell:D3:vtf:n:89.9:D1*D2
+cell:E3:vtf:n:217.4:SUM(B3\cD3)
+Layout: Headers in row 1, quantities in row 2, totals in row 3
+Final sum in E3
+
+================================================================================
+COMMON ERROR PATTERNS AND CORRECTIONS
+================================================================================
+
+Error Type: Unbalanced Parentheses
+Most common formula syntax error
+
+Pattern 1 - Missing Closing Parenthesis:
+Wrong: SUM(A1\cA5
+Correct: SUM(A1\cA5)
+Wrong: (A1+A2
+Correct: (A1+A2)
+Wrong: ROUND(AVERAGE(A1\cA5),2
+Correct: ROUND(AVERAGE(A1\cA5),2)
+
+Pattern 2 - Extra Closing Parenthesis:
+Wrong: (A1+A2))
+Correct: (A1+A2)
+Wrong: SUM(A1\cA5))
+Correct: SUM(A1\cA5)
+
+Pattern 3 - Missing Opening Parenthesis:
+Wrong: A1+A2)
+Correct: A1+A2 or (A1+A2)
+Wrong: SUM A1\cA5)
+Correct: SUM(A1\cA5)
+
+Pattern 4 - Nested Function Errors:
+Wrong: ROUND(AVERAGE(A1\cA5,2)
+Correct: ROUND(AVERAGE(A1\cA5),2)
+Note: Each function needs proper closure
+
+Pattern 5 - Range Syntax Error:
+Wrong: SUM(A1:A5)
+Correct: SUM(A1\cA5)
+Note: Must use \c instead of colon
+
+Pattern 6 - Missing Quotes in Text:
+Wrong: IF(A1>60,Pass,Fail)
+Correct: IF(A1>60,"Pass","Fail")
+Note: Text literals require quotes
+
+Pattern 7 - Wrong Parameter Count:
+Wrong: POWER(A1)
+Correct: POWER(A1,2)
+Note: POWER requires two parameters
+
+Validation Rules:
+1. Count opening and closing parentheses must match
+2. All function calls must have closing parenthesis
+3. Range references must use \c notation
+4. Text strings must be in double quotes
+5. Functions require correct parameter count
+
+================================================================================
+USE CASE PATTERNS
+================================================================================
+
+Financial Calculations:
+Use PMT for loan payments
+Use SUM for totals
+Use ROUND for currency formatting
+Example: ROUND(SUM(A1\cA10),2)
+
+Data Analysis:
+Use AVERAGE for means
+Use MIN/MAX for ranges
+Use COUNT/COUNTA for data points
+Example: AVERAGE(A1\cA100)
+
+Conditional Logic:
+Use IF for decisions
+Use AND/OR for multiple conditions
+Use SUMIF/COUNTIF for filtered aggregates
+Example: IF(AND(A1>50,B1<100),"Valid","Invalid")
+
+Text Processing:
+Use UPPER/LOWER/PROPER for case conversion
+Use LEFT/RIGHT/MID for extraction
+Use LEN for validation
+Use & for concatenation
+Example: PROPER(LEFT(A1,10))&" - "&UPPER(RIGHT(A1,5))
+
+Date Operations:
+Use TODAY/NOW for current values
+Use DATE for building dates
+Use YEAR/MONTH/DAY for extraction
+Use DATE arithmetic for differences
+Example: YEAR(TODAY())-YEAR(A1)
+
+Mathematical Operations:
+Use POWER for exponents
+Use SQRT for roots
+Use ABS for absolute values
+Use MOD for remainders
+Example: SQRT(POWER(A1,2)+POWER(B1,2))
+
+Complex Multi-Step Calculations:
+Combine multiple functions
+Use intermediate cells for clarity
+Chain operations logically
+Example: ROUND(AVERAGE(A1\cA10)*1.15,2)
+
+Table Calculations:
+Use structured cell references
+Apply formulas across rows/columns
+Use SUM for totals row/column
+Example: Row-by-row calculations with column sum
+
+================================================================================
+FORMULA CONSTRUCTION PATTERNS
+================================================================================
+
+Pattern: Simple Cell Reference
+Structure: A1 or B2 or C10
+Use: Direct value reference
+Example: A1+A2
+
+Pattern: Range Reference
+Structure: A1\cA5 (colon escaped as \c)
+Use: Multiple cell reference
+Example: SUM(A1\cA5)
+
+Pattern: Function Call
+Structure: FUNCTION(arguments)
+Use: Built-in operations
+Example: AVERAGE(A1\cA10)
+
+Pattern: Nested Functions
+Structure: OUTER(INNER(args))
+Use: Complex operations
+Example: ROUND(AVERAGE(A1\cA5),2)
+
+Pattern: Mixed Operations
+Structure: cells operator cells
+Use: Arithmetic combinations
+Example: A1*B1+A2*B2
+
+Pattern: Conditional Expression
+Structure: IF(condition,true,false)
+Use: Logic branching
+Example: IF(A1>100,"High","Low")
+
+Pattern: Text Manipulation
+Structure: FUNCTION(text) or text&text
+Use: String operations
+Example: UPPER(A1)&" - "&LOWER(B1)
+
+Pattern: Multi-Parameter Function
+Structure: FUNCTION(arg1,arg2,arg3)
+Use: Complex functions
+Example: MID(A1,2,5)
+
+================================================================================
+WHEN TO USE EACH FUNCTION CATEGORY
+================================================================================
+
+Use Aggregate Functions (SUM, AVERAGE, MIN, MAX, COUNT) when:
+- Calculating totals across multiple cells
+- Finding statistical measures
+- Analyzing data sets
+- Creating summary rows or columns
+- Reporting metrics
+
+Use Mathematical Functions (POWER, SQRT, ABS, ROUND, MOD) when:
+- Performing calculations beyond basic arithmetic
+- Formatting numbers for display
+- Implementing scientific formulas
+- Handling negative values
+- Working with precision requirements
+
+Use Text Functions (UPPER, LOWER, LEN, LEFT, RIGHT, MID, SUBSTITUTE) when:
+- Formatting text for display
+- Extracting portions of strings
+- Standardizing text input
+- Parsing structured text data
+- Validating text length
+
+Use Logical Functions (IF, AND, OR, NOT) when:
+- Making decisions based on conditions
+- Filtering data
+- Validating input
+- Creating dynamic formulas
+- Implementing business rules
+
+Use Date/Time Functions (TODAY, NOW, DATE, YEAR, MONTH, DAY, HOUR) when:
+- Working with dates and times
+- Calculating ages or durations
+- Extracting date components
+- Creating timestamps
+- Scheduling calculations
+
+Use Conditional Aggregates (SUMIF, COUNTIF) when:
+- Summing or counting with criteria
+- Creating filtered totals
+- Analyzing subsets of data
+- Implementing threshold logic
+- Building dynamic reports
+
+Use Financial Functions (PMT) when:
+- Calculating loan payments
+- Financial planning
+- Amortization schedules
+- Investment analysis
+
+Use Lookup Functions (CHOOSE) when:
+- Selecting from predefined options
+- Creating lookup tables
+- Implementing choice logic
+- Mapping indices to values
+
+================================================================================
+COMPLETE MSC FILE FORMAT
+================================================================================
+
+Version Declaration:
+version:1.5
+Must be first line in file
+
+Cell Definitions:
+Three types of cell declarations
+
+Type 1 - Value Cell (numeric):
+cell:<ref>:v:<number>
+Example: cell:A1:v:10
+
+Type 2 - Value Cell (text):
+cell:<ref>:t:<text>
+Example: cell:A1:t:hello
+
+Type 3 - Formula Cell:
+cell:<ref>:vtf:<type>:<result>:<formula>
+Example: cell:A3:vtf:n:30:A1+A2
+
+Sheet Dimensions:
+sheet:c:<columns>:r:<rows>
+Example: sheet:c:3:r:5
+Must be last line in file
+
+Complete File Example:
+version:1.5
+cell:A1:v:10
+cell:A2:v:20
+cell:A3:vtf:n:30:A1+A2
+sheet:c:1:r:3
+
+Multi-Column Example:
+version:1.5
+cell:A1:v:10
+cell:A2:v:20
+cell:B1:v:5
+cell:B2:v:15
+cell:C1:vtf:n:50:A1*B1
+cell:C2:vtf:n:300:A2*B2
+sheet:c:3:r:2
+
+================================================================================
+TRAINING DATA JSON FORMAT
+================================================================================
+
+JSONL Structure:
+Each line is complete JSON object
+Three fields per example
+
+Field 1 - instruction:
+User-facing task description
+Natural language
+3-10 words typical
+
+Field 2 - plan:
+Technical approach description
+Mentions specific functions
+Intermediate reasoning
+
+Field 3 - final_output:
+Complete SocialCalc syntax
+Exact format with newlines
+Multiple lines joined with \n
+
+Example JSON Line:
+{"instruction":"Add two cell values using + operator","plan":"Create vtf cell with basic arithmetic formula using cell references","final_output":"version:1.5\ncell:A1:v:10\ncell:A2:v:20\ncell:A3:vtf:n:30:A1+A2\nsheet:c:1:r:3"}
+
+Training Set Statistics:
+Total examples: 50
+Function categories: 10
+Unique functions: 40+
+Average complexity: Simple to moderate
+Coverage: Comprehensive formula functionality
+
+================================================================================
+PRACTICAL IMPLEMENTATION GUIDE
+================================================================================
+
+Building Simple Formula:
+1. Identify operation needed
+2. Reference source cells
+3. Apply operator or function
+4. Specify result type
+5. Calculate expected value
+
+Building Complex Formula:
+1. Break down into steps
+2. Identify nested operations
+3. Work from inside out
+4. Ensure parentheses balance
+5. Verify range notation
+
+Formula Testing Checklist:
+- Parentheses balanced
+- Range uses \c notation
+- Text in quotes
+- Correct parameter count
+- Appropriate result type
+- Expected value calculated
+
+Common Implementation Patterns:
+Row totals: Use SUM with row range
+Column totals: Use SUM with column range
+Conditional sums: Use SUMIF with criteria
+Text formatting: Chain text functions
+Date calculations: Use date arithmetic
+Multi-step calculations: Use nested functions
+
+Performance Considerations:
+Simple references faster than complex formulas
+Minimize nested function depth
+Use appropriate function for task
+Consider intermediate cells for readability
+Avoid circular references
+
+================================================================================
+END OF REFERENCE DOCUMENT
+================================================================================
+
+This document contains complete information about SocialCalc formula syntax, all available functions with examples, 50 training patterns, common errors, use cases, and implementation guidance. All content structured for direct LLM training and reference without formatting overhead.

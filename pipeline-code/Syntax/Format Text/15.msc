@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:<svg width="60" height="60"><path d="M30,10 L50,50 L10,50 Z" fill="orange" /></svg>:tvf:1
+sheet:c:1:r:1
+valueformat:1:text-html

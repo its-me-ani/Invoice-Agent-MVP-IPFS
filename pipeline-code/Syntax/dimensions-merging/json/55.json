@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:B2:t:Invoice\ncell:C2:t:INV-001\ncell:B3:t:Description:colspan:3\ncell:C3:t:\ncell:D3:t:\ncell:B4:t:Product A\ncell:C4:t:Qty\ncell:D4:t:Price\ncell:B5:t:Item details here\ncell:C5:t:5\ncell:D5:t:$50.00\nsheet:c:4:r:6\ncol:A:w:30\ncol:B:w:300\ncol:C:w:80\ncol:D:w:100"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:Search Results<<https\c//example.com/path?query=value&key=123>>:tvf:1
+sheet:c:1:r:1
+valueformat:1:text-link

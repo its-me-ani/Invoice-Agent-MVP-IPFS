@@ -1,0 +1,9 @@
+version:1.5
+cell:A1:t:Left Header:cf:1:l:1
+cell:B1:t:Center Header:cf:2:l:1
+cell:C1:t:Right Header:cf:3:l:1
+sheet:c:3:r:1
+cellformat:1:left
+cellformat:2:center
+cellformat:3:right
+layout:1:padding:5px * * *;vertical-align:middle;

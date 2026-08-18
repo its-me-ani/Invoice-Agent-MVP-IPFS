@@ -1,0 +1,27 @@
+version:1.5
+cell:B2:t:Schedule:colspan:6
+cell:C2:t:
+cell:D2:t:
+cell:E2:t:
+cell:F2:t:
+cell:G2:t:
+cell:B3:t:Mon
+cell:C3:t:Tue
+cell:D3:t:Wed
+cell:E3:t:Thu
+cell:F3:t:Fri
+cell:G3:t:Sat
+cell:B4:t:9AM
+cell:C4:t:Task 1
+cell:D4:t:Task 2
+cell:E4:t:Task 3
+cell:F4:t:Task 4
+cell:G4:t:Off
+sheet:c:7:r:5
+col:A:w:30
+col:B:w:80
+col:C:w:100
+col:D:w:100
+col:E:w:100
+col:F:w:100
+col:G:w:80

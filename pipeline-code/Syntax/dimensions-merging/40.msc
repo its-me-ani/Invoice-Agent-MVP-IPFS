@@ -1,0 +1,22 @@
+version:1.5
+cell:A1:t:Schedule Grid:colspan:5
+cell:B1:t:
+cell:C1:t:
+cell:D1:t:
+cell:E1:t:
+cell:A2:t:Time:rowspan:3
+cell:A3:t:
+cell:A4:t:
+cell:B2:t:Event 1:colspan:2
+cell:C2:t:
+cell:D2:t:Event 2:colspan:2
+cell:E2:t:
+cell:B3:t:Detail A
+cell:C3:t:Detail B
+cell:D3:t:Detail C
+cell:E3:t:Detail D
+cell:B4:t:Summary:colspan:4
+cell:C4:t:
+cell:D4:t:
+cell:E4:t:
+sheet:c:5:r:4

@@ -1,0 +1,17 @@
+version:1.5
+cell:B2:t:Invoice
+cell:C2:t:INV-001
+cell:B3:t:Description:colspan:3
+cell:C3:t:
+cell:D3:t:
+cell:B4:t:Product A
+cell:C4:t:Qty
+cell:D4:t:Price
+cell:B5:t:Item details here
+cell:C5:t:5
+cell:D5:t:$50.00
+sheet:c:4:r:6
+col:A:w:30
+col:B:w:300
+col:C:w:80
+col:D:w:100

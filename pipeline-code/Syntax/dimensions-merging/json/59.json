@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:B2:t:Quarterly Data:colspan:5\ncell:C2:t:\ncell:D2:t:\ncell:E2:t:\ncell:F2:t:\ncell:B3:t:Quarter\ncell:C3:t:Q1\ncell:D3:t:Q2\ncell:E3:t:Q3\ncell:F3:t:Q4\ncell:B4:t:Revenue\ncell:C4:t:$100K\ncell:D4:t:$150K\ncell:E4:t:$200K\ncell:F4:t:$250K\ncell:B5:t:Growth\ncell:C5:t:10%\ncell:D5:t:15%\ncell:E5:t:20%\ncell:F5:t:25%\nsheet:c:6:r:6\ncol:A:w:30\ncol:B:w:100\ncol:C:w:100\ncol:D:w:100\ncol:E:w:100\ncol:F:w:100"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

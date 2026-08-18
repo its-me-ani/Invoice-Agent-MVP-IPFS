@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:Code\c\nfunction test() {\n  return 42;\n}
+cell:B1:t:Output\c\n42
+sheet:c:2:r:1

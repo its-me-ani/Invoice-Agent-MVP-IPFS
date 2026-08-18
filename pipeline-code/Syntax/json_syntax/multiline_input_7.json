@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Address\\c\\n123 Main St\\nApt 4B\\nNew York, NY 10001:f:1\ncell:B1:t:Contact\\c\\n+1-555-0123\\nemail@example.com\nsheet:c:2:r:1\nfont:1:* bold * *\n"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

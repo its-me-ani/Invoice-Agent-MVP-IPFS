@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Orange Italic:f:1:c:1\ncell:B1:t:Purple Bold:f:2:c:2\nsheet:c:2:r:1\nfont:1:italic normal 12pt Arial\nfont:2:normal bold 12pt Arial\ncolor:1:rgb(255,165,0)\ncolor:2:rgb(128,0,128)"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

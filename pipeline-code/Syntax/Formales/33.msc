@@ -1,0 +1,7 @@
+version:1.5
+cell:A1:v:10
+cell:A2:v:20
+cell:A3:v:5
+cell:A4:v:15
+cell:A5:vtf:n:2:COUNTIF(A1\cA4,">10")
+sheet:c:1:r:5

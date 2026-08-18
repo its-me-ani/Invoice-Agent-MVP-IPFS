@@ -1,0 +1,14 @@
+version:1.5
+cell:A1:t:Meeting Room A:colspan:3:rowspan:2
+cell:B1:t:
+cell:C1:t:
+cell:A2:t:
+cell:B2:t:
+cell:C2:t:
+cell:D1:t:Meeting Room B:colspan:3:rowspan:2
+cell:E1:t:
+cell:F1:t:
+cell:D2:t:
+cell:E2:t:
+cell:F2:t:
+sheet:c:6:r:2

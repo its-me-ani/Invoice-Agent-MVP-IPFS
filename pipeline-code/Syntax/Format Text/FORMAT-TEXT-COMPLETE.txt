@@ -1,0 +1,648 @@
+FORMAT TEXT PROPERTIES - SOCIALCALC COMPLETE REFERENCE
+
+SYNTAX STRUCTURE
+
+Basic pattern for text formatting in cells:
+cell:<coord>:t:<content>:tvf:<number>
+valueformat:<number>:<type>
+
+The tvf attribute (text valueformat) references a valueformat definition that controls how the content is rendered.
+
+AVAILABLE VALUEFORMAT TYPES
+
+text-plain
+Purpose: Renders content as plain text without any formatting or HTML interpretation
+When to use: Simple string display where no formatting is needed, raw text content, data that should not be interpreted as HTML
+Example: cell:A1:t:Simple Text:tvf:1 with valueformat:1:text-plain
+
+text-html
+Purpose: Renders content as HTML allowing rich formatting, styling, embedded SVG graphics, and inline images
+When to use: Rich text with formatting, embedded graphics, logos, icons, styled content, complex visual elements, signatures, badges
+Example: cell:A1:t:<b>Bold Text</b>:tvf:1 with valueformat:1:text-html
+
+text-link
+Purpose: Renders content as clickable hyperlink
+When to use: External URLs, navigation links, references, citations, downloadable resources
+Example: cell:A1:t:<a href="https\c//example.com">Visit Website</a>:tvf:1 with valueformat:1:text-link
+
+text-wiki
+Purpose: Renders content using wiki markup syntax
+When to use: Documentation with wiki-style formatting, rare use case
+Example: Limited practical usage, text-html preferred for most cases
+
+COLON ESCAPING RULES
+
+In SocialCalc save format, colons are field separators and must be escaped when appearing in content.
+
+Escape colons with backslash-c: \c
+
+URL escaping:
+Incorrect: https://example.com
+Correct: https\c//example.com
+
+CSS property escaping:
+Incorrect: style="color:red;"
+Correct: style="color\cred;"
+
+Data URI escaping:
+Incorrect: data:image/png;base64
+Correct: data\cimage/png;base64
+
+JavaScript protocol escaping:
+Incorrect: javascript:void(0)
+Correct: javascript\cvoid(0)
+
+Multiple colons in same string:
+Incorrect: http://example.com:8080/path
+Correct: http\c//example.com\c8080/path
+
+Semicolons in CSS:
+Incorrect: style="color:red;background:blue;"
+Correct: style="color\cred;background\cblue;"
+
+TIME FORMATS DO NOT REQUIRE ESCAPING IN CONTENT
+Only URLs, CSS, and protocol strings require colon escaping.
+
+HTML TAGS SUPPORTED WITH TEXT-HTML
+
+Basic formatting tags:
+<b>text</b> - Bold text
+<i>text</i> - Italic text
+<u>text</u> - Underlined text
+<strong>text</strong> - Strong emphasis
+<em>text</em> - Emphasis
+
+Typography tags:
+<sup>text</sup> - Superscript
+<sub>text</sub> - Subscript
+<code>code</code> - Inline code
+<pre>text</pre> - Preformatted text with preserved whitespace
+
+Styling tags:
+<div style="property\cvalue;">content</div> - Block container with CSS
+<span style="property\cvalue;">content</span> - Inline container with CSS
+<p style="property\cvalue;">content</p> - Paragraph with CSS
+
+List tags:
+<ul><li>item</li><li>item</li></ul> - Unordered list
+<ol><li>item</li><li>item</li></ol> - Ordered list
+
+Table tags:
+<table><tr><td>cell</td><td>cell</td></tr></table> - Embedded table
+
+Link tags:
+<a href="url">text</a> - Hyperlink (use with text-link valueformat)
+
+Image tags:
+<img src="url" width="100" height="50" alt="description" /> - External image
+<img src="data\cimage/png;base64,..." alt="icon" /> - Inline base64 image
+
+SVG GRAPHICS WITH TEXT-HTML
+
+SVG elements can be embedded directly in cell content when using text-html valueformat.
+
+Basic structure:
+<svg width="N" height="M">...</svg>
+
+Common SVG elements:
+
+Rectangle:
+<rect x="0" y="0" width="100" height="50" fill="color" stroke="color" stroke-width="2" />
+
+Circle:
+<circle cx="50" cy="50" r="40" fill="color" stroke="color" stroke-width="2" />
+
+Ellipse:
+<ellipse cx="50" cy="30" rx="40" ry="20" fill="color" />
+
+Line:
+<line x1="0" y1="0" x2="100" y2="100" stroke="color" stroke-width="2" />
+
+Polygon:
+<polygon points="x1,y1 x2,y2 x3,y3" fill="color" stroke="color" />
+
+Path:
+<path d="M x y L x y Z" fill="color" stroke="color" />
+
+Text in SVG:
+<text x="50" y="50" font-family="Arial" font-size="20" fill="color" text-anchor="middle">Content</text>
+
+Group elements:
+<g>...multiple elements...</g>
+
+Gradients:
+<defs>
+  <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" style="stop-color\crgb(255,255,0);stop-opacity\c1" />
+    <stop offset="100%" style="stop-color\crgb(255,0,0);stop-opacity\c1" />
+  </linearGradient>
+</defs>
+<rect width="100" height="100" fill="url(#grad1)" />
+
+SVG attributes commonly used:
+width, height - Dimensions
+fill - Fill color
+stroke - Stroke color
+stroke-width - Stroke thickness
+cx, cy - Center coordinates for circles/ellipses
+rx, ry - Radius for ellipses
+x, y - Position coordinates
+x1, y1, x2, y2 - Line endpoints
+font-family, font-size, font-weight - Text styling
+text-anchor - Text alignment (start, middle, end)
+alignment-baseline - Vertical alignment
+
+XMLNS attribute for complex SVG:
+<svg width="200" height="100" xmlns="http\c//www.w3.org/2000/svg">...</svg>
+
+IMAGE EMBEDDING CAPABILITIES
+
+External images via URL:
+cell:A1:t:<img src="https\c//example.com/logo.png" width="100" height="50" alt="Logo" />:tvf:1
+valueformat:1:text-html
+
+Inline base64 images:
+cell:A1:t:<img src="data\cimage/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..." alt="Icon" />:tvf:1
+valueformat:1:text-html
+
+Required attributes for images:
+src - Image source (URL or data URI)
+width - Image width in pixels
+height - Image height in pixels
+
+Optional attributes:
+alt - Alternative text description
+style - CSS styling (border-radius for rounded images, etc.)
+
+Image styling examples:
+Round profile picture: style="border-radius\c50%;"
+Bordered image: style="border\c2px solid black;"
+Positioned image: style="margin-left\c10px;"
+
+LOGOS WITH SVG AND HTML
+
+Simple text logo using SVG:
+<svg width="120" height="40">
+  <text x="10" y="25" font-family="Arial" font-size="24" font-weight="bold" fill="#333">BrandName</text>
+</svg>
+
+Logo with background shape:
+<svg width="100" height="40">
+  <rect width="100" height="40" fill="red" />
+  <text x="50" y="25" fill="white" text-anchor="middle">LOGO</text>
+</svg>
+
+Company logo with multiple shapes:
+<svg width="120" height="80">
+  <polygon points="10,10 110,10 110,70 10,70" fill="green" stroke="black" stroke-width="2"/>
+  <text x="60" y="45" fill="white" text-anchor="middle" font-size="16">Company</text>
+</svg>
+
+Ellipse-based logo:
+<svg width="150" height="60">
+  <ellipse cx="75" cy="30" rx="70" ry="25" fill="purple" />
+  <text x="75" y="35" fill="white" text-anchor="middle" font-size="14">LOGO</text>
+</svg>
+
+Complex branded logo with decorations:
+<svg width="200" height="100">
+  <rect width="200" height="100" fill="#2E86AB"/>
+  <text x="100" y="50" font-family="Verdana" font-size="28" fill="white" text-anchor="middle">TechCorp</text>
+  <circle cx="30" cy="30" r="15" fill="#A23B72"/>
+  <circle cx="170" cy="70" r="15" fill="#F18F01"/>
+</svg>
+
+Financial icon logo:
+<svg width="80" height="80">
+  <rect width="80" height="80" fill="#4A90E2"/>
+  <circle cx="40" cy="40" r="30" fill="white"/>
+  <text x="40" y="45" fill="#4A90E2" text-anchor="middle" font-size="24" font-weight="bold">$</text>
+</svg>
+
+Gradient background logo:
+<svg width="100" height="100">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color\crgb(255,255,0);stop-opacity\c1" />
+      <stop offset="100%" style="stop-color\crgb(255,0,0);stop-opacity\c1" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" fill="url(#grad1)" />
+</svg>
+
+SIGNATURES WITH HTML AND IMAGES
+
+Signature image with name and title:
+cell:A1:t:<img src="https\c//example.com/signature.png" width="200" height="60" alt="Signature" />:tvf:1
+cell:A2:t:John Doe:tvf:2
+cell:A3:t:CEO:tvf:2
+valueformat:1:text-html
+valueformat:2:text-plain
+
+Profile image with name inline:
+cell:A1:t:<div><img src="https\c//cdn.example.com/profile.jpg" width="50" height="50" style="border-radius\c50%;" /><span style="margin-left\c10px;">John Smith</span></div>:tvf:1
+valueformat:1:text-html
+
+Verification badge with icon:
+cell:A1:t:<svg width="50" height="50"><g><rect x="5" y="5" width="40" height="40" fill="none" stroke="black" stroke-width="3"/><line x1="15" y1="25" x2="25" y2="35" stroke="green" stroke-width="3"/><line x1="25" y1="35" x2="40" y2="15" stroke="green" stroke-width="3"/></g></svg>:tvf:1
+cell:B1:t:Verified
+valueformat:1:text-html
+
+USE CASES FOR LOGOS
+
+Invoice headers with company branding:
+Combine company logo SVG in one cell with invoice number and date in adjacent cells
+Use branded colors and typography matching corporate identity
+Add financial symbols or icons relevant to business
+
+Business cards and letterheads:
+Company logo with contact information
+Professional styling with custom fonts and colors
+Verification badges or certifications
+
+Email signatures:
+Profile picture or headshot image
+Name, title, company name
+Social media icons or contact links
+
+Product branding:
+Product logos with taglines
+Brand marks with decorative elements
+Marketing materials with visual identity
+
+Dashboard headers:
+Application logos in navigation bars
+Section headers with branded icons
+Visual hierarchy with consistent styling
+
+USE CASES FOR SIGNATURES
+
+Document authorization:
+Signature image from scanned handwritten signature
+Name and title below signature
+Date and location information
+
+Digital signatures:
+Base64 encoded signature image for security
+Timestamp and verification hash
+Authorized signer information
+
+Contract signing:
+Multiple signature blocks for different parties
+Role identification (Buyer, Seller, Witness)
+Legal disclaimers and terms
+
+Approval workflows:
+Manager signature with approval status
+Department and employee ID
+Approval date and comments
+
+Certificate authentication:
+Authorized issuer signature
+Institution seal or badge
+Certificate number and validity period
+
+USE CASES FOR IMAGES IN CELLS
+
+Profile pictures:
+Employee photos in organizational charts
+Contact photos in CRM systems
+Avatar images in user directories
+
+Product images:
+Inventory thumbnails in stock lists
+Product catalog with descriptions
+Order details with item images
+
+Icons and badges:
+Status indicators (verified, premium, featured)
+Achievement badges and awards
+Category icons for classification
+
+Barcodes and QR codes:
+Product identification codes
+Tracking numbers with scannable codes
+Quick links to detailed information
+
+Charts and graphs:
+Embedded chart images from external sources
+Dashboard KPIs with visual indicators
+Trend visualization thumbnails
+
+Logos and branding:
+Company logos in reports and invoices
+Partner logos in collaboration documents
+Brand marks in marketing materials
+
+MULTIPLE VALUEFORMAT DEFINITIONS
+
+When using different text formats in the same sheet, define multiple valueformats:
+
+Example with mixed formats:
+cell:A1:t:Company Name:tvf:1
+cell:A2:t:<svg width="150" height="60"><ellipse cx="75" cy="30" rx="70" ry="25" fill="purple" /><text x="75" y="35" fill="white" text-anchor="middle" font-size="14">LOGO</text></svg>:tvf:2
+sheet:c:2:r:2
+valueformat:1:text-plain
+valueformat:2:text-html
+
+Example with header and icon:
+cell:A1:t:Invoice Header:tvf:1
+cell:B1:t:<svg width="80" height="80"><rect width="80" height="80" fill="#4A90E2"/><circle cx="40" cy="40" r="30" fill="white"/><text x="40" y="45" fill="#4A90E2" text-anchor="middle" font-size="24" font-weight="bold">$</text></svg>:tvf:2
+sheet:c:2:r:1
+valueformat:1:text-plain
+valueformat:2:text-html
+
+Example with signature section:
+cell:A1:t:<img src="https\c//example.com/signature.png" width="200" height="60" alt="Signature" />:tvf:1
+cell:A2:t:John Doe:tvf:2
+cell:A3:t:CEO:tvf:2
+sheet:c:1:r:3
+valueformat:1:text-html
+valueformat:2:text-plain
+
+Valueformat numbering:
+Use sequential numbers starting from 1
+Each unique format type gets its own number
+Reference correct number in tvf attribute
+Define all valueformats before cells reference them (though order is flexible in save format)
+
+STYLING WITH CSS IN HTML CONTENT
+
+Color styling:
+<div style="color\cred;">Red Text</div>
+<span style="color\c#333;">Gray Text</span>
+
+Background styling:
+<span style="background-color\cyellow; padding\c5px;">Highlighted</span>
+<div style="background\c#f0f0f0;">Light Gray Background</div>
+
+Font styling:
+<p style="font-size\c20px; font-weight\cbold;">Large Bold Text</p>
+<span style="font-family\cArial; font-size\c14px;">Custom Font</span>
+
+Spacing styling:
+<div style="margin\c10px; padding\c5px;">Spaced Content</div>
+<span style="margin-left\c10px;">Indented Text</span>
+
+Border styling:
+<div style="border\c2px solid black; padding\c5px;">Bordered Box</div>
+<img style="border-radius\c50%;" src="..." />
+
+Combined styling:
+<div style="color\cwhite; background-color\cblue; padding\c10px; font-size\c16px; font-weight\cbold; text-align\ccenter;">Styled Box</div>
+
+ADVANCED FORMATTING PATTERNS
+
+Lists with styling:
+<ul style="list-style-type\csquare; color\c#666;">
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item</li>
+</ul>
+
+Tables with CSS:
+<table style="border-collapse\ccollapse; width\c100%;">
+  <tr style="background\c#f0f0f0;">
+    <td style="border\c1px solid black; padding\c5px;">Cell 1</td>
+    <td style="border\c1px solid black; padding\c5px;">Cell 2</td>
+  </tr>
+</table>
+
+Code blocks:
+<pre style="background\c#f5f5f5; padding\c10px; border\c1px solid #ddd;">
+function example() {
+  return true;
+}
+</pre>
+
+Links with styling:
+<a href="https\c//example.com" style="color\cblue; text-decoration\cunderline;">Styled Link</a>
+
+Images with layouts:
+<div>
+  <img src="..." style="float\cleft; margin-right\c10px;" />
+  <span>Text beside image</span>
+</div>
+
+COMMON ERRORS TO AVOID
+
+Missing tvf value:
+Incorrect: cell:A1:t:Text:tvf
+Correct: cell:A1:t:Text:tvf:1
+
+Undefined valueformat reference:
+Incorrect: cell:A1:t:Text:tvf:5 with only valueformat:1:text-html defined
+Correct: cell:A1:t:Text:tvf:1 with valueformat:1:text-html defined
+
+Unescaped colons:
+Incorrect: <a href="https://example.com">Link</a>
+Correct: <a href="https\c//example.com">Link</a>
+
+Missing cell content:
+Incorrect: cell:A1:tvf:1
+Correct: cell:A1:t:Content:tvf:1
+
+Wrong attribute order:
+Incorrect: cell:A1:tvf:1:t:Text
+Correct: cell:A1:t:Text:tvf:1
+
+Unclosed HTML tags:
+Incorrect: <b>Bold text
+Correct: <b>Bold text</b>
+
+Missing SVG dimensions:
+Incorrect: <svg><circle cx="25" cy="25" r="20" /></svg>
+Correct: <svg width="50" height="50"><circle cx="25" cy="25" r="20" /></svg>
+
+Wrong valueformat type:
+Incorrect: Using text-plain for HTML content
+Correct: Using text-html for HTML/SVG content
+
+WHEN TO USE TEXT-HTML FORMAT
+
+Required for HTML tags and formatting:
+Any HTML markup including bold, italic, underline, divs, spans, paragraphs
+
+Required for SVG graphics:
+All SVG elements including shapes, paths, text, gradients
+
+Required for embedded images:
+Both external URL images and base64 inline images
+
+Required for styled content:
+Any CSS styling applied via style attributes
+
+Required for lists and tables:
+HTML lists (ul, ol) and table structures
+
+Required for special typography:
+Superscript, subscript, code blocks, preformatted text
+
+Required for rich text:
+Combined formatting with multiple HTML elements
+
+WHEN TO USE TEXT-PLAIN FORMAT
+
+Simple text without formatting:
+Plain strings that should not be interpreted as HTML
+
+Data values:
+Numbers, dates, identifiers displayed as-is
+
+Names and labels:
+Simple text labels without styling needs
+
+Raw content:
+Content that might contain HTML-like characters but should display literally
+
+Fallback text:
+Default format when no special formatting needed
+
+WHEN TO USE TEXT-LINK FORMAT
+
+External URLs:
+Links to websites, documents, resources
+
+Navigation:
+Menu items, references, cross-references
+
+Downloads:
+Links to downloadable files
+
+Email addresses:
+Mailto links for contact information
+
+PRACTICAL INVOICE EXAMPLES
+
+Invoice header with logo:
+cell:A1:t:INVOICE:tvf:1
+cell:B1:t:<svg width="80" height="80"><rect width="80" height="80" fill="#4A90E2"/><circle cx="40" cy="40" r="30" fill="white"/><text x="40" y="45" fill="#4A90E2" text-anchor="middle" font-size="24" font-weight="bold">$</text></svg>:tvf:2
+valueformat:1:text-plain
+valueformat:2:text-html
+
+Company branding section:
+cell:A1:t:<svg width="200" height="100"><rect width="200" height="100" fill="#2E86AB"/><text x="100" y="50" font-family="Verdana" font-size="28" fill="white" text-anchor="middle">TechCorp</text><circle cx="30" cy="30" r="15" fill="#A23B72"/></svg>:tvf:1
+cell:A2:t:123 Business Street, Suite 100:tvf:2
+cell:A3:t:City, State 12345:tvf:2
+valueformat:1:text-html
+valueformat:2:text-plain
+
+Signature authorization block:
+cell:A1:t:<img src="https\c//cdn.company.com/signature.png" width="200" height="60" alt="Authorized Signature" />:tvf:1
+cell:A2:t:John Smith, CFO:tvf:2
+cell:A3:t:Date: 2025-12-15:tvf:2
+valueformat:1:text-html
+valueformat:2:text-plain
+
+Verification and approval:
+cell:A1:t:<svg width="50" height="50"><g><rect x="5" y="5" width="40" height="40" fill="none" stroke="black" stroke-width="3"/><line x1="15" y1="25" x2="25" y2="35" stroke="green" stroke-width="3"/><line x1="25" y1="35" x2="40" y2="15" stroke="green" stroke-width="3"/></g></svg>:tvf:1
+cell:B1:t:Verified and Approved:tvf:2
+cell:B2:t:Payment Terms: Net 30:tvf:2
+valueformat:1:text-html
+valueformat:2:text-plain
+
+TRAINING DATA PATTERN
+
+Each training example follows this pattern:
+instruction: What user wants to create
+plan: How to implement it using SocialCalc format
+final_output: Complete MSC code with proper escaping and syntax
+
+Example 1 - Simple bold text:
+instruction: Create cell with bold HTML text
+plan: Use text-html valueformat with tvf attribute to render HTML/SVG content
+final_output: version:1.5\ncell:A1:t:<b>Bold Text</b>:tvf:1\nsheet:c:1:r:1\nvalueformat:1:text-html
+
+Example 2 - SVG logo:
+instruction: Create SVG graphic in cell
+plan: Use text-html valueformat with tvf attribute to render HTML/SVG content
+final_output: version:1.5\ncell:A1:t:<svg width="100" height="40"><rect width="100" height="40" fill="red" /><text x="50" y="25" fill="white" text-anchor="middle">LOGO</text></svg>:tvf:1\nsheet:c:1:r:1\nvalueformat:1:text-html
+
+Example 3 - Image embedding:
+instruction: Embed image using HTML img tag
+plan: Use text-html valueformat with tvf attribute to render HTML/SVG content
+final_output: version:1.5\ncell:A1:t:<img src="https\c//example.com/logo.png" width="100" height="50" />:tvf:1\nsheet:c:1:r:1\nvalueformat:1:text-html
+
+Example 4 - Mixed formats:
+instruction: Create cell with plain text format
+plan: Use text-html valueformat with tvf attribute to render HTML/SVG content
+final_output: version:1.5\ncell:A1:t:Invoice Header:tvf:1\ncell:B1:t:<svg width="80" height="80"><rect width="80" height="80" fill="#4A90E2"/><circle cx="40" cy="40" r="30" fill="white"/><text x="40" y="45" fill="#4A90E2" text-anchor="middle" font-size="24" font-weight="bold">$</text></svg>:tvf:2\nsheet:c:2:r:1\nvalueformat:1:text-plain\nvalueformat:2:text-html
+
+COMPLETE SYNTAX TEMPLATE
+
+version:1.5
+cell:<coord>:t:<content>:tvf:<number>
+cell:<coord>:t:<content>:tvf:<number>
+sheet:c:<maxcol>:r:<maxrow>
+valueformat:<number>:<type>
+valueformat:<number>:<type>
+
+Replace:
+<coord> with cell coordinate like A1, B2, C3
+<content> with text, HTML, or SVG content (escape colons)
+<number> with sequential number 1, 2, 3...
+<type> with text-plain, text-html, text-link, or text-wiki
+<maxcol> with highest column number
+<maxrow> with highest row number
+
+CRITICAL SUCCESS FACTORS FOR IMAGES SVG LOGOS
+
+SVG logos must include width and height attributes on svg element
+Images must have escaped colons in URLs using \c notation
+HTML content must use text-html valueformat not text-plain
+All HTML tags must be properly closed
+CSS in style attributes must have escaped colons
+Multiple shapes can be combined in single SVG for complex logos
+Text in SVG should use text-anchor middle for centering
+Colors can use named colors or hex codes
+Gradients require defs section with unique IDs
+Base64 images are self-contained but increase file size
+External images are smaller in save format but require network access
+Profile images benefit from border-radius 50% for circular appearance
+Signature blocks typically combine image with text cells below
+Verification badges use SVG graphics for scalable quality
+Brand consistency requires matching colors across all logo instances
+
+PERFORMANCE AND SIZE CONSIDERATIONS
+
+Plain text format: Smallest file size, fastest rendering
+HTML with simple tags: Small increase in size, fast rendering
+SVG graphics: Moderate size, vector scalability, fast rendering
+External images: Minimal size in save format, requires loading
+Base64 images: Large increase in file size, no external dependency
+Complex SVG with gradients: Larger size, still performant
+Multiple valueformats: Negligible overhead per format
+Mixed content cells: Size depends on content complexity
+
+DATASET STATISTICS
+
+Total examples: 30 positive, 10 negative
+Basic text formats: 5 examples
+Image embedding: 2 examples with external and inline
+SVG graphics: 13 examples from simple to complex
+Styled text: 4 examples with CSS
+Hyperlinks: 1 example
+Special formatting: 7 examples with lists, tables, code
+Mixed formats: 5 examples combining multiple types
+Validation: 100% positive examples pass, 60% negative examples detected
+Coverage: All HTML tags, SVG elements, image formats, CSS properties
+
+KEY LEARNING POINTS
+
+Text valueformat controls how cell content is rendered
+TVF attribute links cell to valueformat definition
+Text-html enables rich content including images and SVG
+Colon escaping is mandatory in URLs and CSS
+SVG provides scalable vector graphics for logos
+Images can be external or base64 embedded
+Logos should include dimensions and proper closing tags
+Signatures combine images with text for authorization
+Multiple formats enable mixed plain and rich content
+Proper attribute order is critical for parsing
+All referenced valueformats must be defined
+HTML tags must be valid and closed
+CSS styling requires colon escaping in properties
+Professional documents benefit from branded logos
+Invoice headers use combination of text and graphics
+Verification badges indicate approval or authentication
+Profile sections combine images with identifying text

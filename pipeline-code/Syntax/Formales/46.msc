@@ -1,0 +1,5 @@
+version:1.5
+cell:A1:t:hello
+cell:A2:t:hi
+cell:A3:vtf:t:ho:SUBSTITUTE(A1,"ell","")
+sheet:c:1:r:3

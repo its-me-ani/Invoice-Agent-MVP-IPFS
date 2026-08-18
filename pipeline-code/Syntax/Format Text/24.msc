@@ -1,0 +1,6 @@
+version:1.5
+cell:A1:t:Invoice Header:tvf:1
+cell:B1:t:<svg width="80" height="80"><rect width="80" height="80" fill="#4A90E2"/><circle cx="40" cy="40" r="30" fill="white"/><text x="40" y="45" fill="#4A90E2" text-anchor="middle" font-size="24" font-weight="bold">$</text></svg>:tvf:2
+sheet:c:2:r:1
+valueformat:1:text-plain
+valueformat:2:text-html

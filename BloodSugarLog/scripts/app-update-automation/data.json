@@ -1,0 +1,113 @@
+{
+  "_comment": "App Update Automation — Central Configuration for Invoice Application",
+  "app": {
+    "name": "Invoice",
+    "kebabName": "invoice",
+    "packageName": "com.aspiring.Invoice",
+    "description": "Offline Invoice maker, billing tracker, and management utility.",
+    "type": "invoice",
+    "version": "1.0.0",
+    "marketingVersion": "1.0",
+    "buildNumber": "1.0"
+  },
+  "theme": {
+    "primaryColor": "#2563eb",
+    "primaryColorRgb": "37, 99, 235",
+    "primaryColorShade": "#1d4ed8",
+    "primaryColorTint": "#3b82f6",
+    "primaryContrast": "#ffffff",
+    "primaryContrastRgb": "255, 255, 255",
+    "secondaryColor": "#eff6ff",
+    "secondaryColorRgb": "239, 246, 255",
+    "secondaryContrast": "#1d4ed8",
+    "secondaryContrastRgb": "29, 78, 216",
+    "secondaryShade": "#dbeafe",
+    "secondaryTint": "#ffffff",
+    "backgroundColor": "#f8fafc"
+  },
+  "onboarding": {
+    "welcomeTitle": "Welcome to Invoice",
+    "welcomeSubtitle": "Offline invoice maker, billing tracker, and record keeper.",
+    "features": [
+      "Create and customize professional invoices and bills offline",
+      "Manage client details, line items, taxes, and payment totals effortlessly",
+      "Generate professional PDF invoices and share financial records securely"
+    ],
+    "ctaButtonText": "Get Started"
+  },
+  "pages": {
+    "dashboardHeaderTitle": "Invoice",
+    "filesPageHeaderTitle": "My Saved Invoices",
+    "settingsPageAppName": "Invoice",
+    "settingsPageMarketingVersion": "1.0",
+    "settingsPageBuildNumber": "1.0",
+    "settingsCurrencyDescription": "Change the display currency for your records and invoices.",
+    "settingsResetDescription": "Wipe all local invoice files, custom templates, and configuration settings completely."
+  },
+  "tabs": {
+    "home": "Home",
+    "files": "Invoices",
+    "settings": "Settings"
+  },
+  "templates": {
+    "appType": "invoice",
+    "hashtags": [
+      "invoice",
+      "billing",
+      "finance",
+      "business",
+      "receipt"
+    ],
+    "mobile": {
+      "name": "Invoice (Mobile)",
+      "description": "Professional invoice sheets optimized for mobile layouts.",
+      "mscJsonPath": "/Users/anirudhsharma/Desktop/C4GT/0. Base App Codebase/Weekly Progress/AUG 17 WEEK/Socialcalc-AI/BloodSugarLog/scripts/app-update-automation/templates/invoice-app/mob.json"
+    },
+    "tablet": {
+      "name": "Invoice (Tablet)",
+      "description": "Comprehensive invoice and billing sheets optimized for tablet layouts.",
+      "mscJsonPath": "/Users/anirudhsharma/Desktop/C4GT/0. Base App Codebase/Weekly Progress/AUG 17 WEEK/Socialcalc-AI/BloodSugarLog/scripts/app-update-automation/templates/invoice-app/tab.json"
+    },
+    "desktop": {
+      "name": "Invoice (Desktop)",
+      "description": "Comprehensive invoice and billing sheets optimized for desktop.",
+      "mscJsonPath": ""
+    },
+    "footerTabNames": {
+      "tab1": "Invoice 1",
+      "tab2": "Invoice 2",
+      "tab3": "Company 1",
+      "tab4": "Company 2"
+    }
+  },
+  "pdf": {
+    "footerLabel": "Invoice",
+    "defaultFilename": "invoice",
+    "defaultAllSheetsFilename": "all_invoices",
+    "shareSubject": "Here is your Invoice data",
+    "shareText": "Invoice PDF generated successfully",
+    "csvShareText": "Invoice data exported as CSV",
+    "singleSheetName": "Invoice Sheet"
+  },
+  "menu": {
+    "printWindowTitle": "Print Invoice",
+    "emailSubject": "Here is your Invoice",
+    "saveToastMessage": "Invoice saved successfully!",
+    "fallbackFileName": "Invoice"
+  },
+  "ios": {
+    "displayName": "Invoice",
+    "cameraUsageDescription": "Invoice needs camera access to capture receipts and documents.",
+    "photoLibraryUsageDescription": "Invoice needs photo library access to attach logos and images.",
+    "microphoneUsageDescription": "Invoice needs microphone access for voice input."
+  },
+  "pwa": {
+    "shortName": "Invoice",
+    "fullName": "Invoice App",
+    "themeColor": "#2563eb",
+    "backgroundColor": "#2563eb"
+  },
+  "icon": {
+    "sourceIconPath": "/Users/anirudhsharma/Desktop/C4GT/0. Base App Codebase/Weekly Progress/AUG 17 WEEK/Socialcalc-AI/BloodSugarLog/scripts/app-update-automation/templates/invoice-app/invoice-icon.png"
+  }
+}

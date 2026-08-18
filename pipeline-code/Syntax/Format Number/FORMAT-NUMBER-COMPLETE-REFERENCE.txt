@@ -1,0 +1,548 @@
+CELL FORMAT NUMBER COMPLETE REFERENCE
+
+SYNTAX STRUCTURE
+
+Cell with formatted number:
+cell:<coordinate>:v:<numeric_value>:ntvf:<format_id>
+
+Value format definition:
+valueformat:<format_id>:<pattern>
+
+Required components:
+- coordinate: Cell reference like A1, B2, C3
+- numeric_value: The actual numeric value stored in the cell
+- ntvf: Number text value format attribute linking cell to format definition
+- format_id: Numeric identifier linking cell attribute to format pattern
+- pattern: Format pattern string defining display rules
+
+CORE PROPERTIES
+
+ntvf attribute:
+Applied to cell line with numeric value
+References a valueformat definition by ID
+Must match an existing valueformat definition
+Syntax: ntvf:<format_id>
+
+valueformat definition:
+Must be defined if referenced by any cell
+Format ID must be numeric positive integer
+Pattern defines how number displays
+Multiple valueformat definitions allowed
+Syntax: valueformat:<format_id>:<pattern>
+
+FORMAT PATTERN SYMBOLS
+
+Number formatting:
+# - Digit placeholder, omitted if insignificant
+0 - Digit placeholder, shows 0 if no digit
+, - Thousands separator
+. - Decimal point
+
+Currency:
+$ - Dollar sign prefix
+Other currency symbols allowed
+
+Percentage:
+% - Converts decimal to percentage (0.75 becomes 75%)
+
+Date components:
+m - Month as number (1-12)
+mm - Month as two digits (01-12)
+mmm - Month as short text (Jan-Dec)
+mmmm - Month as full text (January-December)
+d - Day as number (1-31)
+dd - Day as two digits (01-31)
+yy - Year as two digits (06, 23)
+yyyy - Year as four digits (2006, 2023)
+
+Time components:
+h - Hour in 12-hour format (1-12)
+hh - Hour padded (01-12)
+m - Minute (0-59)
+mm - Minute padded (00-59)
+s - Second (0-59)
+ss - Second padded (00-59)
+AM/PM - Meridian indicator
+\c - Escaped colon separator
+
+Special formatting:
+() - Parentheses for negative numbers
+- - Minus sign for negative numbers
+
+NUMBER REPRESENTATION SYSTEM
+
+Integers and decimals:
+Stored as numeric values
+Examples: 1234, 1234.56, 0.75
+
+Date values:
+Stored as serial numbers representing days since epoch
+Example: 38718 represents January 4, 2006
+Example: 45292 represents December 15, 2023
+
+Time values:
+Stored as decimal fractions of a day
+0.0 = midnight (00:00:00)
+0.5 = noon (12:00:00)
+0.520833 = 12:30 PM
+0.521354 = 12:30:45
+
+Percentage values:
+Stored as decimal values
+0.75 with pattern 0.00% displays as 75.00%
+0.5 with pattern 0.00% displays as 50.00%
+0.9999 with pattern 0.00% displays as 99.99%
+
+Negative numbers:
+Stored as negative values
+-500.50 with pattern ($#,##0.00) displays as ($500.50)
+
+COMPLETE PATTERN CATALOG
+
+Basic number patterns:
+#,##0 - Thousands separator, no decimals (1,234)
+#,##0.00 - Thousands separator, two decimals (1,234.56)
+#,##0.0000 - Thousands separator, four decimals (1,234.5678)
+0 - Plain integer, no formatting (1234)
+
+Currency patterns:
+$#,##0 - Dollar sign, no cents ($1,234)
+$#,##0.00 - Dollar sign with cents ($1,234.56)
+($#,##0.00) - Negative in parentheses ($500.50 or ($500.50))
+
+Percentage patterns:
+0.00% - Two decimal percentage (75.00%)
+0% - Integer percentage (75%)
+
+Date patterns:
+m/d/yy - Short date (1/4/06)
+mm/dd/yyyy - Full date with slashes (01/04/2006)
+yyyy-mm-dd - ISO date format (2006-01-04)
+d-mmm-yy - Short month name (4-Jan-06)
+dd-mmm-yyyy - Full month abbreviation (04-Jan-2006)
+mmmm d, yyyy - Long format (January 4, 2006)
+
+Time patterns:
+h\cmm - 12-hour time (12:30)
+h\cmm AM/PM - 12-hour with meridian (12:30 PM)
+h\cmm\css - 12-hour with seconds (12:30:45)
+hh\cmm\css - Padded hours with seconds (01:30:45)
+
+COMPLETE TRAINING EXAMPLES
+
+Example 1: Basic number with thousands separator
+version:1.5
+cell:A1:v:1234:ntvf:1
+sheet:c:1:r:1
+valueformat:1:#,##0
+
+Example 2: Number with two decimal places
+version:1.5
+cell:A1:v:1234.56:ntvf:1
+sheet:c:1:r:1
+valueformat:1:#,##0.00
+
+Example 3: Number with four decimal places
+version:1.5
+cell:A1:v:1234.5678:ntvf:1
+sheet:c:1:r:1
+valueformat:1:#,##0.0000
+
+Example 4: Multiple cells with currency format
+version:1.5
+cell:A1:v:99.99:ntvf:1
+cell:A2:v:149.99:ntvf:1
+cell:A3:v:249.99:ntvf:1
+sheet:c:1:r:3
+valueformat:1:$#,##0.00
+
+Example 5: Percentage format
+version:1.5
+cell:A1:v:0.75:ntvf:1
+sheet:c:1:r:1
+valueformat:1:0.00%
+
+Example 6: Currency without cents
+version:1.5
+cell:A1:v:1234:ntvf:1
+sheet:c:1:r:1
+valueformat:1:$#,##0
+
+Example 7: Currency with cents
+version:1.5
+cell:A1:v:1234.56:ntvf:1
+sheet:c:1:r:1
+valueformat:1:$#,##0.00
+
+Example 8: Mixed number and currency formats
+version:1.5
+cell:A1:v:100:ntvf:1
+cell:A2:v:200:ntvf:1
+cell:A3:v:300:ntvf:1
+cell:A4:v:600:ntvf:2
+sheet:c:1:r:4
+valueformat:1:#,##0
+valueformat:2:$#,##0
+
+Example 9: Short date format
+version:1.5
+cell:A1:v:38718:ntvf:1
+sheet:c:1:r:1
+valueformat:1:m/d/yy
+
+Example 10: Full date with slashes
+version:1.5
+cell:A1:v:38718:ntvf:1
+sheet:c:1:r:1
+valueformat:1:mm/dd/yyyy
+
+Example 11: ISO date format
+version:1.5
+cell:A1:v:38718:ntvf:1
+sheet:c:1:r:1
+valueformat:1:yyyy-mm-dd
+
+Example 12: Date with short month name
+version:1.5
+cell:A1:v:38718:ntvf:1
+sheet:c:1:r:1
+valueformat:1:d-mmm-yy
+
+Example 13: Simple time format
+version:1.5
+cell:A1:v:0.520833:ntvf:1
+sheet:c:1:r:1
+valueformat:1:h\cmm
+
+Example 14: Negative currency in parentheses
+version:1.5
+cell:A1:v:-500.50:ntvf:1
+sheet:c:1:r:1
+valueformat:1:($#,##0.00)
+
+Example 15: High percentage value
+version:1.5
+cell:A1:v:0.9999:ntvf:1
+sheet:c:1:r:1
+valueformat:1:0.00%
+
+Example 16: Time with AM/PM
+version:1.5
+cell:A1:v:0.520833:ntvf:1
+sheet:c:1:r:1
+valueformat:1:h\cmm AM/PM
+
+Example 17: Time with seconds
+version:1.5
+cell:A1:v:0.521354:ntvf:1
+sheet:c:1:r:1
+valueformat:1:h\cmm\css
+
+Example 18: Multiple cells with different decimal precision
+version:1.5
+cell:A1:v:12345.678:ntvf:1
+cell:A2:v:98765.432:ntvf:2
+sheet:c:1:r:2
+valueformat:1:#,##0.00
+valueformat:2:#,##0.0000
+
+Example 19: Two cells with different currency formats
+version:1.5
+cell:A1:v:1234.56:ntvf:1
+cell:B1:v:1234.56:ntvf:2
+sheet:c:2:r:1
+valueformat:1:$#,##0.00
+valueformat:2:#,##0.00
+
+Example 20: Multiple percentage cells
+version:1.5
+cell:A1:v:0.5:ntvf:1
+cell:A2:v:0.25:ntvf:1
+cell:A3:v:0.75:ntvf:1
+sheet:c:1:r:3
+valueformat:1:0.00%
+
+USE CASES
+
+When to use basic number formats:
+Displaying quantities without currency symbol
+Showing measurements or counts
+Presenting statistical data
+Cases where decimal precision is important
+
+When to use currency formats:
+Displaying prices or monetary values
+Financial reports and invoices
+Budget and expense tracking
+Revenue and cost presentations
+
+When to use percentage formats:
+Showing ratios as percentages
+Displaying completion rates or progress
+Interest rates and growth rates
+Statistical percentages and proportions
+
+When to use date formats:
+Recording transaction dates
+Displaying deadlines or schedules
+Historical data presentation
+Date-based sorting and filtering
+
+When to use time formats:
+Recording timestamps
+Showing duration or elapsed time
+Scheduling and time tracking
+Time-based calculations
+
+When to use multiple formats:
+Different columns need different formatting
+Subtotals vs line items in invoices
+Mixing percentages with absolute numbers
+Reports with varied data types
+
+VALIDATION RULES
+
+Format ID requirements:
+Must be numeric positive integer
+Must match between ntvf and valueformat
+Cannot be zero or negative
+Cannot use text characters
+
+Pattern requirements:
+Cannot be empty
+Must contain valid pattern symbols
+Date/time patterns require proper escaping
+Currency symbols placed at pattern start
+
+Cell requirements:
+Numeric values required for number formats
+ntvf attribute must reference existing valueformat
+Multiple cells can share same format ID
+Each cell can only have one ntvf value
+
+COMMON ERROR PATTERNS
+
+Error: Undefined format reference
+cell:A1:v:1234:ntvf:99
+sheet:c:1:r:1
+Problem: No valueformat:99 defined
+Solution: Add valueformat:99:<pattern>
+
+Error: Missing valueformat definition
+cell:A1:v:1234.56:ntvf:1
+sheet:c:1:r:1
+Problem: No valueformat line exists
+Solution: Add valueformat:1:#,##0.00
+
+Error: Non-numeric format ID
+cell:A1:v:1234:ntvf:abc
+valueformat:abc:#,##0
+Problem: Format ID must be numeric
+Solution: Use numeric ID like ntvf:1
+
+Error: Empty format pattern
+cell:A1:v:1234:ntvf:1
+sheet:c:1:r:1
+valueformat:1:
+Problem: Pattern is empty
+Solution: Provide valid pattern like #,##0
+
+Error: Duplicate ntvf attributes
+cell:A1:v:1234:ntvf:1:ntvf:2
+Problem: Cell has multiple ntvf values
+Solution: Use only one ntvf per cell
+
+Error: Text value with number format
+cell:A1:t:Hello:ntvf:1
+valueformat:1:#,##0
+Problem: Text value cannot have number format
+Solution: Use numeric value or remove ntvf
+
+Error: Negative format ID
+cell:A1:v:1234:ntvf:-1
+valueformat:-1:#,##0
+Problem: Format ID cannot be negative
+Solution: Use positive integer ID
+
+Error: Invalid pattern symbols
+valueformat:1:##,##,##0
+Problem: Pattern has invalid structure
+Solution: Use correct pattern like #,##0
+
+Error: Mismatched format reference
+cell:A1:v:1234:ntvf:1
+valueformat:2:#,##0
+Problem: Cell references format 1 but only 2 exists
+Solution: Match IDs between ntvf and valueformat
+
+Error: Double percent signs
+valueformat:1:0.00%%
+Problem: Pattern has duplicate percent symbols
+Solution: Use single percent like 0.00%
+
+INTEGRATION PATTERNS
+
+Single cell with format:
+Always include version line
+Define cell with value and ntvf attribute
+Define sheet dimensions
+Define valueformat pattern
+Keep format ID consistent
+
+Multiple cells same format:
+Define all cells with same ntvf ID
+Use single valueformat definition
+Maintain sheet dimensions accurately
+Format ID shared across cells
+
+Multiple cells different formats:
+Define cells with unique ntvf IDs
+Create separate valueformat for each ID
+Sheet dimensions cover all cells
+Each format ID maps to one pattern
+
+Mixed data types:
+Use appropriate format for each type
+Currency for monetary values
+Percentage for ratios
+Date/time for temporal data
+Plain numbers for quantities
+
+BEST PRACTICES
+
+Format ID management:
+Start with ID 1 and increment
+Use sequential numbering
+Keep IDs consistent throughout file
+Document which ID serves which purpose
+
+Pattern selection:
+Match pattern to data precision
+Use currency symbols for money
+Use percentage for ratios
+Use date formats for dates
+Use time formats for times
+
+Performance considerations:
+Define formats once, reference multiple times
+Group cells with same format
+Minimize number of different formats
+Use simplest pattern that meets needs
+
+Maintainability:
+Use meaningful format groupings
+Document complex patterns
+Keep related formats together
+Test formats with edge cases
+
+Data accuracy:
+Ensure value matches format type
+Use correct decimal precision
+Store dates as serial numbers
+Store times as decimal fractions
+Store percentages as decimal values
+
+ADVANCED COMBINATIONS
+
+Currency with negatives in parentheses:
+Pattern: ($#,##0.00)
+Value: -500.50
+Display: ($500.50)
+
+Date with full month name:
+Pattern: mmmm d, yyyy
+Value: 38718
+Display: January 4, 2006
+
+Time with full precision:
+Pattern: hh\cmm\css
+Value: 0.521354
+Display: 12:30:45
+
+Multiple decimal precisions:
+Pattern 1: #,##0.00
+Pattern 2: #,##0.0000
+Use different patterns for different precision needs
+
+Percentage with decimal values:
+Pattern: 0.00%
+Value: 0.5 displays as 50.00%
+Value: 0.25 displays as 25.00%
+Value: 0.75 displays as 75.00%
+
+ISO date standard:
+Pattern: yyyy-mm-dd
+Useful for international compatibility
+Sortable format
+Standard data exchange format
+
+Time with AM/PM:
+Pattern: h\cmm AM/PM
+12-hour display format
+User-friendly time representation
+Common in non-military contexts
+
+COMPLETE DATASET SUMMARY
+
+Total positive examples: 20
+Total negative examples: 10
+Pattern categories: 5 (number, currency, percentage, date, time)
+Format variations: 20+ unique patterns
+Error types covered: 10 distinct error patterns
+Training examples: 20 instruction-plan-output sets
+
+File organization:
+1-3: Basic number formats with varying decimals
+4: Multiple cells with currency
+5: Percentage format
+6-7: Currency with and without cents
+8: Mixed number and currency formats
+9-12: Various date formats
+13: Basic time format
+14: Negative currency in parentheses
+15: High percentage value
+16: Time with AM/PM
+17: Time with seconds
+18: Different decimal precisions
+19: Different currency formats
+20: Multiple percentage cells
+
+Negative examples:
+neg-1: Undefined format reference
+neg-2: Missing valueformat definition
+neg-3: Non-numeric format ID
+neg-4: Empty format pattern
+neg-5: Duplicate ntvf attributes
+neg-6: Text value with number format
+neg-7: Negative format ID
+neg-8: Invalid pattern symbols
+neg-9: Mismatched format reference
+neg-10: Double percent signs
+
+IMPLEMENTATION GUIDELINES
+
+Step 1 Identify data type:
+Determine if value is number, currency, percentage, date, or time
+
+Step 2 Choose appropriate pattern:
+Select pattern matching data type and display requirements
+
+Step 3 Assign format ID:
+Use unique numeric ID for each distinct format
+
+Step 4 Define cell with ntvf:
+Add ntvf attribute with format ID to cell line
+
+Step 5 Define valueformat:
+Create valueformat line with ID and pattern
+
+Step 6 Validate:
+Check format ID consistency
+Verify pattern syntax
+Test with sample values
+Confirm display output
+
+Step 7 Document:
+Note which format serves which purpose
+Document any complex patterns
+Record validation results

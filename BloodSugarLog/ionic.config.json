@@ -1,0 +1,7 @@
+{
+  "name": "Invoice",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

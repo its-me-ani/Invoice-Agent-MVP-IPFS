@@ -1,0 +1,11 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Header:cf:1\ncell:A2:t:Left Text:cf:1\ncell:A3:v:1234:cf:2\nsheet:c:1:r:3\ncellformat:1:left\ncellformat:2:right\n"
+      }
+    }
+  }
+}

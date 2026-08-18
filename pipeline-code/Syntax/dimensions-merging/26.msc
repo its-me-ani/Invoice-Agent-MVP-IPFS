@@ -1,0 +1,18 @@
+version:1.5
+cell:A1:t:Complex Table:colspan:4:rowspan:2
+cell:B1:t:
+cell:C1:t:
+cell:D1:t:
+cell:A2:t:
+cell:B2:t:
+cell:C2:t:
+cell:D2:t:
+cell:A3:t:R3C1
+cell:B3:t:R3C2:colspan:2
+cell:C3:t:
+cell:D3:t:R3C4
+cell:A4:t:R4C1
+cell:B4:t:R4C2
+cell:C4:t:R4C3
+cell:D4:t:R4C4
+sheet:c:4:r:4

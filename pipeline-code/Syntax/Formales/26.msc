@@ -1,0 +1,5 @@
+version:1.5
+cell:A1:v:10
+cell:A2:v:5
+cell:A3:vtf:t:Yes:IF(A1>A2,"Yes","No")
+sheet:c:1:r:3

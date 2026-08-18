@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:B2:t:Title:colspan:3\ncell:C2:t:\ncell:D2:t:\ncell:E2:t:\ncell:B3:t:Name\ncell:C3:t:Description\ncell:D3:t:Price\ncell:E3:t:Stock\nsheet:c:5:r:4\ncol:A:w:30\ncol:B:w:80\ncol:C:w:300\ncol:D:w:100\ncol:E:w:80"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

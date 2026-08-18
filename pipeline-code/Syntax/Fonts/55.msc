@@ -1,0 +1,9 @@
+version:1.5
+cell:A1:t:Hex Red:f:1:c:1
+cell:A2:t:Hex Blue:f:1:c:2
+cell:A3:t:Hex Green:f:1:c:3
+sheet:c:1:r:3
+font:1:normal normal 12pt Arial
+color:1:#FF0000
+color:2:#0000FF
+color:3:#00FF00

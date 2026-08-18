@@ -1,0 +1,317 @@
+# Alignment
+
+Alignment in the MSC format is controlled through two mechanisms:
+1. **Horizontal Alignment**: Managed via `cellformat` definitions.
+2. **Vertical Alignment**: Managed via `layout` definitions using the `vertical-align` property.
+
+## Horizontal Alignment
+Horizontal alignment determines how content is positioned horizontally within a cell.
+- **Left**: `cellformat:1:left`
+- **Center**: `cellformat:1:center`
+- **Right**: `cellformat:1:right`
+
+## Vertical Alignment
+Vertical alignment determines how content is positioned vertically within a cell. It is defined in the `layout` string.
+- **Top**: `layout:1:padding:* * * *;vertical-align:top;`
+- **Middle**: `layout:1:padding:* * * *;vertical-align:middle;`
+- **Bottom**: `layout:1:padding:* * * *;vertical-align:bottom;`
+
+## Comprehensive Example
+This example demonstrates a report table combining various alignment configurations.
+- Headers are **Center** aligned horizontally and **Middle** aligned vertically.
+- Text columns are **Left** aligned horizontally and **Top** aligned vertically.
+- Numeric columns are **Right** aligned horizontally and **Bottom** aligned vertically.
+
+```msc
+version:1.5
+cell:A1:t:Quarterly Report:cf:1:l:1:colspan:4
+cell:A2:t:Department:cf:2:l:2
+cell:B2:t:Q1 Revenue:cf:2:l:2
+cell:C2:t:Q2 Revenue:cf:2:l:2
+cell:D2:t:Growth:cf:2:l:2
+cell:A3:t:Engineering:cf:3:l:3
+cell:B3:v:150000:cf:4:l:4
+cell:C3:v:165000:cf:4:l:4
+cell:D3:v:0.10:cf:4:l:4
+cell:A4:t:Marketing:cf:3:l:3
+cell:B4:v:80000:cf:4:l:4
+cell:C4:v:75000:cf:4:l:4
+cell:D4:v:-0.06:cf:4:l:4
+sheet:c:4:r:4
+cellformat:1:center
+cellformat:2:center
+cellformat:3:left
+cellformat:4:right
+layout:1:padding:10px * * *;vertical-align:middle;
+layout:2:padding:5px * 5px *;vertical-align:middle;
+layout:3:padding:5px * * *;vertical-align:top;
+layout:4:padding:* * 5px *;vertical-align:bottom;
+```
+
+# Borders
+
+Borders define the visual boundaries of cells. They are crucial for separating data, highlighting key figures (like totals), and structuring the table layout.
+
+**Syntax:**
+- Definition: `border:<id>:<thickness> <style> <color>`
+- Application: `cell:<coord>:...:b:<top_id>:<right_id>:<bottom_id>:<left_id>`
+
+**Example:**
+This example creates a cell with a thick solid bottom border, often used for totals.
+
+```msc
+version:1.5
+cell:A1:t:Total Amount:b:1:1:2:1
+sheet:c:1:r:1
+border:1:1px solid rgb(200,200,200)
+border:2:2px solid rgb(0,0,0)
+```
+
+# Padding
+
+Padding controls the space between the cell content and its borders. Proper padding improves readability by preventing text from looking cramped.
+
+**Syntax:**
+- Definition: Inside `layout` string: `padding:<top> <right> <bottom> <left>;`
+- Application: `cell:<coord>:...:l:<layout_id>`
+
+**Example:**
+This example adds comfortable spacing around the text.
+
+```msc
+version:1.5
+cell:A1:t:Spacious Cell:l:1
+sheet:c:1:r:1
+layout:1:padding:10px 15px 10px 15px;vertical-align:middle;
+```
+
+# Dimensions & Merging
+
+Dimensions control column widths, while merging allows cells to span multiple rows or columns. These are essential for creating headers, accommodating different data lengths, and organizing complex layouts.
+
+**Syntax:**
+- **Column Width**: `col:<letter>:w:<width>` (e.g., `col:A:w:150`)
+- **Merging**: `colspan:<n>` and `rowspan:<n>` in the cell definition. Covered cells must be explicitly defined as empty.
+
+**Example:**
+This example sets specific column widths and merges the header across two columns.
+
+```msc
+version:1.5
+col:A:w:100
+col:B:w:200
+cell:A1:t:Merged Header:colspan:2
+cell:B1:t:
+cell:A2:t:Label
+cell:B2:t:Description
+sheet:c:2:r:2
+```
+
+# Fonts
+
+Fonts define the typography of the cell content, including family, size, weight, and style. They establish hierarchy (headings vs. body) and emphasis.
+
+**Syntax:**
+- Definition: `font:<id>:<style> <weight> <size> <family>`
+- Application: `cell:<coord>:...:f:<font_id>`
+
+**Example:**
+This example uses a large bold font for a title.
+
+```msc
+version:1.5
+cell:A1:t:Important Title:f:1
+sheet:c:1:r:1
+font:1:normal bold 14pt Arial,sans-serif
+```
+
+# Combined Layout Example
+
+This comprehensive example demonstrates an **Invoice Header** layout utilizing all properties:
+- **Dimensions**: Custom column widths for layout balance.
+- **Merging**: Title spans multiple columns.
+- **Fonts**: Distinct fonts for the company name (large, bold) and labels (bold).
+- **Borders**: A bottom border separates the header from the data.
+- **Padding**: Used to space out the text for a clean look.
+- **Alignment**: Right alignment for dates and invoice numbers.
+
+```msc
+version:1.5
+col:A:w:250
+col:B:w:100
+col:C:w:150
+cell:A1:t:ACME CORP:f:1:l:1
+cell:B1:t:INVOICE:f:2:l:2:colspan:2
+cell:C1:t:
+cell:A2:t:123 Business Rd, Tech City:f:3:l:1
+cell:B2:t:Date::f:4:l:3
+cell:C2:t:2023-10-27:f:3:l:4
+cell:A3:t:contact@acme.com:f:3:l:5:b:1:1:2:1
+cell:B3:t:Invoice #:f:4:l:3:b:1:1:2:1
+cell:C3:t:INV-2023-001:f:3:l:4:b:1:1:2:1
+sheet:c:3:r:3
+font:1:normal bold 24pt Arial
+font:2:normal bold 18pt Arial
+font:3:normal normal 10pt Verdana
+font:4:normal bold 10pt Verdana
+layout:1:padding:5px * * *;vertical-align:top;
+layout:2:padding:10px * * *;vertical-align:middle;
+layout:3:padding:2px 5px * *;vertical-align:middle;
+layout:4:padding:2px * * *;vertical-align:middle;
+layout:5:padding:5px * 10px *;vertical-align:top;
+border:1:0px none
+border:2:2px solid rgb(0,0,0)
+cellformat:1:left
+cellformat:2:right
+```
+
+# Formulas
+
+Formulas allow for dynamic calculations, data manipulation, and logical reasoning within the spreadsheet. SocialCalc supports a wide range of standard spreadsheet functions.
+
+**Syntax:**
+- Definition: `cell:<coord>:v:<value>:f:<formula_string>`
+- Note: The `v` field usually contains the *calculated result* (or 0 if not calculated), while the `f` field contains the formula itself (without the leading `=`).
+
+**Common Function Categories:**
+
+1.  **Arithmetic**: Standard operators `+`, `-`, `*`, `/`, `^`.
+    -   Example: `A1*B1`
+2.  **Aggregate**: `SUM`, `AVERAGE`, `MIN`, `MAX`, `COUNT`, `COUNTA`.
+    -   Example: `SUM(A1:A10)`
+3.  **Logical**: `IF`, `AND`, `OR`, `NOT`, `TRUE`, `FALSE`.
+    -   Example: `IF(A1>100,"High","Low")`
+4.  **Text**: `UPPER`, `LOWER`, `LEFT`, `RIGHT`, `MID`, `LEN`, `CONCATENATE` (or `&`).
+    -   Example: `A1 & " " & B1`
+5.  **Date & Time**: `TODAY`, `NOW`, `DATE`, `YEAR`, `MONTH`, `DAY`.
+    -   Example: `YEAR(TODAY())`
+6.  **Lookup & Reference**: `VLOOKUP`, `HLOOKUP`, `MATCH`, `INDEX`, `CHOOSE`.
+    -   Example: `VLOOKUP(A1,D1:E10,2,FALSE)`
+7.  **Statistical**: `SUMIF`, `COUNTIF`.
+    -   Example: `COUNTIF(A1:A10,">50")`
+
+## Comprehensive Example: Sales Dashboard
+
+This example creates a dynamic sales report that calculates totals, averages, and bonuses based on performance.
+
+**Features Used:**
+-   **Date**: `TODAY()` for the report date.
+-   **Text**: `UPPER()` to format the header.
+-   **Arithmetic**: `Price * Quantity` to calculate Total.
+-   **Logical**: `IF()` to determine "Bonus" eligibility (Sales > 1000).
+-   **Aggregate**: `SUM()`, `AVERAGE()`, `MAX()` for summary statistics.
+-   **Statistical**: `COUNTIF()` to count high-performing items.
+
+```msc
+version:1.5
+col:A:w:150
+col:B:w:80
+col:C:w:80
+col:D:w:100
+col:E:w:80
+cell:A1:t:SALES REPORT:f:1:l:1:colspan:5
+cell:A2:t:Date::f:2:l:2
+cell:B2:v:45274:f:TODAY():f:3:l:3:colspan:4
+cell:A3:t:Item:f:2:l:4:b:1:1:1:1
+cell:B3:t:Price:f:2:l:4:b:1:1:1:1
+cell:C3:t:Qty:f:2:l:4:b:1:1:1:1
+cell:D3:t:Total:f:2:l:4:b:1:1:1:1
+cell:E3:t:Bonus?:f:2:l:4:b:1:1:1:1
+cell:A4:t:Widget A:l:5
+cell:B4:v:25.00:l:6
+cell:C4:v:50:l:6
+cell:D4:v:1250:f:B4*C4:l:6:cf:1
+cell:E4:t:Yes:f:IF(D4>1000,"Yes","No"):l:5:cf:2
+cell:A5:t:Widget B:l:5
+cell:B5:v:15.50:l:6
+cell:C5:v:40:l:6
+cell:D5:v:620:f:B5*C5:l:6:cf:1
+cell:E5:t:No:f:IF(D5>1000,"Yes","No"):l:5:cf:2
+cell:A6:t:Widget C:l:5
+cell:B6:v:120.00:l:6
+cell:C6:v:10:l:6
+cell:D6:v:1200:f:B6*C6:l:6:cf:1
+cell:E6:t:Yes:f:IF(D6>1000,"Yes","No"):l:5:cf:2
+cell:A7:t:SUMMARY:f:2:l:1:colspan:5
+cell:A8:t:Total Revenue::l:2
+cell:B8:v:3070:f:SUM(D4:D6):l:6:cf:1:colspan:2
+cell:A9:t:Average Sale::l:2
+cell:B9:v:1023.33:f:AVERAGE(D4:D6):l:6:cf:1:colspan:2
+cell:A10:t:Best Seller::l:2
+cell:B10:v:1250:f:MAX(D4:D6):l:6:cf:1:colspan:2
+cell:A11:t:High Performers::l:2
+cell:B11:v:2:f:COUNTIF(D4:D6,">1000"):l:6:colspan:2
+sheet:c:5:r:11
+font:1:normal bold 16pt Arial
+font:2:normal bold 10pt Arial
+font:3:italic normal 10pt Arial
+layout:1:padding:10px * * *;vertical-align:middle;
+layout:2:padding:* 5px * *;vertical-align:middle;
+layout:3:padding:* * * 5px;vertical-align:middle;
+layout:4:padding:5px * 5px *;vertical-align:middle;
+layout:5:padding:2px * * 5px;vertical-align:top;
+layout:6:padding:2px 5px * *;vertical-align:top;
+border:1:1px solid rgb(0,0,0)
+cellformat:1:currency
+cellformat:2:center
+```
+
+# Text Formats & HTML
+
+SocialCalc supports rich text formatting through the `valueformat` mechanism. While standard text formats exist, the most powerful feature is the ability to render **HTML content** directly within cells. This enables advanced styling, images, SVGs, and structured layouts.
+
+**Syntax:**
+- Definition: `valueformat:<id>:<format_type>`
+- Application: `cell:<coord>:...:tvf:<format_id>`
+
+**Common Format Types:**
+- `text-plain`: Standard text.
+- `text-html`: Renders content as HTML. **(Most Powerful)**
+- `text-link`: Renders content as a clickable link.
+- `text-wiki`: Renders wiki-style markup.
+
+## HTML Capabilities (`text-html`)
+
+Using `text-html`, you can embed:
+1.  **Images**: Using `<img>` tags (supports external URLs and Base64).
+2.  **SVG Graphics**: Using `<svg>` tags for scalable vector graphics (logos, icons, charts).
+3.  **Rich Text**: Bold `<b>`, Italic `<i>`, Underline `<u>`, Colors `<span style="...">`.
+4.  **Lists**: Bulleted `<ul>` and Numbered `<ol>` lists.
+5.  **Layouts**: Mini-tables `<table>` or `<div>` structures within a single cell.
+
+**Important Note on Escaping:**
+- Colons `:` in HTML attributes (like URLs or styles) must be escaped as `\c`.
+- Example: `style="color:red"` becomes `style="color\cred"`.
+- Example: `https://` becomes `https\c//`.
+
+## Comprehensive Example: Rich Media Dashboard
+
+This example demonstrates the power of HTML in SocialCalc, featuring:
+-   **SVG Logo**: A vector graphic created directly in the cell.
+-   **External Image**: An image loaded via URL.
+-   **Rich Text**: Styled text with colors and lists.
+-   **Hyperlink**: A clickable link.
+
+```msc
+version:1.5
+col:A:w:150
+col:B:w:200
+col:C:w:200
+cell:A1:t:Rich Media Showcase:f:1:l:1:colspan:3
+cell:A2:t:SVG Logo:f:2:l:2
+cell:B2:t:HTML List:f:2:l:2
+cell:C2:t:External Image:f:2:l:2
+cell:A3:t:<svg width="100" height="100"><circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" /><text x="50" y="55" font-family="Arial" font-size="20" text-anchor="middle" fill="white">LOGO</text></svg>:tvf:1:l:3
+cell:B3:t:<b>Project Status:</b><ul><li><span style="color\cgreen">Completed</span> Phase 1</li><li><span style="color\corange">In Progress</span> Phase 2</li><li><span style="color\cred">Pending</span> Phase 3</li></ul>:tvf:1:l:4
+cell:C3:t:<img src="https\c//via.placeholder.com/150" alt="Placeholder" width="150" />:tvf:1:l:3
+cell:A4:t:Visit Website:tvf:2:l:1:colspan:3
+sheet:c:3:r:4
+font:1:normal bold 18pt Arial
+font:2:normal bold 12pt Arial
+valueformat:1:text-html
+valueformat:2:text-link
+layout:1:padding:10px * * *;vertical-align:middle;
+layout:2:padding:5px * 5px *;vertical-align:bottom;
+layout:3:padding:10px * 10px *;vertical-align:middle;
+layout:4:padding:5px * * 5px;vertical-align:top;
+```

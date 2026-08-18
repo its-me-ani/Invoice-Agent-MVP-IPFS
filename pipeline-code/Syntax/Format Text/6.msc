@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:<img src="https\c//example.com/logo.png" width="100" height="50" />:tvf:1
+sheet:c:1:r:1
+valueformat:1:text-html

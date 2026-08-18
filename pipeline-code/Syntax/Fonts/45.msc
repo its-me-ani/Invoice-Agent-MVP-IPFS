@@ -1,0 +1,8 @@
+version:1.5
+cell:A1:t:Priority High:f:1
+cell:A2:t:Priority Medium:f:2
+cell:A3:t:Priority Low:f:3
+sheet:c:1:r:3
+font:1:normal bold 14pt Arial
+font:2:normal bold 12pt Arial
+font:3:normal normal 10pt Arial

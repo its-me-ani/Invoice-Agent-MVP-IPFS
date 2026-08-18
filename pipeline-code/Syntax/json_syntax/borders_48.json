@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:B2:t:Comparison Matrix:b:1:1:1:1:l:1:cf:1:f:1:bg:1:colspan:5\ncell:C2:b:1:1:1:1:bg:1\ncell:D2:b:1:1:1:1:bg:1\ncell:E2:b:1:1:1:1:bg:1\ncell:F2:b:1:1:1:1:bg:1\ncell:B3:b:0:1:0:1\ncell:C3:t:Feature A:b:0:1:0:1:bg:2:cf:2:f:2:l:2\ncell:D3:t:Feature B:b:0:1:0:1:bg:3:cf:2:f:2:l:2\ncell:E3:t:Feature C:b:0:1:0:1:bg:4:cf:2:f:2:l:2\ncell:F3:t:Feature D:b:0:1:0:1:bg:5:cf:2:f:2:l:2\ncell:B4:t:Product 1:b:0:1:0:1:bg:2:cf:2:f:2:l:3\ncell:C4:b:0:1:0:0:l:3\ncell:D4:b:0:1:0:0:l:3\ncell:E4:b:0:1:0:0:l:3\ncell:F4:b:0:1:0:0:l:3\ncell:B5:t:Product 2:b:0:1:0:1:bg:3:cf:2:f:2:l:3\ncell:C5:b:0:1:0:0:l:3\ncell:D5:b:0:1:0:0:l:3\ncell:E5:b:0:1:0:0:l:3\ncell:F5:b:0:1:0:0:l:3\ncell:B6:t:Product 3:b:0:1:0:1:bg:4:cf:2:f:2:l:3\ncell:C6:b:0:1:0:0:l:3\ncell:D6:b:0:1:0:0:l:3\ncell:E6:b:0:1:0:0:l:3\ncell:F6:b:0:1:0:0:l:3\ncell:B7:t:Product 4:b:0:1:0:1:bg:5:cf:2:f:2:l:3\ncell:C7:b:0:1:0:0:l:3\ncell:D7:b:0:1:0:0:l:3\ncell:E7:b:0:1:0:0:l:3\ncell:F7:b:0:1:0:0:l:3\ncell:B8:t:Product 5:b:0:1:0:1:bg:2:cf:2:f:2:l:3\ncell:C8:b:0:1:0:0:l:3\ncell:D8:b:0:1:0:0:l:3\ncell:E8:b:0:1:0:0:l:3\ncell:F8:b:0:1:0:0:l:3\ncell:B9:t:Product 6:b:0:1:0:1:bg:3:cf:2:f:2:l:3\ncell:C9:b:0:1:0:0:l:3\ncell:D9:b:0:1:0:0:l:3\ncell:E9:b:0:1:0:0:l:3\ncell:F9:b:0:1:0:0:l:3\ncell:B10:t:Product 7:b:0:1:0:1:bg:4:cf:2:f:2:l:3\ncell:C10:b:0:1:0:0:l:3\ncell:D10:b:0:1:0:0:l:3\ncell:E10:b:0:1:0:0:l:3\ncell:F10:b:0:1:0:0:l:3\ncell:B11:t:Product 8:b:0:1:0:1:bg:5:cf:2:f:2:l:3\ncell:C11:b:0:1:0:0:l:3\ncell:D11:b:0:1:0:0:l:3\ncell:E11:b:0:1:0:0:l:3\ncell:F11:b:0:1:0:0:l:3\ncell:B12:b:0:1:0:1\ncell:C12:b:0:1:0:1\ncell:D12:b:0:1:0:1\ncell:E12:b:0:1:0:1\ncell:F12:b:0:1:0:1\ncol:A:w:10\ncol:B:w:90\ncol:C:w:90\ncol:D:w:90\ncol:E:w:90\ncol:F:w:90\nsheet:c:6:r:12\nborder:1:1px solid rgb(0,0,0)\ncolor:1:rgb(72,61,139)\ncolor:2:rgb(230,230,250)\ncolor:3:rgb(221,160,221)\ncolor:4:rgb(216,191,216)\ncolor:5:rgb(238,130,238)\nfont:1:normal bold 16pt Times New Roman\nfont:2:normal bold 9pt Times New Roman\ncellformat:1:center\ncellformat:2:center\nlayout:1:padding:11px * 11px *;vertical-align:middle;\nlayout:2:padding:8px * 8px *;vertical-align:middle;\nlayout:3:padding:7px * 7px *;vertical-align:middle;"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

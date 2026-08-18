@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Week 1:colspan:7\ncell:B1:t:\ncell:C1:t:\ncell:D1:t:\ncell:E1:t:\ncell:F1:t:\ncell:G1:t:\ncell:A2:t:Mon\ncell:B2:t:Tue\ncell:C2:t:Wed\ncell:D2:t:Thu\ncell:E2:t:Fri\ncell:F2:t:Sat\ncell:G2:t:Sun\nsheet:c:7:r:2"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+version:1.5
+cell:B2:t:Header
+cell:C2:t:Content
+cell:D2:t:Details
+sheet:c:4:r:3
+col:A:w:30
+col:B:w:100
+col:C:w:200
+col:D:w:150

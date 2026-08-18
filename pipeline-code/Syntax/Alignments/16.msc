@@ -1,0 +1,10 @@
+version:1.5
+cell:A1:t:Centered Title:cf:1:l:1:colspan:3
+cell:A2:t:Item:cf:2
+cell:B2:t:Price:cf:1
+cell:C2:t:Total:cf:3
+sheet:c:3:r:2
+cellformat:1:center
+cellformat:2:left
+cellformat:3:right
+layout:1:padding:10px * * *;vertical-align:middle;

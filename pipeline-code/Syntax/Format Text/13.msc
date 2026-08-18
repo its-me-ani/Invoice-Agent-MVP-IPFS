@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:<p style="font-size\c20px; font-weight\cbold;">Large Bold Text</p>:tvf:1
+sheet:c:1:r:1
+valueformat:1:text-html

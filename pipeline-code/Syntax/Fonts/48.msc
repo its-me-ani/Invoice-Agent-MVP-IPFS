@@ -1,0 +1,8 @@
+version:1.5
+cell:A1:t:Book Title:f:1
+cell:A2:t:Chapter 1:f:2
+cell:A3:t:Lorem ipsum dolor sit amet:f:3
+sheet:c:1:r:3
+font:1:normal bold 24pt Georgia,serif
+font:2:italic bold 16pt Georgia,serif
+font:3:normal normal 12pt Georgia,serif

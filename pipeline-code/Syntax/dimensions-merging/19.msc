@@ -1,0 +1,11 @@
+version:1.5
+cell:A1:t:Left:rowspan:2
+cell:A2:t:
+cell:B1:t:Mid:rowspan:3
+cell:B2:t:
+cell:B3:t:
+cell:C1:t:Right:rowspan:2
+cell:C2:t:
+cell:A3:t:Bottom L
+cell:C3:t:Bottom R
+sheet:c:3:r:3

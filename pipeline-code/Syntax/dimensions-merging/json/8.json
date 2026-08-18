@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Label:rowspan:4\ncell:A2:t:\ncell:A3:t:\ncell:A4:t:\ncell:B1:t:Item 1\ncell:B2:t:Item 2\ncell:B3:t:Item 3\ncell:B4:t:Item 4\nsheet:c:2:r:4"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

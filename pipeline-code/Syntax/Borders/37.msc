@@ -1,0 +1,9 @@
+version:1.5
+cell:A1:t:Col 1 Row 1:b:1:1:1:1
+cell:B1:t:Col 2 Row 1:b:1:1:1:0
+cell:C1:t:Col 3 Row 1:b:1:1:1:0
+cell:A2:t:Col 1 Row 2:b:0:1:1:1
+cell:B2:t:Col 2 Row 2:b:0:1:1:0
+cell:C2:t:Col 3 Row 2:b:0:1:1:0
+sheet:c:3:r:2
+border:1:1px solid rgb(0,0,0)

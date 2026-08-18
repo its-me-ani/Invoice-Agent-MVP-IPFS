@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:hello
+cell:A2:vtf:t:he:LEFT(A1,2)
+sheet:c:1:r:2

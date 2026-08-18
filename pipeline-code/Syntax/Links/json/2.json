@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Google<<https\\c//google.com>>:tvf:1\ncell:B1:t:GitHub<<https\\c//github.com>>:tvf:1\nsheet:c:2:r:1\nvalueformat:1:text-link\n"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

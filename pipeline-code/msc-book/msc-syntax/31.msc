@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:B2:b:1:1:1:1:colspan:3:rowspan:2\ncol:A:w:12\ncol:B:w:60\ncol:C:w:60\ncol:D:w:60\ncol:E:w:60\nsheet:c:8:r:10\nborder:1:1px solid rgb(0,0,0)\n"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "saveFileNameA": "Invoice A",
+  "saveFileNameB": "Invoice B",
+  "onboardingButtonText": "Get Started",
+  "savedFilesPageTitle": "My Saved Invoices",
+  "settingsPageTitle": "App Settings",
+  "saveFileDialogTitle": "Save File",
+  "editCellMobile": "C5",
+  "editCellTablet": "D7",
+  "editValue": "1000",
+  "maxTabsMobile": 4,
+  "maxTabsTablet": 4
+}

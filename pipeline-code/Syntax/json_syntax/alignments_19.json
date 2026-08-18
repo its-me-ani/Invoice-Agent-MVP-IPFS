@@ -1,0 +1,11 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Name:cf:1:l:1\ncell:B1:t:Department:cf:1:l:1\ncell:C1:t:Salary:cf:2:l:1\ncell:A2:t:John Doe:cf:1:l:2\ncell:B2:t:Engineering:cf:1:l:2\ncell:C2:v:75000:cf:2:l:2\ncell:A3:t:Jane Smith:cf:1:l:2\ncell:B3:t:Marketing:cf:1:l:2\ncell:C3:v:68000:cf:2:l:2\nsheet:c:3:r:3\ncellformat:1:left\ncellformat:2:right\nlayout:1:padding:8px * * 8px;vertical-align:middle;\nlayout:2:padding:5px * * 5px;vertical-align:middle;\n"
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+version:1.5
+cell:B2:t:Contact List:colspan:5
+cell:C2:t:
+cell:D2:t:
+cell:E2:t:
+cell:F2:t:
+cell:B3:t:ID
+cell:C3:t:First Name
+cell:D3:t:Last Name
+cell:E3:t:Email
+cell:F3:t:Phone
+cell:B4:t:001
+cell:C4:t:John
+cell:D4:t:Doe
+cell:E4:t:john.doe@email.com
+cell:F4:t:555-1234
+sheet:c:6:r:5
+col:A:w:30
+col:B:w:60
+col:C:w:120
+col:D:w:120
+col:E:w:250
+col:F:w:120

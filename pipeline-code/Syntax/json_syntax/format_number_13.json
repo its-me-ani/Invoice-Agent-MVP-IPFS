@@ -1,0 +1,5 @@
+{
+    "instruction": "Format time with hours and minutes",
+    "plan": "Apply valueformat with ntvf attribute to control time display pattern",
+    "final_output": "version:1.5\ncell:A1:v:0.520833:ntvf:1\nsheet:c:1:r:1\nvalueformat:1:h\\cmm"
+}

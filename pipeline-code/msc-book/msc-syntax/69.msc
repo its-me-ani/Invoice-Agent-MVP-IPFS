@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:B2:b:1:1:1:1:bg:1\ncell:C2:b:1:1:1:1:bg:2\ncell:D2:b:1:1:1:1:bg:1\ncell:B3:b:1:1:1:1:bg:1\ncell:C3:b:1:1:1:1:bg:2\ncell:D3:b:1:1:1:1:bg:1\ncell:B4:b:1:1:1:1:bg:1\ncell:C4:b:1:1:1:1:bg:2\ncell:D4:b:1:1:1:1:bg:1\ncell:B5:b:1:1:1:1:bg:1\ncell:C5:b:1:1:1:1:bg:2\ncell:D5:b:1:1:1:1:bg:1\ncol:A:w:10\ncol:B:w:60\ncol:C:w:60\ncol:D:w:60\ncol:E:w:60\ncol:F:w:60\nsheet:c:5:r:12\nborder:1:1px solid rgb(0,0,0)\ncolor:1:rgb(230,230,230)\ncolor:2:rgb(255,255,255)\n"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

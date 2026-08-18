@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Meeting Room A:colspan:3:rowspan:2\ncell:B1:t:\ncell:C1:t:\ncell:A2:t:\ncell:B2:t:\ncell:C2:t:\ncell:D1:t:Meeting Room B:colspan:3:rowspan:2\ncell:E1:t:\ncell:F1:t:\ncell:D2:t:\ncell:E2:t:\ncell:F2:t:\nsheet:c:6:r:2"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

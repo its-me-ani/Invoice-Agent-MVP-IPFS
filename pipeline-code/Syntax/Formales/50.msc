@@ -1,0 +1,15 @@
+version:1.5
+cell:A1:t:Price
+cell:A2:t:Quantity
+cell:A3:t:Total
+cell:B1:v:10.50
+cell:B2:v:5
+cell:B3:vtf:n:52.5:B1*B2
+cell:C1:v:25.00
+cell:C2:v:3
+cell:C3:vtf:n:75:C1*C2
+cell:D1:v:8.99
+cell:D2:v:10
+cell:D3:vtf:n:89.9:D1*D2
+cell:E3:vtf:n:217.4:SUM(B3\cD3)
+sheet:c:5:r:3

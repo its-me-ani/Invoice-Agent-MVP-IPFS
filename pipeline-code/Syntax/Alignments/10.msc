@@ -1,0 +1,7 @@
+version:1.5
+cell:A1:t:Header:cf:1
+cell:A2:t:Left Text:cf:1
+cell:A3:v:1234:cf:2
+sheet:c:1:r:3
+cellformat:1:left
+cellformat:2:right

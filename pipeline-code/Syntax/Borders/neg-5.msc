@@ -1,0 +1,5 @@
+version:1.5
+cell:A1:t:Status:b:1:1
+cell:B1:t:Count:b:1:1:1:1
+sheet:c:2:r:1
+border:1:2px solid rgb(0,0,0)

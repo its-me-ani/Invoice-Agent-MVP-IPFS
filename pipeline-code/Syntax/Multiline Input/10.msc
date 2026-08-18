@@ -1,0 +1,7 @@
+version:1.5
+cell:A1:t:Description\nMultiline text with\nmultiple lines\nspanning several rows:cf:1
+cell:A2:t:Another\nMultiline\nCell
+cell:B1:v:100
+cell:B2:v:200
+sheet:c:2:r:2
+cellformat:1:left

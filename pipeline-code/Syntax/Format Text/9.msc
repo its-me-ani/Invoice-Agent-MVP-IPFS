@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:<svg width="120" height="80"><polygon points="10,10 110,10 110,70 10,70" fill="green" stroke="black" stroke-width="2"/><text x="60" y="45" fill="white" text-anchor="middle" font-size="16">Company</text></svg>:tvf:1
+sheet:c:1:r:1
+valueformat:1:text-html

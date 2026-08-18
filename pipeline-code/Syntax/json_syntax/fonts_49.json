@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Code Comment:f:1\ncell:A2:t:function calculate():f:2\nsheet:c:1:r:2\nfont:1:italic normal 10pt 'Courier New',monospace\nfont:2:normal normal 12pt 'Courier New',monospace"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

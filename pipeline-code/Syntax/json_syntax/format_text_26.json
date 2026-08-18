@@ -1,0 +1,11 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:<img src=\"https\\c//example.com/signature.png\" width=\"200\" height=\"60\" alt=\"Signature\" />:tvf:1\ncell:A2:t:John Doe:tvf:2\ncell:A3:t:CEO:tvf:2\nsheet:c:1:r:3\nvalueformat:1:text-html\nvalueformat:2:text-plain\n"
+      }
+    }
+  }
+}

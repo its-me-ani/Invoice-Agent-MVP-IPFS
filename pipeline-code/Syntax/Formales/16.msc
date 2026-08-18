@@ -1,0 +1,5 @@
+version:1.5
+cell:A1:v:10
+cell:A2:v:3
+cell:A3:vtf:n:1:MOD(A1,A2)
+sheet:c:1:r:3

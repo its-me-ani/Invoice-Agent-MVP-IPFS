@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Merged Cell with Border:colspan:2:rowspan:2:b:2:2:2:2\ncell:A3:t:Regular Cell:b:1:1:1:1\nsheet:c:2:r:3\nborder:1:1px solid rgb(0,0,0)\nborder:2:3px solid rgb(255,0,0)"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

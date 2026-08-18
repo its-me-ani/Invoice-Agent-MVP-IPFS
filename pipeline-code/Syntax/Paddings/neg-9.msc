@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:Missing Colspan Value:l:1:colspan
+sheet:c:1:r:1
+layout:1:padding:10px * * *;vertical-align:*;

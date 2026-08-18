@@ -1,0 +1,5 @@
+version:1.5
+cell:A1:t:Red Text:f:1:c:1
+sheet:c:1:r:1
+font:1:normal normal 12pt Arial
+color:1:rgb(255,0,0)

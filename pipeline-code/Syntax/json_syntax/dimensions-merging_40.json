@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Schedule Grid:colspan:5\ncell:B1:t:\ncell:C1:t:\ncell:D1:t:\ncell:E1:t:\ncell:A2:t:Time:rowspan:3\ncell:A3:t:\ncell:A4:t:\ncell:B2:t:Event 1:colspan:2\ncell:C2:t:\ncell:D2:t:Event 2:colspan:2\ncell:E2:t:\ncell:B3:t:Detail A\ncell:C3:t:Detail B\ncell:D3:t:Detail C\ncell:E3:t:Detail D\ncell:B4:t:Summary:colspan:4\ncell:C4:t:\ncell:D4:t:\ncell:E4:t:\nsheet:c:5:r:4"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

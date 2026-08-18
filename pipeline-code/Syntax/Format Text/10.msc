@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:<div style="color\cred;">Red Text</div>:tvf:1
+sheet:c:1:r:1
+valueformat:1:text-html

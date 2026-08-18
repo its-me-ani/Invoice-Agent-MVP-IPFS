@@ -1,0 +1,7 @@
+version:1.5
+cell:B2:b:1:1:1:1:colspan:2:rowspan:4
+col:A:w:20
+col:B:w:46
+col:C:w:44
+sheet:c:3:r:2
+border:1:2px solid rgb(0,0,0)

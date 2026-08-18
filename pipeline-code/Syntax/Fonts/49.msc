@@ -1,0 +1,6 @@
+version:1.5
+cell:A1:t:Code Comment:f:1
+cell:A2:t:function calculate():f:2
+sheet:c:1:r:2
+font:1:italic normal 10pt 'Courier New',monospace
+font:2:normal normal 12pt 'Courier New',monospace

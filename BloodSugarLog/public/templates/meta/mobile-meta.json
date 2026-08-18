@@ -1,0 +1,20 @@
+{
+  "isPremium": false,
+  "price": {
+    "USD": 0
+  },
+  "name": "Invoice (Mobile)",
+  "type": "invoice",
+  "device": "mobile",
+  "description": "Professional invoice sheets optimized for mobile layouts.",
+  "id": 100001,
+  "image": "",
+  "hashtags": [
+    "invoice",
+    "billing",
+    "finance",
+    "business",
+    "receipt",
+    "mobile"
+  ]
+}

@@ -1,0 +1,17 @@
+version:1.5
+cell:A1:t:Top Left:cf:1:l:1
+cell:B1:t:Top Center:cf:2:l:1
+cell:C1:t:Top Right:cf:3:l:1
+cell:A2:t:Middle Left:cf:1:l:2
+cell:B2:t:Middle Center:cf:2:l:2
+cell:C2:t:Middle Right:cf:3:l:2
+cell:A3:t:Bottom Left:cf:1:l:3
+cell:B3:t:Bottom Center:cf:2:l:3
+cell:C3:t:Bottom Right:cf:3:l:3
+sheet:c:3:r:3
+cellformat:1:left
+cellformat:2:center
+cellformat:3:right
+layout:1:padding:* * * *;vertical-align:top;
+layout:2:padding:* * * *;vertical-align:middle;
+layout:3:padding:* * * *;vertical-align:bottom;

@@ -1,0 +1,11 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:<code>function() { return true; }</code>:tvf:1\nsheet:c:1:r:1\nvalueformat:1:text-html\n"
+      }
+    }
+  }
+}

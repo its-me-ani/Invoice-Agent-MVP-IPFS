@@ -1,0 +1,11 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Centered Title:cf:1:l:1:colspan:3\ncell:A2:t:Item:cf:2\ncell:B2:t:Price:cf:1\ncell:C2:t:Total:cf:3\nsheet:c:3:r:2\ncellformat:1:center\ncellformat:2:left\ncellformat:3:right\nlayout:1:padding:10px * * *;vertical-align:middle;\n"
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+version:1.5
+color:1:rgb(0,0,255)
+color:2:rgb(128,0,128)
+cell:A1:t:API Docs<https\c//api.example.com/docs>:tvf:1:c:1
+cell:A2:t:Legacy Site<http\c//legacy.site.org>:tvf:1:c:2
+sheet:c:1:r:2
+valueformat:1:text-link

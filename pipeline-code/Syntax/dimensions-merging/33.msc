@@ -1,0 +1,20 @@
+version:1.5
+cell:A1:t:Nested Structure:colspan:6
+cell:B1:t:
+cell:C1:t:
+cell:D1:t:
+cell:E1:t:
+cell:F1:t:
+cell:A2:t:Left:colspan:2:rowspan:2
+cell:B2:t:
+cell:A3:t:
+cell:B3:t:
+cell:C2:t:Middle:colspan:2:rowspan:2
+cell:D2:t:
+cell:C3:t:
+cell:D3:t:
+cell:E2:t:Right:colspan:2:rowspan:2
+cell:F2:t:
+cell:E3:t:
+cell:F3:t:
+sheet:c:6:r:3

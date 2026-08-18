@@ -1,0 +1,20 @@
+{
+  "isPremium": false,
+  "price": {
+    "USD": 0
+  },
+  "name": "Invoice (Tablet)",
+  "type": "invoice",
+  "device": "tablet",
+  "description": "Comprehensive invoice and billing sheets optimized for tablet layouts.",
+  "id": 100002,
+  "image": "",
+  "hashtags": [
+    "invoice",
+    "billing",
+    "finance",
+    "business",
+    "receipt",
+    "tablet"
+  ]
+}

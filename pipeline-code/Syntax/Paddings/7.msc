@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:Padding with Bottom Align:l:1
+sheet:c:1:r:1
+layout:1:padding:15px * * 15px;vertical-align:bottom;

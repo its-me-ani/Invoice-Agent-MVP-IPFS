@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Price\ncell:A2:t:Quantity\ncell:A3:t:Total\ncell:B1:v:10.50\ncell:B2:v:5\ncell:B3:vtf:n:52.5:B1*B2\ncell:C1:v:25.00\ncell:C2:v:3\ncell:C3:vtf:n:75:C1*C2\ncell:D1:v:8.99\ncell:D2:v:10\ncell:D3:vtf:n:89.9:D1*D2\ncell:E3:vtf:n:217.4:SUM(B3\\cD3)\nsheet:c:5:r:3"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

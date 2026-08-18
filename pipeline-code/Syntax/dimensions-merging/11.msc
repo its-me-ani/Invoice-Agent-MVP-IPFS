@@ -1,0 +1,11 @@
+version:1.5
+cell:A1:t:A
+cell:B1:t:B
+cell:C1:t:C
+cell:A2:t:Merged Row:colspan:3
+cell:B2:t:
+cell:C2:t:
+cell:A3:t:X
+cell:B3:t:Y
+cell:C3:t:Z
+sheet:c:3:r:3

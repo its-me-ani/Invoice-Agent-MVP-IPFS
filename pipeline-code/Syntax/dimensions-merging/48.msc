@@ -1,0 +1,14 @@
+version:1.5
+cell:A1:t:Dept A:rowspan:3
+cell:A2:t:
+cell:A3:t:
+cell:B1:t:Team 1
+cell:B2:t:Team 2
+cell:B3:t:Team 3
+cell:C1:t:Dept B:rowspan:3
+cell:C2:t:
+cell:C3:t:
+cell:D1:t:Team 4
+cell:D2:t:Team 5
+cell:D3:t:Team 6
+sheet:c:4:r:3

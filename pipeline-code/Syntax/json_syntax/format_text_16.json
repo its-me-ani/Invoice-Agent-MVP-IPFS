@@ -1,0 +1,11 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Company Name:tvf:1\ncell:A2:t:<svg width=\"150\" height=\"60\"><ellipse cx=\"75\" cy=\"30\" rx=\"70\" ry=\"25\" fill=\"purple\" /><text x=\"75\" y=\"35\" fill=\"white\" text-anchor=\"middle\" font-size=\"14\">LOGO</text></svg>:tvf:2\nsheet:c:2:r:2\nvalueformat:1:text-plain\nvalueformat:2:text-html\n"
+      }
+    }
+  }
+}

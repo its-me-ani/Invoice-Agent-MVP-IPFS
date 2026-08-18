@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Hex Color Variants:b:1:2:3:4\nsheet:c:1:r:1\nborder:1:1px solid #000000\nborder:2:2px dashed #FF0000\nborder:3:1px dotted #0000FF\nborder:4:3px double #00FF00"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

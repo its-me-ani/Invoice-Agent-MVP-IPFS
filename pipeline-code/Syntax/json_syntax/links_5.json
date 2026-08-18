@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncolor:1:rgb(0,0,255)\ncolor:2:rgb(128,0,128)\ncell:A1:t:API Docs<https\\c//api.example.com/docs>:tvf:1:c:1\ncell:A2:t:Legacy Site<http\\c//legacy.site.org>:tvf:1:c:2\nsheet:c:1:r:2\nvalueformat:1:text-link\n"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+version:1.5
+cell:B2:t:Company Profile:colspan:3:rowspan:2
+cell:C2:t:
+cell:D2:t:
+cell:B3:t:
+cell:C3:t:
+cell:D3:t:
+cell:B4:t:Department
+cell:C4:t:Manager
+cell:D4:t:Team Size
+cell:B5:t:Engineering
+cell:C5:t:Alice Smith
+cell:D5:t:25
+cell:B6:t:Marketing
+cell:C6:t:Bob Johnson
+cell:D6:t:15
+cell:B7:t:Sales
+cell:C7:t:Carol White
+cell:D7:t:30
+sheet:c:4:r:8
+col:A:w:30
+col:B:w:150
+col:C:w:180
+col:D:w:120

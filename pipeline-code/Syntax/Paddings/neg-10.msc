@@ -1,0 +1,5 @@
+version:1.5
+cell:A1:t:Incomplete Border:l:1:b:1:1
+sheet:c:1:r:1
+layout:1:padding:10px * * *;vertical-align:*;
+border:1:1px solid rgb(0,0,0)

@@ -1,0 +1,6 @@
+version:1.5
+cell:A1:v:5
+cell:A2:v:10
+cell:A3:v:15
+cell:A4:vtf:n:5:COUNT(A1\cA3)
+sheet:c:1:r:4

@@ -1,0 +1,7 @@
+version:1.5
+cell:A1:t:Hex Color Variants:b:1:2:3:4
+sheet:c:1:r:1
+border:1:1px solid #000000
+border:2:2px dashed #FF0000
+border:3:1px dotted #0000FF
+border:4:3px double #00FF00

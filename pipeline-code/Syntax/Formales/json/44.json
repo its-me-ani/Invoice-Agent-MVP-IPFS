@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:v:10\ncell:A2:v:20\ncell:A3:v:30\ncell:B1:v:100\ncell:B2:v:200\ncell:B3:v:300\ncell:C1:vtf:n:1000:A1*B1\ncell:C2:vtf:n:4000:A2*B2\ncell:C3:vtf:n:9000:A3*B3\ncell:C4:vtf:n:14000:SUM(C1\\cC3)\nsheet:c:3:r:4"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

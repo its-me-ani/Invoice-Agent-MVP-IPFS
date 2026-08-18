@@ -1,0 +1,11 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Quarter Report:cf:1:l:1:colspan:4\ncell:A2:t:Q1:cf:1:l:2\ncell:B2:t:Q2:cf:1:l:2\ncell:C2:t:Q3:cf:1:l:2\ncell:D2:t:Q4:cf:1:l:2\ncell:A3:v:1250:cf:2:l:2\ncell:B3:v:1380:cf:2:l:2\ncell:C3:v:1420:cf:2:l:2\ncell:D3:v:1560:cf:2:l:2\ncell:A4:t:Total:cf:1:l:3\ncell:B4:v:5610:cf:2:l:3:colspan:3\nsheet:c:4:r:4\ncellformat:1:center\ncellformat:2:right\nlayout:1:padding:15px * 10px *;vertical-align:middle;\nlayout:2:padding:5px * * *;vertical-align:middle;\nlayout:3:padding:10px * 5px *;vertical-align:bottom;\n"
+      }
+    }
+  }
+}

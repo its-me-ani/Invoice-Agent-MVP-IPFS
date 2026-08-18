@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:B2:t:Contact List:colspan:5\ncell:C2:t:\ncell:D2:t:\ncell:E2:t:\ncell:F2:t:\ncell:B3:t:ID\ncell:C3:t:First Name\ncell:D3:t:Last Name\ncell:E3:t:Email\ncell:F3:t:Phone\ncell:B4:t:001\ncell:C4:t:John\ncell:D4:t:Doe\ncell:E4:t:john.doe@email.com\ncell:F4:t:555-1234\nsheet:c:6:r:5\ncol:A:w:30\ncol:B:w:60\ncol:C:w:120\ncol:D:w:120\ncol:E:w:250\ncol:F:w:120"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

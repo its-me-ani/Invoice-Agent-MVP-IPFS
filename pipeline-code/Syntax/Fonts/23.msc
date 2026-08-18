@@ -1,0 +1,6 @@
+version:1.5
+cell:A1:t:Multiple Fonts:f:1
+cell:B1:t:Different Style:f:2
+sheet:c:2:r:1
+font:1:normal bold 14pt Arial
+font:2:italic normal 12pt Verdana

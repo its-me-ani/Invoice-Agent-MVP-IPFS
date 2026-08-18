@@ -1,0 +1,11 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:<svg width=\"50\" height=\"50\"><g><rect x=\"5\" y=\"5\" width=\"40\" height=\"40\" fill=\"none\" stroke=\"black\" stroke-width=\"3\"/><line x1=\"15\" y1=\"25\" x2=\"25\" y2=\"35\" stroke=\"green\" stroke-width=\"3\"/><line x1=\"25\" y1=\"35\" x2=\"40\" y2=\"15\" stroke=\"green\" stroke-width=\"3\"/></g></svg>:tvf:1\ncell:B1:t:Verified\nsheet:c:2:r:1\nvalueformat:1:text-html\n"
+      }
+    }
+  }
+}

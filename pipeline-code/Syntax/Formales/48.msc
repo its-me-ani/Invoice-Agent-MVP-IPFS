@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:v:0.5
+cell:A2:vtf:n:12:HOUR(A1)
+sheet:c:1:r:2

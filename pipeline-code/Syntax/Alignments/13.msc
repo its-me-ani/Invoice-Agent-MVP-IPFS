@@ -1,0 +1,8 @@
+version:1.5
+cell:A1:t:Company Name:cf:1:l:1
+cell:A2:t:Invoice #12345:cf:2:l:2
+sheet:c:1:r:2
+cellformat:1:center
+cellformat:2:right
+layout:1:padding:10px * * *;vertical-align:top;
+layout:2:padding:* 10px * *;vertical-align:top;

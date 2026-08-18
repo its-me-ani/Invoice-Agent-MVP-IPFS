@@ -1,0 +1,5 @@
+version:1.5
+cell:A1:t:Address\c\n123 Main St\nApt 4B\nNew York, NY 10001:f:1
+cell:B1:t:Contact\c\n+1-555-0123\nemail@example.com
+sheet:c:2:r:1
+font:1:* bold * *

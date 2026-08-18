@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:B2:t:Company Profile:colspan:3:rowspan:2\ncell:C2:t:\ncell:D2:t:\ncell:B3:t:\ncell:C3:t:\ncell:D3:t:\ncell:B4:t:Department\ncell:C4:t:Manager\ncell:D4:t:Team Size\ncell:B5:t:Engineering\ncell:C5:t:Alice Smith\ncell:D5:t:25\ncell:B6:t:Marketing\ncell:C6:t:Bob Johnson\ncell:D6:t:15\ncell:B7:t:Sales\ncell:C7:t:Carol White\ncell:D7:t:30\nsheet:c:4:r:8\ncol:A:w:30\ncol:B:w:150\ncol:C:w:180\ncol:D:w:120"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+version:1.5
+cell:A1:t:Green Bold Text:f:1:c:1
+sheet:c:1:r:1
+font:1:normal bold 14pt Arial
+color:1:rgb(0,128,0)

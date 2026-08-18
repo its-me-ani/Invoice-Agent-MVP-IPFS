@@ -1,0 +1,10 @@
+version:1.5
+cell:A1:t:Category:rowspan:2
+cell:A2:t:
+cell:B1:t:Product:rowspan:2
+cell:B2:t:
+cell:C1:t:Sales:colspan:2
+cell:D1:t:
+cell:C2:t:Q1
+cell:D2:t:Q2
+sheet:c:4:r:2

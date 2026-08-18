@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:Thick Double Red:b:1:1:1:1
+sheet:c:1:r:1
+border:1:4px double rgb(255,0,0)

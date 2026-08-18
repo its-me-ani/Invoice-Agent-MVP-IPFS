@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:Simple Padding - Top Only:l:1
+sheet:c:1:r:1
+layout:1:padding:10px * * *;vertical-align:*;

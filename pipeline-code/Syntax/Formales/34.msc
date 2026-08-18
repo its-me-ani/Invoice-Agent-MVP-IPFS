@@ -1,0 +1,6 @@
+version:1.5
+cell:A1:v:100
+cell:A2:v:0.05
+cell:A3:v:12
+cell:A4:vtf:n:5.24:PMT(A2/12,A3,-A1)
+sheet:c:1:r:4

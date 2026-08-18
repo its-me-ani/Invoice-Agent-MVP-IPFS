@@ -1,0 +1,19 @@
+version:1.5
+cell:B2:t:Dashboard:colspan:4
+cell:C2:t:
+cell:D2:t:
+cell:E2:t:
+cell:B3:t:Metric 1
+cell:C3:t:Metric 2
+cell:D3:t:Metric 3
+cell:E3:t:Metric 4
+cell:B4:t:100
+cell:C4:t:200
+cell:D4:t:300
+cell:E4:t:400
+sheet:c:5:r:5
+col:A:w:25
+col:B:w:120
+col:C:w:120
+col:D:w:120
+col:E:w:120

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Import Collaboration Sheet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Import Collaboration Sheet</h1>
+        
+        {% if entry.error %}
+        <div class="error-message">
+            <p>{{ entry.error }}</p>
+        </div>
+        {% endif %}
+        
+        <form action="/import" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Upload Excel File:</label>
+                <input type="file" id="file" name="file" required>
+            </div>
+            <button type="submit" class="btn">Import</button>
+        </form>
+        
+        {% if entry.sheetstr %}
+        <div class="result">
+            <h2>Import Results</h2>
+            <p>Session: {{ entry.session }}</p>
+            <pre>{{ entry.sheetstr }}</pre>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

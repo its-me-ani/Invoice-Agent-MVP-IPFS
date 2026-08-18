@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:<div><img src="https\c//cdn.example.com/profile.jpg" width="50" height="50" style="border-radius\c50%;" /><span style="margin-left\c10px;">John Smith</span></div>:tvf:1
+sheet:c:1:r:1
+valueformat:1:text-html

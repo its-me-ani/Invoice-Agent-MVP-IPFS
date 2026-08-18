@@ -1,0 +1,427 @@
+BORDER PROPERTIES COMPLETE REFERENCE
+
+SYNTAX STRUCTURE
+
+Cell Border Attribute Format:
+b:top:right:bottom:left
+
+Border Definition Format:
+border:id:thickness style color
+
+ATTRIBUTE DETAILS
+
+b attribute (border positions):
+Required 4 integer values representing border IDs for each side of a cell
+Format: b:top:right:bottom:left
+Values: Integer border IDs (1, 2, 3, etc.) or 0 for no border
+Order: clockwise starting from top (top, right, bottom, left)
+Must have exactly 4 values separated by colons
+Each value references a border definition or 0 for no border
+
+border definition (border styles):
+Defines the visual appearance of borders
+Format: border:id:thickness style color
+id: Positive integer identifier (1, 2, 3, etc.)
+thickness: Pixel value (e.g., 1px, 2px, 3px, 5px)
+style: solid, dashed, dotted, or double
+color: rgb(R,G,B) format where R,G,B are 0-255 or hex format #RRGGBB
+
+AVAILABLE VALUES
+
+Border Position Values (b attribute):
+0 = no border on that side
+1 = applies border definition 1
+2 = applies border definition 2
+3 = applies border definition 3
+4+ = applies corresponding border definition
+
+Border Thickness Values:
+1px = thin border (standard)
+2px = medium border
+3px = thick border
+4px = very thick border
+5px = extra thick border
+6px = maximum thickness typically used
+Any pixel value is valid (e.g., 10px, 15px)
+
+Border Style Values:
+solid = continuous unbroken line
+dashed = series of dashes with gaps
+dotted = series of dots
+double = two parallel lines
+
+Border Color Values:
+rgb(0,0,0) = black
+rgb(255,255,255) = white
+rgb(255,0,0) = red
+rgb(0,255,0) = green
+rgb(0,0,255) = blue
+rgb(128,128,128) = gray
+rgb(255,255,0) = yellow
+rgb(255,165,0) = orange
+rgb(128,0,128) = purple
+rgb(0,255,255) = cyan
+rgb(255,192,203) = pink
+rgb(139,69,19) = brown
+rgb(0,0,128) = navy
+rgb(0,128,128) = teal
+rgb(128,0,0) = maroon
+rgb(211,211,211) = light gray
+rgb(64,64,64) = dark gray
+rgb(192,192,192) = silver
+rgb(255,215,0) = gold
+Any rgb(R,G,B) where R,G,B are 0-255
+Hex format #RRGGBB (e.g., #FF5733, #000000)
+
+PROPERTY COMBINATIONS
+
+Single Border Side:
+Top only: b:1:0:0:0
+Right only: b:0:1:0:0
+Bottom only: b:0:0:1:0
+Left only: b:0:0:0:1
+
+Two Border Sides:
+Top and bottom: b:1:0:1:0
+Left and right: b:0:1:0:1
+Top and left: b:1:0:0:1
+Bottom and right: b:0:1:1:0
+Top and right: b:1:1:0:0
+Bottom and left: b:0:0:1:1
+
+Three Border Sides:
+Top, right, left: b:1:1:0:1
+Top, right, bottom: b:1:1:1:0
+Right, bottom, left: b:0:1:1:1
+Top, bottom, left: b:1:0:1:1
+
+All Border Sides:
+Same style all sides: b:1:1:1:1
+Different styles each side: b:1:2:3:4
+
+No Borders:
+No borders at all: b:0:0:0:0
+
+MULTIPLE BORDER DEFINITIONS
+
+Example with 2 border styles:
+border:1:1px solid rgb(0,0,0)
+border:2:2px solid rgb(0,0,0)
+cell:A1:t:Header:b:2:2:2:2
+cell:A2:t:Data:b:1:1:1:1
+
+Example with 4 border styles:
+border:1:1px solid rgb(0,0,0)
+border:2:2px dashed rgb(255,0,0)
+border:3:1px dotted rgb(0,0,255)
+border:4:3px double rgb(0,255,0)
+cell:A1:t:Mixed:b:1:2:3:4
+
+PRACTICAL EXAMPLES
+
+Example 1 - Simple bordered cell:
+version:1.5
+cell:A1:t:Product:b:1:1:1:1
+sheet:c:1:r:1
+border:1:1px solid rgb(0,0,0)
+
+Example 2 - Cell with top border only:
+version:1.5
+cell:A1:t:Underlined:b:0:0:1:0
+sheet:c:1:r:1
+border:1:2px solid rgb(0,0,0)
+
+Example 3 - Table with headers:
+version:1.5
+cell:A1:t:Name:b:2:1:1:1
+cell:B1:t:Age:b:2:1:1:0
+cell:A2:t:John:b:0:1:1:1
+cell:B2:v:25:b:0:1:1:0
+sheet:c:2:r:2
+border:1:1px solid rgb(0,0,0)
+border:2:2px solid rgb(0,0,0)
+
+Example 4 - Different border styles per side:
+version:1.5
+cell:A1:t:Mixed Borders:b:1:2:3:4
+sheet:c:1:r:1
+border:1:1px solid rgb(0,0,0)
+border:2:2px dashed rgb(255,0,0)
+border:3:1px dotted rgb(0,0,255)
+border:4:3px double rgb(0,255,0)
+
+Example 5 - Grid pattern with shared borders:
+version:1.5
+cell:A1:t:Col 1:b:1:1:1:1
+cell:B1:t:Col 2:b:1:1:1:0
+cell:A2:t:Data 1:b:0:1:1:1
+cell:B2:t:Data 2:b:0:1:1:0
+sheet:c:2:r:2
+border:1:1px solid rgb(0,0,0)
+
+Example 6 - Invoice table with thick header borders:
+version:1.5
+cell:A1:t:Invoice:b:2:2:2:2:f:1
+cell:B1:t:Amount:b:2:2:2:0:f:1
+cell:A2:t:Item 1:b:0:1:0:1
+cell:B2:v:100:b:0:1:0:0
+cell:A3:t:Item 2:b:0:1:0:1
+cell:B3:v:200:b:0:1:0:0
+cell:A4:t:Total:b:1:1:1:1:f:1
+cell:B4:vtf:n:300:SUM(B2\cB3):b:1:1:1:0:f:1
+sheet:c:2:r:4
+border:1:1px solid rgb(0,0,0)
+border:2:2px solid rgb(0,0,0)
+font:1:normal bold 12pt Arial
+
+Example 7 - Colored borders:
+version:1.5
+cell:A1:t:Red:b:1:1:1:1
+cell:A2:t:Blue:b:2:2:2:2
+cell:A3:t:Green:b:3:3:3:3
+sheet:c:1:r:3
+border:1:2px solid rgb(255,0,0)
+border:2:2px solid rgb(0,0,255)
+border:3:2px solid rgb(0,255,0)
+
+Example 8 - Dashed and dotted borders:
+version:1.5
+cell:A1:t:Dashed:b:1:1:1:1
+cell:A2:t:Dotted:b:2:2:2:2
+sheet:c:1:r:2
+border:1:2px dashed rgb(255,0,0)
+border:2:1px dotted rgb(0,0,255)
+
+Example 9 - White border on colored background:
+version:1.5
+cell:A1:t:White Border:b:1:1:1:1:bg:1
+sheet:c:1:r:1
+border:1:2px solid rgb(255,255,255)
+color:1:rgb(0,0,128)
+
+Example 10 - No borders with alternating row colors:
+version:1.5
+cell:A1:b:0:0:0:0:bg:1
+cell:A2:b:0:0:0:0:bg:2
+cell:A3:b:0:0:0:0:bg:1
+cell:A4:b:0:0:0:0:bg:2
+sheet:c:1:r:4
+color:1:rgb(255,255,224)
+color:2:rgb(255,250,205)
+
+BORDER USE CASES
+
+When to use borders:
+
+Tables and grids:
+Use b:1:1:1:1 on all cells with border:1:1px solid rgb(0,0,0) for standard table appearance
+Creates clear cell separation and visual structure
+
+Headers and titles:
+Use thicker borders on header rows: b:2:2:2:2 with border:2:2px solid rgb(0,0,0)
+Use bottom border only: b:0:0:2:0 for underlined effect
+
+Data separation:
+Use top borders: b:1:0:0:0 to separate sections
+Use bottom borders: b:0:0:1:0 for subtotals or section breaks
+Use right borders: b:0:1:0:0 to separate columns
+
+Forms and input layouts:
+Use bottom border only: b:0:0:1:0 for underlined input fields
+Use left border: b:0:0:0:2 with thick colored border for side accent
+
+Emphasis and highlighting:
+Use colored borders to draw attention: border:1:3px solid rgb(255,0,0)
+Use double borders for special cells: border:1:3px double rgb(0,0,0)
+Use dashed borders for draft or temporary content
+
+Invoice and financial documents:
+Thick borders for headers: b:2:2:2:2
+Normal borders for data rows: b:0:1:0:1
+Thick top border for totals: b:2:1:1:1
+
+Calendars and schedules:
+Grid borders for all cells: b:1:1:1:1
+Omit shared borders to reduce visual clutter: adjacent cells use b:1:1:0:0 and b:1:0:0:1
+
+Comparison matrices:
+Outer borders only: first cell b:1:1:0:1, last cell b:1:1:0:0
+Inner cells share borders to create seamless grid
+
+Nested structures:
+Use different border thicknesses to show hierarchy
+Outer container: border:2:2px solid rgb(0,0,0)
+Inner cells: border:1:1px solid rgb(0,0,0)
+
+Visual design elements:
+No borders with background colors for clean modern look: b:0:0:0:0
+Partial borders for minimal design: b:0:0:1:0 or b:0:0:0:1
+White borders on dark backgrounds for contrast
+
+BORDER OPTIMIZATION
+
+Reducing visual clutter in grids:
+Adjacent cells share borders by omitting redundant sides
+Left cell uses b:1:1:1:1, right cell uses b:1:1:1:0
+Top cell uses b:1:1:1:1, bottom cell uses b:0:1:1:1
+Creates seamless grid appearance with half the border definitions
+
+Performance considerations:
+Reuse border definitions across multiple cells
+Define once: border:1:1px solid rgb(0,0,0)
+Apply to many cells: cell:A1:b:1:1:1:1, cell:B1:b:1:1:1:1, etc.
+Reduces file size and parsing time
+
+VALIDATION RULES
+
+Required format rules:
+Border attribute must have exactly 4 values
+Border definition must have thickness, style, and color
+Border IDs must be positive integers starting from 1
+Referenced border IDs must have corresponding border definitions
+No empty values in border positions (use 0 instead)
+No trailing colons after border definition
+No double colons between attributes
+
+Valid thickness:
+Must be pixel values: 1px, 2px, 3px, etc.
+Cannot use CSS keywords: thin, medium, thick are invalid
+
+Valid style:
+Must be: solid, dashed, dotted, or double
+Cannot use other CSS border styles
+
+Valid color:
+Must be rgb(R,G,B) format where R, G, B are 0-255
+Can be hex format #RRGGBB
+Cannot use named colors: red, blue, green are invalid
+
+COMMON ERRORS
+
+Error: Incomplete border tuple
+Invalid: cell:A1:b:1:1:1
+Valid: cell:A1:b:1:1:1:0
+Fix: Add the missing fourth value (left border)
+
+Error: Empty border values
+Invalid: cell:A1:b::1::1
+Valid: cell:A1:b:0:1:0:1
+Fix: Replace empty positions with 0
+
+Error: Undefined border reference
+Invalid: cell:A1:b:5:1:1:1 (when border:5 not defined)
+Valid: cell:A1:b:1:1:1:1 or add border:5:1px solid rgb(0,0,0)
+Fix: Use defined border ID or define the missing border
+
+Error: Named color
+Invalid: border:1:2px dashed blue
+Valid: border:1:2px dashed rgb(0,0,255)
+Fix: Convert to rgb() format
+
+Error: CSS keyword thickness
+Invalid: border:1:thick solid rgb(0,0,0)
+Valid: border:1:3px solid rgb(0,0,0)
+Fix: Use explicit pixel value
+
+Error: Too many border values
+Invalid: cell:A1:b:1:1:1:1:1
+Valid: cell:A1:b:1:1:1:1
+Fix: Remove extra values (maximum 4)
+
+Error: Trailing colon
+Invalid: cell:A1:b:1:1:1:1:
+Valid: cell:A1:b:1:1:1:1
+Fix: Remove trailing colon
+
+Error: Empty border definition
+Invalid: border:2:
+Valid: border:2:1px solid rgb(0,0,0)
+Fix: Provide thickness, style, and color
+
+INTEGRATION WITH OTHER ATTRIBUTES
+
+Borders with fonts:
+cell:A1:t:Header:b:2:2:2:2:f:1
+border:2:2px solid rgb(0,0,0)
+font:1:normal bold 14pt Arial
+
+Borders with background colors:
+cell:A1:t:Highlighted:b:1:1:1:1:bg:1
+border:1:1px solid rgb(0,0,0)
+color:1:rgb(255,255,0)
+
+Borders with merged cells:
+cell:A1:t:Title:colspan:2:b:2:2:2:2
+border:2:3px solid rgb(255,0,0)
+
+Borders with alignment and padding:
+cell:A1:t:Centered:b:1:1:1:1:cf:1:l:1
+border:1:1px solid rgb(0,0,0)
+cellformat:1:center
+layout:1:padding:10px * 10px *;vertical-align:middle;
+
+Borders with formulas:
+cell:A1:vtf:n:300:SUM(B2\cB3):b:1:1:1:1
+border:1:2px solid rgb(0,0,0)
+
+ADVANCED PATTERNS
+
+Striped table with partial borders:
+Row 1: b:1:1:0:1 (top, right, left)
+Row 2-N: b:0:1:0:1 (right, left only)
+Last row: b:0:1:1:1 (right, bottom, left)
+Creates horizontal lines between rows without vertical separation
+
+Box with thick outer border and thin inner grid:
+Outer cells use border:2 (thick)
+Inner cells use border:1 (thin)
+Creates nested appearance with visual hierarchy
+
+Accent borders:
+Left accent: b:0:0:0:2 with border:2:4px solid rgb(255,0,0)
+Top accent: b:2:0:0:0 with border:2:3px solid rgb(0,0,255)
+Creates colored stripe for emphasis
+
+Form field simulation:
+Bottom border only: b:0:0:1:0
+Light gray color: border:1:1px solid rgb(200,200,200)
+Mimics underlined input field appearance
+
+Card-like elements:
+All sides with shadow effect using multiple borders
+Outer: b:1:1:1:1 with border:1:1px solid rgb(220,220,220)
+Creates subtle framed appearance
+
+COMPLETE SYNTAX TEMPLATE
+
+Basic bordered cell:
+version:1.5
+cell:CELLREF:t:TEXT:b:TOP:RIGHT:BOTTOM:LEFT
+sheet:c:COLS:r:ROWS
+border:ID:THICKNESSpx STYLE rgb(R,G,B)
+
+Multi-cell bordered table:
+version:1.5
+cell:A1:t:HEADER1:b:2:1:1:1
+cell:B1:t:HEADER2:b:2:1:1:0
+cell:A2:t:DATA1:b:0:1:1:1
+cell:B2:t:DATA2:b:0:1:1:0
+sheet:c:2:r:2
+border:1:1px solid rgb(0,0,0)
+border:2:2px solid rgb(0,0,0)
+
+Complex example with all features:
+version:1.5
+cell:A1:t:Title:b:3:3:3:3:f:1:cf:1:bg:1:colspan:2
+cell:A2:t:Label:b:1:1:1:1:f:2
+cell:B2:v:100:b:1:1:1:0
+cell:A3:t:Total:b:2:1:2:1:f:1
+cell:B3:vtf:n:100:SUM(B2):b:2:1:2:0:f:1
+sheet:c:2:r:3
+border:1:1px solid rgb(0,0,0)
+border:2:2px solid rgb(0,0,0)
+border:3:3px solid rgb(255,0,0)
+color:1:rgb(255,255,0)
+font:1:normal bold 14pt Arial
+font:2:normal normal 10pt Arial
+cellformat:1:center

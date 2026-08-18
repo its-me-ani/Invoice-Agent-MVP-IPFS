@@ -1,0 +1,8 @@
+version:1.5
+cell:A1:t:Description:cf:1:l:1
+cell:A2:t:This is a longer text that demonstrates left alignment with top vertical positioning:cf:1:l:1
+cell:A3:t:Short text:cf:1:l:2
+sheet:c:1:r:3
+cellformat:1:left
+layout:1:padding:5px * * 5px;vertical-align:top;
+layout:2:padding:5px * * 5px;vertical-align:bottom;

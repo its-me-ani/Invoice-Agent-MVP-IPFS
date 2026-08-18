@@ -1,0 +1,76 @@
+version:1.5
+cell:B2:t:Course Schedule:b:1:1:1:1:l:1:cf:1:f:1:bg:1:colspan:5
+cell:C2:b:1:1:1:1:bg:1
+cell:D2:b:1:1:1:1:bg:1
+cell:E2:b:1:1:1:1:bg:1
+cell:F2:b:1:1:1:1:bg:1
+cell:B3:t:Time:b:0:1:0:1:bg:2:cf:2:f:2:l:2
+cell:C3:t:Monday:b:0:1:0:1:bg:2:cf:2:f:2:l:2
+cell:D3:t:Tuesday:b:0:1:0:1:bg:2:cf:2:f:2:l:2
+cell:E3:t:Wednesday:b:0:1:0:1:bg:2:cf:2:f:2:l:2
+cell:F3:t:Thursday:b:0:1:0:1:bg:2:cf:2:f:2:l:2
+cell:B4:t:9-10 AM:b:0:1:0:1:bg:3:cf:3:l:3
+cell:C4:b:0:1:0:0:l:3
+cell:D4:b:0:1:0:0:l:3
+cell:E4:b:0:1:0:0:l:3
+cell:F4:b:0:1:0:0:l:3
+cell:B5:t:10-11 AM:b:0:1:0:1:bg:3:cf:3:l:3
+cell:C5:b:0:1:0:0:l:3
+cell:D5:b:0:1:0:0:l:3
+cell:E5:b:0:1:0:0:l:3
+cell:F5:b:0:1:0:0:l:3
+cell:B6:t:11-12 PM:b:0:1:0:1:bg:3:cf:3:l:3
+cell:C6:b:0:1:0:0:l:3
+cell:D6:b:0:1:0:0:l:3
+cell:E6:b:0:1:0:0:l:3
+cell:F6:b:0:1:0:0:l:3
+cell:B7:t:12-1 PM:b:0:1:0:1:bg:4:cf:3:l:3
+cell:C7:t:LUNCH:b:0:1:0:0:bg:4:cf:1:colspan:4
+cell:D7:b:0:1:0:0:bg:4
+cell:E7:b:0:1:0:0:bg:4
+cell:F7:b:0:1:0:0:bg:4
+cell:B8:t:1-2 PM:b:0:1:0:1:bg:3:cf:3:l:3
+cell:C8:b:0:1:0:0:l:3
+cell:D8:b:0:1:0:0:l:3
+cell:E8:b:0:1:0:0:l:3
+cell:F8:b:0:1:0:0:l:3
+cell:B9:t:2-3 PM:b:0:1:0:1:bg:3:cf:3:l:3
+cell:C9:b:0:1:0:0:l:3
+cell:D9:b:0:1:0:0:l:3
+cell:E9:b:0:1:0:0:l:3
+cell:F9:b:0:1:0:0:l:3
+cell:B10:t:3-4 PM:b:0:1:0:1:bg:3:cf:3:l:3
+cell:C10:b:0:1:0:0:l:3
+cell:D10:b:0:1:0:0:l:3
+cell:E10:b:0:1:0:0:l:3
+cell:F10:b:0:1:0:0:l:3
+cell:B11:t:4-5 PM:b:0:1:0:1:bg:3:cf:3:l:3
+cell:C11:b:0:1:0:0:l:3
+cell:D11:b:0:1:0:0:l:3
+cell:E11:b:0:1:0:0:l:3
+cell:F11:b:0:1:0:0:l:3
+cell:B12:b:0:1:0:1:bg:2
+cell:C12:b:0:1:0:1:bg:2
+cell:D12:b:0:1:0:1:bg:2
+cell:E12:b:0:1:0:1:bg:2
+cell:F12:b:0:1:0:1:bg:2
+col:A:w:10
+col:B:w:85
+col:C:w:95
+col:D:w:95
+col:E:w:95
+col:F:w:95
+sheet:c:6:r:12
+border:1:1px solid rgb(0,0,0)
+color:1:rgb(255,140,0)
+color:2:rgb(255,228,181)
+color:3:rgb(255,250,240)
+color:4:rgb(255,222,173)
+font:1:normal bold 15pt Courier New
+font:2:normal bold 9pt Courier New
+cellformat:1:center
+cellformat:2:center
+cellformat:3:center
+layout:1:padding:10px * 10px *;vertical-align:middle;
+layout:2:padding:8px * 8px *;vertical-align:middle;
+layout:3:padding:7px * 7px *;vertical-align:middle;

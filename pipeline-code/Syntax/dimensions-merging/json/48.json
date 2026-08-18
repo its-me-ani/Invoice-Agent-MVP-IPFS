@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Dept A:rowspan:3\ncell:A2:t:\ncell:A3:t:\ncell:B1:t:Team 1\ncell:B2:t:Team 2\ncell:B3:t:Team 3\ncell:C1:t:Dept B:rowspan:3\ncell:C2:t:\ncell:C3:t:\ncell:D1:t:Team 4\ncell:D2:t:Team 5\ncell:D3:t:Team 6\nsheet:c:4:r:3"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+version:1.5
+cell:A1:t:Mixed Borders - Different Styles:b:1:2:3:4
+sheet:c:1:r:1
+border:1:1px solid rgb(0,0,0)
+border:2:2px dashed rgb(255,0,0)
+border:3:1px dotted rgb(0,0,255)
+border:4:3px double rgb(0,255,0)

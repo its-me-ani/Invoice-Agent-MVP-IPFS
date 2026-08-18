@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}" type="text/css" />
+<script type="text/javascript">
+    window.onload = function () {
+        // Short delay to allow the UI to render briefly (optional, or just alert immediately)
+        setTimeout(function () {
+            alert("Registration is complete. Please login with your email.");
+            window.location.href = "{{ url_for('login_get') }}";
+        }, 100);
+    };
+</script>
+{% endblock %}
+
+{% block body %}
+<div class="auth-container">
+    <!-- Left Side: Illustration -->
+    <div class="auth-illustration" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+        <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="gradSuccess" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0.6" />
+                    <stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:0.2" />
+                </linearGradient>
+            </defs>
+            <path
+                d="M42.2,-72.6C54.8,-66,65.2,-54.6,73.5,-41.8C81.8,-29,88.1,-14.8,87.6,-0.8C87,13.2,79.6,26.9,70.5,39.1C61.3,51.3,50.3,62,37.8,69.5C25.3,76.9,11.3,81.2,-2.2,84.9C-15.7,88.7,-29.1,92,-40.8,85C-52.6,78,-62.7,60.8,-70.7,44.7C-78.7,28.6,-84.6,13.6,-83.4,-0.7C-82.2,-15,-73.9,-28.7,-64.2,-41.2C-54.5,-53.7,-43.4,-65,-30.9,-71.7C-18.4,-78.4,-4.5,-80.5,8.1,-78.3"
+                transform="translate(250 200) scale(2.2)" fill="url(#gradSuccess)" />
+            <!-- Checkmark Icon -->
+            <circle cx="250" cy="200" r="60" fill="none" stroke="#fff" stroke-width="4" />
+            <polyline points="210,200 240,230 290,170" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+    </div>
+
+    <!-- Right Side: Content -->
+    <div class="auth-form-container">
+        <div class="auth-form-header">
+            <h1 class="auth-title">Registration Complete</h1>
+            <p class="auth-subtitle">Your account has been successfully created.</p>
+        </div>
+
+        <div style="text-align: center; margin: 2rem 0;">
+            <p>Redirecting to login...</p>
+        </div>
+
+        <div class="auth-footer">
+            <a href="{{ url_for('login_get') }}" class="btn-primary"
+                style="text-decoration:none; display:inline-block; width:auto; padding: 0.75rem 2rem;">Click here if not
+                redirected</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

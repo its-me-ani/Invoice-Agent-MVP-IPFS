@@ -1,0 +1,719 @@
+DIMENSIONS AND MERGING SYNTAX - COMPLETE REFERENCE
+================================================================
+
+OVERVIEW
+--------
+This document describes cell merging using colspan and rowspan attributes, and column width control using col width declarations in SocialCalc format version 1.5. Cell merging combines multiple cells into a single visual cell spanning multiple columns or rows. Column width control sets pixel widths for individual columns to create professional document layouts with proper margins and spacing.
+
+CORE SYNTAX
+-----------
+
+CELL MERGE SYNTAX
+cell:COORD:t:TEXT:colspan:N
+cell:COORD:t:TEXT:rowspan:N
+cell:COORD:t:TEXT:colspan:N:rowspan:M
+
+COLUMN WIDTH SYNTAX
+col:LETTER:w:PIXELS
+
+PARAMETERS
+- COORD: Cell coordinate (A1, B2, etc)
+- TEXT: Cell content text
+- N, M: Positive integers (must be >= 1)
+- LETTER: Column letter (A, B, C, etc)
+- PIXELS: Width in pixels (positive integer)
+
+MERGE ATTRIBUTES
+----------------
+
+COLSPAN (Horizontal Merge)
+Spans cells horizontally across columns.
+Value N means cell occupies N columns.
+All cells to the right must be marked empty.
+
+Example colspan:2
+cell:A1:t:Header:colspan:2
+cell:B1:t:
+Result: A1 spans across A1 and B1 (2 columns total)
+
+Example colspan:3
+cell:A1:t:Title:colspan:3
+cell:B1:t:
+cell:C1:t:
+Result: A1 spans A1, B1, C1 (3 columns total)
+
+ROWSPAN (Vertical Merge)
+Spans cells vertically across rows.
+Value N means cell occupies N rows.
+All cells below must be marked empty.
+
+Example rowspan:2
+cell:A1:t:Label:rowspan:2
+cell:A2:t:
+Result: A1 spans across A1 and A2 (2 rows total)
+
+Example rowspan:3
+cell:A1:t:Sidebar:rowspan:3
+cell:A2:t:
+cell:A3:t:
+Result: A1 spans A1, A2, A3 (3 rows total)
+
+COMBINED MERGE (colspan + rowspan)
+Creates rectangular merged area spanning both columns and rows.
+Order: colspan must come before rowspan.
+All covered cells must be marked empty.
+
+Calculation: For colspan:X rowspan:Y, mark (X × Y) - 1 cells as empty.
+
+Example 2x2 merge
+cell:A1:t:Block:colspan:2:rowspan:2
+cell:B1:t:
+cell:A2:t:
+cell:B2:t:
+Result: A1 covers A1, B1, A2, B2 (4 cells total, 3 marked empty)
+
+Example 3x3 merge
+cell:A1:t:Large:colspan:3:rowspan:3
+cell:B1:t:
+cell:C1:t:
+cell:A2:t:
+cell:B2:t:
+cell:C2:t:
+cell:A3:t:
+cell:B3:t:
+cell:C3:t:
+Result: A1 covers 9 cells total, 8 marked empty
+
+EMPTY CELL MARKING
+------------------
+When a cell is covered by a merge, it must be explicitly defined with empty content.
+Empty cell syntax: cell:COORD:t:
+The :t: separator is followed immediately by nothing or newline.
+This marks the cell as occupied by the merge but not containing independent content.
+
+Pattern for 2x2 merge at A1:
+cell:A1:t:Content:colspan:2:rowspan:2  (anchor cell with content and merge attributes)
+cell:B1:t:                             (empty - covered horizontally)
+cell:A2:t:                             (empty - covered vertically)
+cell:B2:t:                             (empty - covered diagonally)
+
+COLUMN WIDTH CONTROL
+--------------------
+
+MARGIN COLUMN (Column A)
+Always reserve column A as left margin.
+Width: 25-30 pixels
+Purpose: Visual spacing and professional document layout
+Never place content in column A
+
+Syntax:
+col:A:w:30
+
+CONTENT START POSITION
+Content must start at cell B2.
+Row 1 is reserved for top margin.
+Column A is reserved for left margin.
+This creates professional document spacing.
+
+Starting position pattern:
+col:A:w:30
+cell:B2:t:Title
+
+COLUMN WIDTH VALUES
+Width values in pixels based on content type.
+
+Short identifiers or numbers: 60-80 pixels
+col:B:w:60
+
+Short labels like days or quarters: 80-100 pixels
+col:B:w:80
+
+Standard text like names or dates: 100-150 pixels
+col:C:w:120
+
+Long text like addresses or titles: 150-250 pixels
+col:D:w:200
+
+Descriptions or detailed content: 250-400 pixels
+col:E:w:300
+
+Email addresses: 250-300 pixels
+col:F:w:250
+
+MULTIPLE COLUMN WIDTHS
+Define width for each visible column.
+Each column gets separate col declaration.
+
+Example table with varying widths:
+col:A:w:30
+col:B:w:100
+col:C:w:200
+col:D:w:150
+
+Example equal width columns:
+col:A:w:30
+col:B:w:120
+col:C:w:120
+col:D:w:120
+col:E:w:120
+
+MERGE CALCULATION FORMULAS
+---------------------------
+
+EMPTY CELLS REQUIRED
+For merge with colspan:X rowspan:Y
+Total cells in merge area: X × Y
+Empty cells to mark: (X × Y) - 1
+
+Examples:
+2x1 merge: (2 × 1) - 1 = 1 empty cell
+1x2 merge: (1 × 2) - 1 = 1 empty cell
+2x2 merge: (2 × 2) - 1 = 3 empty cells
+3x3 merge: (3 × 3) - 1 = 8 empty cells
+4x2 merge: (4 × 2) - 1 = 7 empty cells
+5x5 merge: (5 × 5) - 1 = 24 empty cells
+10x1 merge: (10 × 1) - 1 = 9 empty cells
+1x12 merge: (1 × 12) - 1 = 11 empty cells
+
+COVERED CELLS IDENTIFICATION
+For merge starting at cell with coordinate (column C, row R):
+colspan:X means columns C through C+(X-1) are covered
+rowspan:Y means rows R through R+(Y-1) are covered
+
+Example: Cell B3 with colspan:3 rowspan:2
+Columns covered: B, C, D (3 columns)
+Rows covered: 3, 4 (2 rows)
+Cells to mark empty: C3, D3, B4, C4, D4 (5 cells)
+
+COMPLETE EXAMPLES
+-----------------
+
+EXAMPLE 1: Simple Horizontal Merge
+Merge 2 columns in row 1
+cell:A1:t:Header Title:colspan:2
+cell:B1:t:
+sheet:c:2:r:1
+
+EXAMPLE 2: Simple Vertical Merge
+Merge 2 rows in column A
+cell:A1:t:Category Label:rowspan:2
+cell:A2:t:
+sheet:c:1:r:2
+
+EXAMPLE 3: 2x2 Block Merge
+Create 2x2 merged block at A1
+cell:A1:t:Main Content:colspan:2:rowspan:2
+cell:B1:t:
+cell:A2:t:
+cell:B2:t:
+sheet:c:2:r:2
+
+EXAMPLE 4: Table with Merged Header
+Header spans 4 columns, data cells below
+cell:A1:t:Report Header:colspan:4
+cell:B1:t:
+cell:C1:t:
+cell:D1:t:
+cell:A2:t:Data 1
+cell:B2:t:Data 2
+cell:C2:t:Data 3
+cell:D2:t:Data 4
+sheet:c:4:r:2
+
+EXAMPLE 5: Sidebar Layout
+Left label spans 4 rows, items beside
+cell:A1:t:Navigation:rowspan:4
+cell:A2:t:
+cell:A3:t:
+cell:A4:t:
+cell:B1:t:Home
+cell:B2:t:About
+cell:B3:t:Services
+cell:B4:t:Contact
+sheet:c:2:r:4
+
+EXAMPLE 6: Complex Layout with Multiple Merges
+Title spans 3 columns, left sidebar spans 2 rows, mixed content
+cell:A1:t:Page Title:colspan:3
+cell:B1:t:
+cell:C1:t:
+cell:A2:t:Sidebar:rowspan:2
+cell:A3:t:
+cell:B2:t:Content Area
+cell:C2:t:Info
+cell:B3:t:More Content
+cell:C3:t:More Info
+sheet:c:3:r:3
+
+EXAMPLE 7: Invoice Header with Wide Item Column
+Header spans 6 columns, item description spans 3 columns
+cell:A1:t:Invoice Number 12345:colspan:6
+cell:B1:t:
+cell:C1:t:
+cell:D1:t:
+cell:E1:t:
+cell:F1:t:
+cell:A2:t:Date
+cell:B2:t:Item Description:colspan:3
+cell:C2:t:
+cell:D2:t:
+cell:E2:t:Quantity
+cell:F2:t:Price
+sheet:c:6:r:2
+
+EXAMPLE 8: Dashboard with Metric Cards
+4x4 grid with four 2x2 merged blocks
+cell:A1:t:Sales Total:colspan:2:rowspan:2
+cell:B1:t:
+cell:A2:t:
+cell:B2:t:
+cell:C1:t:Revenue:colspan:2:rowspan:2
+cell:D1:t:
+cell:C2:t:
+cell:D2:t:
+cell:A3:t:Customers:colspan:2:rowspan:2
+cell:B3:t:
+cell:A4:t:
+cell:B4:t:
+cell:C3:t:Growth:colspan:2:rowspan:2
+cell:D3:t:
+cell:C4:t:
+cell:D4:t:
+sheet:c:4:r:4
+
+EXAMPLE 9: Weekly Calendar
+Week label spans 7 days
+cell:A1:t:Week of January 1-7:colspan:7
+cell:B1:t:
+cell:C1:t:
+cell:D1:t:
+cell:E1:t:
+cell:F1:t:
+cell:G1:t:
+cell:A2:t:Monday
+cell:B2:t:Tuesday
+cell:C2:t:Wednesday
+cell:D2:t:Thursday
+cell:E2:t:Friday
+cell:F2:t:Saturday
+cell:G2:t:Sunday
+sheet:c:7:r:2
+
+EXAMPLE 10: Daily Schedule
+Day label spans 7 time slots
+cell:A1:t:Monday Schedule:rowspan:7
+cell:A2:t:
+cell:A3:t:
+cell:A4:t:
+cell:A5:t:
+cell:A6:t:
+cell:A7:t:
+cell:B1:t:9:00 AM
+cell:B2:t:10:00 AM
+cell:B3:t:11:00 AM
+cell:B4:t:12:00 PM
+cell:B5:t:1:00 PM
+cell:B6:t:2:00 PM
+cell:B7:t:3:00 PM
+sheet:c:2:r:7
+
+EXAMPLE 11: Report with Sections
+Title spans 4 columns, sections span 2 columns each, total footer spans 4
+cell:A1:t:Quarterly Report:colspan:4
+cell:B1:t:
+cell:C1:t:
+cell:D1:t:
+cell:A2:t:Section A:colspan:2
+cell:B2:t:
+cell:C2:t:Section B:colspan:2
+cell:D2:t:
+cell:A3:t:Value 1
+cell:B3:t:Value 2
+cell:C3:t:Value 3
+cell:D3:t:Value 4
+cell:A4:t:Total Summary:colspan:4
+cell:B4:t:
+cell:C4:t:
+cell:D4:t:
+sheet:c:4:r:4
+
+EXAMPLE 12: Product Table with Column Widths
+Professional layout with margin starting at B2 and varying column widths
+version:1.5
+col:A:w:30
+col:B:w:80
+col:C:w:300
+col:D:w:100
+col:E:w:80
+cell:B2:t:Product Catalog:colspan:4
+cell:C2:t:
+cell:D2:t:
+cell:E2:t:
+cell:B3:t:Name
+cell:C3:t:Description
+cell:D3:t:Price
+cell:E3:t:Stock
+cell:B4:t:Widget A
+cell:C4:t:High quality widget for industrial use
+cell:D4:t:$49.99
+cell:E4:t:150
+sheet:c:5:r:5
+
+EXAMPLE 13: Dashboard with Equal Columns
+Margin at column A, equal metric columns starting at B2
+version:1.5
+col:A:w:25
+col:B:w:120
+col:C:w:120
+col:D:w:120
+col:E:w:120
+cell:B2:t:Performance Dashboard:colspan:4
+cell:C2:t:
+cell:D2:t:
+cell:E2:t:
+cell:B3:t:Sales
+cell:C3:t:Revenue
+cell:D3:t:Orders
+cell:E3:t:Customers
+cell:B4:t:1250
+cell:C4:t:$50000
+cell:D4:t:890
+cell:E4:t:456
+sheet:c:5:r:5
+
+EXAMPLE 14: Contact List with Wide Email
+Left margin, narrow ID, wide email column starting at B2
+version:1.5
+col:A:w:30
+col:B:w:60
+col:C:w:120
+col:D:w:120
+col:E:w:250
+col:F:w:120
+cell:B2:t:Contact Directory:colspan:5
+cell:C2:t:
+cell:D2:t:
+cell:E2:t:
+cell:F2:t:
+cell:B3:t:ID
+cell:C3:t:First
+cell:D3:t:Last
+cell:E3:t:Email
+cell:F3:t:Phone
+cell:B4:t:001
+cell:C4:t:John
+cell:D4:t:Smith
+cell:E4:t:john.smith@company.com
+cell:F4:t:555-0100
+sheet:c:6:r:5
+
+EXAMPLE 15: Invoice with Description Area
+Margin column, very wide description column starting at B2
+version:1.5
+col:A:w:30
+col:B:w:300
+col:C:w:80
+col:D:w:100
+cell:B2:t:Invoice
+cell:C2:t:INV-2024-001
+cell:B3:t:Description:colspan:2
+cell:C3:t:
+cell:D3:t:
+cell:B4:t:Product
+cell:C4:t:Qty
+cell:D4:t:Price
+cell:B5:t:Professional consulting services for project planning
+cell:C5:t:10
+cell:D5:t:$150.00
+sheet:c:4:r:6
+
+EXAMPLE 16: Web Layout with Sidebar
+Margin, narrow navigation sidebar, wide content area starting at B2
+version:1.5
+col:A:w:30
+col:B:w:120
+col:C:w:200
+col:D:w:200
+col:E:w:200
+cell:B2:t:Site Navigation:rowspan:4
+cell:B3:t:
+cell:B4:t:
+cell:B5:t:
+cell:C2:t:Main Content Area:colspan:3:rowspan:3
+cell:D2:t:
+cell:E2:t:
+cell:C3:t:
+cell:D3:t:
+cell:E3:t:
+cell:C4:t:
+cell:D4:t:
+cell:E4:t:
+cell:C5:t:Footer Section:colspan:3
+cell:D5:t:
+cell:E5:t:
+sheet:c:5:r:6
+
+COMMON USE CASES
+----------------
+
+REPORTS AND DOCUMENTS
+Title headers spanning full width
+Section headers spanning multiple columns
+Summary footers spanning full width
+Category labels spanning multiple rows
+Use colspan for headers and footers
+Use rowspan for category labels
+
+CALENDARS AND SCHEDULES
+Week or month headers spanning all days
+Day labels spanning time slots
+Event blocks spanning multiple time periods
+Use colspan for date ranges
+Use rowspan for time duration
+
+INVOICES AND FORMS
+Company information blocks
+Item description fields
+Address blocks
+Terms and conditions sections
+Use colspan for wide text areas
+Use rowspan for logo or label areas
+
+DASHBOARDS AND LAYOUTS
+Navigation sidebars
+Content areas
+Metric cards and panels
+Header and footer bars
+Use colspan and rowspan together for complex layouts
+Use equal widths for balanced grids
+
+TABLES AND DATA
+Grouped column headers
+Category row headers
+Merged cells for better visual organization
+Spanning summary rows
+Use colspan for column groups
+Use rowspan for hierarchical row labels
+
+ERROR PATTERNS TO AVOID
+-----------------------
+
+MISSING EMPTY CELL MARKERS
+Wrong: cell:A1:t:Text:colspan:2
+Missing: cell:B1:t:
+Correct: Include empty cell marker for B1
+
+WRONG EMPTY CELL COORDINATE
+Wrong: cell:A1:t:Text:colspan:2 then cell:C1:t:
+Correct: cell:A1:t:Text:colspan:2 then cell:B1:t:
+Empty cells must be immediately adjacent to merge
+
+INCOMPLETE EMPTY CELL COVERAGE
+Wrong: cell:A1:t:Text:colspan:2:rowspan:2 then only cell:B1:t:
+Missing: cell:A2:t: and cell:B2:t:
+Correct: Mark all 3 cells B1, A2, B2 as empty
+
+ZERO OR NEGATIVE VALUES
+Wrong: cell:A1:t:Text:colspan:0
+Wrong: cell:A1:t:Text:rowspan:-1
+Correct: Use positive integers only (1 or greater)
+
+NON-NUMERIC VALUES
+Wrong: cell:A1:t:Text:colspan:two
+Wrong: cell:A1:t:Text:rowspan:abc
+Correct: Use numeric digits only
+
+MISSING ATTRIBUTE VALUES
+Wrong: cell:A1:t:Text:colspan
+Wrong: cell:A1:t:Text:colspan:
+Correct: cell:A1:t:Text:colspan:2
+
+WRONG ATTRIBUTE ORDER
+Wrong: cell:A1:t:Text:rowspan:2:colspan:3
+Correct: cell:A1:t:Text:colspan:3:rowspan:2
+Colspan must come before rowspan
+
+INVALID ATTRIBUTE NAMES
+Wrong: cell:A1:t:Text:columnspan:2
+Wrong: cell:A1:t:Text:colmerge:2
+Correct: Use colspan or rowspan exactly
+
+TRAILING OR DOUBLE COLONS
+Wrong: cell:A1:t:Text:colspan:2:
+Wrong: cell:A1:t:Text::colspan:2
+Correct: Single colon between attributes, no trailing colon
+
+CONTENT IN MARGIN COLUMN
+Wrong: cell:A1:t:Title
+Correct: cell:B2:t:Title with col:A:w:30
+
+STARTING AT WRONG POSITION
+Wrong: cell:A1:t:Title when using margins
+Correct: cell:B2:t:Title with col:A:w:30
+
+VALIDATION RULES
+----------------
+
+COLSPAN VALIDATION
+Must be positive integer
+Minimum value 1 (but 1 means no merge)
+Typical values 2 through 12
+All horizontally covered cells must be marked empty
+
+ROWSPAN VALIDATION
+Must be positive integer
+Minimum value 1 (but 1 means no merge)
+Typical values 2 through 12
+All vertically covered cells must be marked empty
+
+COMBINED MERGE VALIDATION
+Both colspan and rowspan must be positive integers
+Colspan attribute must appear before rowspan attribute
+Total covered cells (X × Y) must all be defined
+Exactly (X × Y) - 1 cells must be marked empty
+
+COLUMN WIDTH VALIDATION
+Width value must be positive integer
+Typical range 25 to 400 pixels
+Column A should always be 25-30 pixels for margin
+All visible columns should have width defined
+
+LAYOUT VALIDATION
+Column A reserved for margin (no content)
+Row 1 reserved for top margin (no content)
+Content starts at B2 or later
+Sheet dimensions must cover all defined cells
+
+SHEET DIMENSION VALIDATION
+sheet:c:X:r:Y where X and Y are positive integers
+Column count X must be >= highest column used
+Row count Y must be >= highest row used
+Include margin column in count
+
+TECHNICAL SPECIFICATIONS
+------------------------
+
+FORMAT VERSION
+SocialCalc format version 1.5
+Line-based text format
+Cell definitions one per line
+Column width definitions one per line
+
+CELL COORDINATE SYSTEM
+Column: Letters A through Z, then AA, AB, etc
+Row: Numbers starting at 1
+Coordinate format: LETTER + NUMBER (A1, B2, AA10)
+
+ATTRIBUTE SYNTAX
+Colon-delimited key-value pairs
+Format: attributename:value
+Multiple attributes chained with colons
+Order matters for colspan and rowspan
+
+TEXT CONTENT
+Prefix with t: for text type
+Text appears between :t: and next : or end of line
+Empty text: :t: with nothing after
+Special characters allowed in text content
+
+MERGE BOUNDARIES
+Merges cannot overlap
+Each cell can only be part of one merge
+Merged cell is defined by anchor cell plus empty markers
+Anchor cell contains merge attributes and content
+
+RENDERING BEHAVIOR
+Merged cell displays content from anchor cell
+Empty cells in merge area display nothing
+Visual boundary spans all covered cells
+Content typically centered or aligned within merged area
+
+COLUMN WIDTH BEHAVIOR
+Width applies to entire column
+All cells in column inherit width
+Default width used if not specified
+Width in pixels determines visual column size
+
+MARGIN BEHAVIOR
+Column A width creates left document margin
+Row 1 creates top document margin
+Margins provide visual spacing
+Content never placed in margin cells
+
+TRAINING DATASET INFORMATION
+----------------------------
+
+TOTAL EXAMPLES: 60 validated positive examples
+COVERAGE: Horizontal merges, vertical merges, combined merges, small to large merges, complex layouts, column widths, margins
+VALIDATION: 100% valid syntax
+NEGATIVE EXAMPLES: 10 invalid examples for error testing
+
+EXAMPLE CATEGORIES:
+Examples 1-10: Basic merges (2x1, 1x2, 2x2, 3x1, 1x3, 3x3)
+Examples 11-20: Table structures (row merges, column merges, grids)
+Examples 21-30: Business layouts (invoices, headers, reports, calendars, dashboards)
+Examples 31-40: Large merges (8+ columns/rows, nested structures)
+Examples 41-50: Extra large merges (10-12 columns/rows, complex web layouts)
+Examples 51-60: Column width control (margins, varying widths, professional layouts)
+
+MERGE SIZE RANGE:
+Minimum: 2x1 or 1x2 (2 cells total)
+Maximum: 12x1 or 1x12 (12 cells total)
+Square: Up to 5x5 (25 cells total)
+Rectangular: Up to 6x5 (30 cells total)
+
+USE CASE COVERAGE:
+Reports, invoices, calendars, schedules, dashboards, tables, forms, web layouts, navigation structures, content management, data presentation
+
+WHEN TO USE EACH FEATURE
+-------------------------
+
+USE COLSPAN WHEN:
+Creating header rows that span multiple columns
+Merging title cells across table width
+Creating wide text entry areas
+Grouping related columns under single label
+Building banner or title areas
+Spanning navigation items horizontally
+
+USE ROWSPAN WHEN:
+Creating sidebar labels that span multiple rows
+Merging category cells down table height
+Building vertical navigation menus
+Creating tall logo or image areas
+Grouping related rows under single category
+Spanning time slots vertically in schedules
+
+USE COMBINED MERGE WHEN:
+Creating large content blocks (dashboards, cards)
+Building complex layouts with multiple sections
+Merging both width and height for visual emphasis
+Creating grid-based designs with featured areas
+Building meeting room or schedule blocks
+Designing form sections or panels
+
+USE COLUMN WIDTHS WHEN:
+Creating professional document layouts
+Needing different widths for different content types
+Building tables with ID, name, description columns
+Creating forms with labels and input areas
+Designing dashboards with metrics
+Establishing consistent margins and spacing
+
+USE MARGINS WHEN:
+Creating professional documents
+Needing visual breathing room
+Separating content from page edges
+Following standard document layout practices
+Building print-ready layouts
+Maintaining consistent design spacing
+
+PRACTICAL DECISION GUIDE:
+Single row of merged cells: Use colspan only
+Single column of merged cells: Use rowspan only
+Block area spanning both dimensions: Use colspan and rowspan together
+Different column needs different widths: Define column widths
+Professional document: Always use column A margin
+Complex layout: Combine merges with column widths
+
+END OF DOCUMENT

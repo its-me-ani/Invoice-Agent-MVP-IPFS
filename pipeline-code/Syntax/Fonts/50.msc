@@ -1,0 +1,8 @@
+version:1.5
+cell:A1:t:Company Logo:f:1
+cell:A2:t:Your Trusted Partner:f:2
+cell:A3:t:Contact\c info@company.com:f:3
+sheet:c:1:r:3
+font:1:normal bold 32pt Impact,sans-serif
+font:2:italic normal 14pt Arial
+font:3:normal normal 10pt Verdana

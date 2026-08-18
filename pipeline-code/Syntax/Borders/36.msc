@@ -1,0 +1,6 @@
+version:1.5
+cell:A1:t:Grid Pattern Top:b:1:1:0:1
+cell:A2:t:Grid Pattern Middle:b:0:1:0:1
+cell:A3:t:Grid Pattern Bottom:b:0:1:1:1
+sheet:c:1:r:3
+border:1:1px solid rgb(0,0,0)

@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:v:0.5:ntvf:1\ncell:A2:v:0.25:ntvf:1\ncell:A3:v:0.75:ntvf:1\nsheet:c:1:r:3\nvalueformat:1:0.00%"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+version:1.5
+cell:A1:t:Large Padding:l:1
+cell:B1:t:Small Padding:l:2
+sheet:c:2:r:1
+layout:1:padding:30px 30px 30px 30px;vertical-align:middle;
+layout:2:padding:2px 2px 2px 2px;vertical-align:*;

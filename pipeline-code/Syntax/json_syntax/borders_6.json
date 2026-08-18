@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Mixed Borders - Different Styles:b:1:2:3:4\nsheet:c:1:r:1\nborder:1:1px solid rgb(0,0,0)\nborder:2:2px dashed rgb(255,0,0)\nborder:3:1px dotted rgb(0,0,255)\nborder:4:3px double rgb(0,255,0)"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

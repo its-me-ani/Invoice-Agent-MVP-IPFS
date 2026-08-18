@@ -1,0 +1,5 @@
+version:1.5
+cell:A1:t:Center + Middle:cf:1:l:1
+sheet:c:1:r:1
+cellformat:1:center
+layout:1:padding:* * * *;vertical-align:middle;

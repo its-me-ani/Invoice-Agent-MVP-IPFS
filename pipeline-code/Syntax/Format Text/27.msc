@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:<svg width="120" height="40"><text x="10" y="25" font-family="Arial" font-size="24" font-weight="bold" fill="#333">BrandName</text></svg>:tvf:1
+sheet:c:1:r:1
+valueformat:1:text-html

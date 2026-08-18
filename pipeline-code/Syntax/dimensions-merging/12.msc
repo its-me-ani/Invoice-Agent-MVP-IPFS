@@ -1,0 +1,11 @@
+version:1.5
+cell:A1:t:Col A
+cell:B1:t:Merged Col:rowspan:3
+cell:B2:t:
+cell:B3:t:
+cell:C1:t:Col C
+cell:A2:t:Data A2
+cell:C2:t:Data C2
+cell:A3:t:Data A3
+cell:C3:t:Data C3
+sheet:c:3:r:3

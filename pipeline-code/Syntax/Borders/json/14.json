@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Multiple Cells with Borders:b:1:1:1:1\ncell:B1:t:Cell B1:b:1:1:1:1\ncell:A2:t:Cell A2:b:1:1:1:1\ncell:B2:t:Cell B2:b:1:1:1:1\nsheet:c:2:r:2\nborder:1:1px solid rgb(0,0,0)"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

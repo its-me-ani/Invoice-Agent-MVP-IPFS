@@ -1,0 +1,18 @@
+version:1.5
+cell:A1:t:Quarter Report:cf:1:l:1:colspan:4
+cell:A2:t:Q1:cf:1:l:2
+cell:B2:t:Q2:cf:1:l:2
+cell:C2:t:Q3:cf:1:l:2
+cell:D2:t:Q4:cf:1:l:2
+cell:A3:v:1250:cf:2:l:2
+cell:B3:v:1380:cf:2:l:2
+cell:C3:v:1420:cf:2:l:2
+cell:D3:v:1560:cf:2:l:2
+cell:A4:t:Total:cf:1:l:3
+cell:B4:v:5610:cf:2:l:3:colspan:3
+sheet:c:4:r:4
+cellformat:1:center
+cellformat:2:right
+layout:1:padding:15px * 10px *;vertical-align:middle;
+layout:2:padding:5px * * *;vertical-align:middle;
+layout:3:padding:10px * 5px *;vertical-align:bottom;

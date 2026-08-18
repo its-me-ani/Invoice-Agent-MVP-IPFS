@@ -1,0 +1,697 @@
+SOCIALCALC FONT PROPERTIES - COMPLETE REFERENCE
+
+SYNTAX STRUCTURE
+font:[number]:[style] [weight] [size] [family]
+
+REQUIRED COMPONENTS
+1. Font Number: Integer identifier starting from 1
+2. Style: First component after font number
+3. Weight: Second component after font number
+4. Size: Third component after font number
+5. Family: Fourth component after font number, can include fallback chain
+
+COMPONENT SEPARATION
+Components separated by single space
+No commas between style weight size family
+Colons used for font number prefix only
+
+FONT STYLE VALUES
+normal - Standard upright text
+italic - Slanted text style
+* - Wildcard accepting any value or default
+
+INVALID STYLES
+oblique, slanted, underline, cursive, slant, roman
+
+FONT WEIGHT VALUES
+normal - Regular weight text
+bold - Heavy weight text
+* - Wildcard accepting any value or default
+
+INVALID WEIGHTS
+bolder, lighter, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900
+
+FONT SIZE VALUES
+Point sizes: 6pt 8pt 9pt 10pt 12pt 14pt 16pt 18pt 20pt 24pt 32pt 36pt 48pt 72pt
+Pixel sizes: 8px 10px 12px 14px 16px 18px 20px 24px 32px 36px
+Named sizes: small medium large x-large
+Wildcard: *
+
+SIZE UNITS MUST BE INCLUDED
+pt for points
+px for pixels
+Named sizes without units
+
+FONT FAMILY VALUES
+Sans-serif: Arial Helvetica Verdana Tahoma sans-serif
+Serif: Times New Roman Georgia Palatino Garamond serif
+Monospace: Courier New Courier monospace
+Display: Impact
+Cursive: Comic Sans MS cursive
+Generic: * (wildcard)
+
+FONT FAMILIES WITH SPACES
+Enclose in single quotes
+Times New Roman becomes 'Times New Roman'
+Comic Sans MS becomes 'Comic Sans MS'
+Courier New becomes 'Courier New'
+Palatino Linotype becomes 'Palatino Linotype'
+Trebuchet MS becomes 'Trebuchet MS'
+
+FONT FALLBACK CHAINS
+Multiple families separated by commas
+Arial,Helvetica,sans-serif
+'Times New Roman',Times,serif
+'Courier New',Courier,monospace
+Verdana,Geneva,sans-serif
+Georgia,serif
+Tahoma,sans-serif
+
+CELL APPLICATION
+Use f: attribute in cell definition
+f:[number] refers to defined font
+Cell must reference existing font number
+Example: cell:A1:t:Text:f:1 requires font:1:... definition
+
+FONT DEFINITION PLACEMENT
+Font definitions placed after sheet definition
+Font definitions before or after cell definitions
+All fonts defined before sheet close
+Multiple font definitions allowed
+
+MULTIPLE FONTS IN DOCUMENT
+Each font gets unique number
+font:1:normal bold 14pt Arial
+font:2:italic normal 12pt Verdana
+font:3:normal normal 10pt 'Courier New',monospace
+Cells reference specific font numbers
+
+COMPLETE EXAMPLES
+
+Example 1 Bold Text
+version:1.5
+cell:A1:t:Bold Text:f:1
+sheet:c:1:r:1
+font:1:normal bold 12pt Arial
+
+Example 2 Italic Text
+version:1.5
+cell:A1:t:Italic Text:f:1
+sheet:c:1:r:1
+font:1:italic normal 12pt Arial
+
+Example 3 Bold Italic Combined
+version:1.5
+cell:A1:t:Bold Italic:f:1
+sheet:c:1:r:1
+font:1:italic bold 12pt Arial
+
+Example 4 Large Font Size
+version:1.5
+cell:A1:t:Large Font:f:1
+sheet:c:1:r:1
+font:1:normal normal 18pt Arial
+
+Example 5 Small Font Size
+version:1.5
+cell:A1:t:Small Font:f:1
+sheet:c:1:r:1
+font:1:normal normal 8pt Arial
+
+Example 6 Serif Font Family
+version:1.5
+cell:A1:t:Times New Roman:f:1
+sheet:c:1:r:1
+font:1:normal normal 12pt 'Times New Roman',serif
+
+Example 7 Sans-serif Font
+version:1.5
+cell:A1:t:Verdana Font:f:1
+sheet:c:1:r:1
+font:1:normal normal 12pt Verdana,sans-serif
+
+Example 8 Monospace Font
+version:1.5
+cell:A1:t:Courier Font:f:1
+sheet:c:1:r:1
+font:1:normal normal 12pt 'Courier New',monospace
+
+Example 9 Named Size Value
+version:1.5
+cell:A1:t:X-Large Size:f:1
+sheet:c:1:r:1
+font:1:normal normal x-large Arial
+
+Example 10 Pixel Size Unit
+version:1.5
+cell:A1:t:Pixel Size:f:1
+sheet:c:1:r:1
+font:1:normal normal 14px Arial
+
+Example 11 Wildcard Style
+version:1.5
+cell:A1:t:Wildcard Style:f:1
+sheet:c:1:r:1
+font:1:* bold 12pt Arial
+
+Example 12 Wildcard Weight
+version:1.5
+cell:A1:t:Wildcard Weight:f:1
+sheet:c:1:r:1
+font:1:italic * 12pt Arial
+
+Example 13 Wildcard Size
+version:1.5
+cell:A1:t:Wildcard Size:f:1
+sheet:c:1:r:1
+font:1:normal bold * Arial
+
+Example 14 Wildcard Family
+version:1.5
+cell:A1:t:Wildcard Family:f:1
+sheet:c:1:r:1
+font:1:normal bold 12pt *
+
+Example 15 All Wildcards
+version:1.5
+cell:A1:t:All Wildcards:f:1
+sheet:c:1:r:1
+font:1:* * * *
+
+Example 16 Multiple Fonts Two Cells
+version:1.5
+cell:A1:t:Multiple Fonts:f:1
+cell:B1:t:Different Style:f:2
+sheet:c:2:r:1
+font:1:normal bold 14pt Arial
+font:2:italic normal 12pt Verdana
+
+Example 17 Three Cell Typography
+version:1.5
+cell:A1:t:Header:f:1
+cell:A2:t:Body Text:f:2
+cell:A3:t:Footer:f:3
+sheet:c:1:r:3
+font:1:normal bold 18pt Arial
+font:2:normal normal 12pt Arial
+font:3:italic normal 10pt Arial
+
+Example 18 Font Stack With Fallbacks
+version:1.5
+cell:A1:t:Arial Helvetica Sans:f:1
+sheet:c:1:r:1
+font:1:normal normal 12pt Arial,Helvetica,sans-serif
+
+Example 19 Complex Serif Stack
+version:1.5
+cell:A1:t:Bold Times:f:1
+sheet:c:1:r:1
+font:1:normal bold 14pt 'Times New Roman',Times,serif
+
+Example 20 Monospace Stack
+version:1.5
+cell:A1:t:Italic Courier:f:1
+sheet:c:1:r:1
+font:1:italic normal 12pt 'Courier New',Courier,monospace
+
+Example 21 Bold Italic Large Combined
+version:1.5
+cell:A1:t:Bold Italic Large:f:1
+sheet:c:1:r:1
+font:1:italic bold 18pt Verdana,Geneva,sans-serif
+
+Example 22 Table Header Body Pattern
+version:1.5
+cell:A1:t:Table Header:f:1
+cell:B1:t:Column 2:f:1
+cell:A2:t:Data Row:f:2
+cell:B2:t:Value:f:2
+sheet:c:2:r:2
+font:1:normal bold 14pt Arial
+font:2:normal normal 12pt Arial
+
+Example 23 Four Level Typography
+version:1.5
+cell:A1:t:Title:f:1
+cell:A2:t:Subtitle:f:2
+cell:A3:t:Content:f:3
+cell:A4:t:Note:f:4
+sheet:c:1:r:4
+font:1:normal bold 20pt Arial
+font:2:italic normal 16pt Arial
+font:3:normal normal 12pt Arial
+font:4:italic normal 10pt 'Times New Roman',serif
+
+Example 24 Form Label Input Pattern
+version:1.5
+cell:A1:t:Form Label:f:1
+cell:B1:t:User Input:f:2
+sheet:c:2:r:1
+font:1:normal bold 12pt Arial
+font:2:normal normal 12pt 'Courier New',monospace
+
+Example 25 Priority Hierarchy
+version:1.5
+cell:A1:t:Priority High:f:1
+cell:A2:t:Priority Medium:f:2
+cell:A3:t:Priority Low:f:3
+sheet:c:1:r:3
+font:1:normal bold 14pt Arial
+font:2:normal bold 12pt Arial
+font:3:normal normal 10pt Arial
+
+Example 26 Book Typography
+version:1.5
+cell:A1:t:Book Title:f:1
+cell:A2:t:Chapter 1:f:2
+cell:A3:t:Lorem ipsum dolor sit amet:f:3
+sheet:c:1:r:3
+font:1:normal bold 24pt Georgia,serif
+font:2:italic bold 16pt Georgia,serif
+font:3:normal normal 12pt Georgia,serif
+
+Example 27 Code Comment Pattern
+version:1.5
+cell:A1:t:Code Comment:f:1
+cell:A2:t:function calculate():f:2
+sheet:c:1:r:2
+font:1:italic normal 10pt 'Courier New',monospace
+font:2:normal normal 12pt 'Courier New',monospace
+
+Example 28 Branding Layout
+version:1.5
+cell:A1:t:Company Logo:f:1
+cell:A2:t:Your Trusted Partner:f:2
+cell:A3:t:Contact\c info@company.com:f:3
+sheet:c:1:r:3
+font:1:normal bold 32pt Impact,sans-serif
+font:2:italic normal 14pt Arial
+font:3:normal normal 10pt Verdana
+
+Example 29 Extremely Small Font
+version:1.5
+cell:A1:t:6pt Font:f:1
+sheet:c:1:r:1
+font:1:normal normal 6pt Arial
+
+Example 30 Large Display Size
+version:1.5
+cell:A1:t:72pt Font:f:1
+sheet:c:1:r:1
+font:1:normal normal 72pt Arial
+
+FONT WITH COLOR COMBINATION
+Fonts can combine with color definitions
+Use c: attribute alongside f: attribute
+Color defined separately with color: line
+Example combining font and color:
+version:1.5
+cell:A1:t:Red Text:f:1:c:1
+sheet:c:1:r:1
+font:1:normal normal 12pt Arial
+color:1:rgb(255,0,0)
+
+COMMON ERROR PATTERNS
+
+Error Pattern 1 Missing Font Definition
+cell:A1:t:Text:f:5
+No font:5 definition exists
+Fix: Add font:5:normal bold 12pt Arial
+
+Error Pattern 2 Wrong Component Order
+font:1:12pt Arial bold normal
+Components not in style weight size family order
+Fix: font:1:normal bold 12pt Arial
+
+Error Pattern 3 Invalid Style Value
+font:1:oblique bold 12pt Arial
+font:1:slanted bold 12pt Arial
+Only normal italic or wildcard allowed
+Fix: font:1:italic bold 12pt Arial
+
+Error Pattern 4 Invalid Weight Value
+font:1:normal bolder 12pt Arial
+font:1:normal 700 12pt Arial
+Only normal bold or wildcard allowed
+Fix: font:1:normal bold 12pt Arial
+
+Error Pattern 5 Missing Size Unit
+font:1:normal bold 12 Arial
+Size needs pt or px unit
+Fix: font:1:normal bold 12pt Arial
+
+Error Pattern 6 Wrong Font Number Reference
+font:1:normal bold 12pt Arial
+cell:A1:t:Text:f:2
+Cell references font 2 but only font 1 defined
+Fix: cell:A1:t:Text:f:1
+
+Error Pattern 7 Missing Font Family
+font:1:normal bold 12pt
+Family component required
+Fix: font:1:normal bold 12pt Arial
+
+Error Pattern 8 Incomplete Definition
+font:1:bold Arial
+Missing style weight size
+Fix: font:1:normal bold 12pt Arial
+
+Error Pattern 9 Invalid Named Size
+font:1:normal bold huge Arial
+huge not valid named size
+Valid: small medium large x-large
+Fix: font:1:normal bold large Arial
+
+Error Pattern 10 Unquoted Font Name With Spaces
+font:1:normal bold 12pt Times New Roman
+Times New Roman has spaces needs quotes
+Fix: font:1:normal bold 12pt 'Times New Roman'
+
+USE CASE SCENARIOS
+
+Use Case 1 Document Headers
+Create bold larger fonts for titles
+Font size 18pt to 24pt
+Bold weight
+Arial or sans-serif family
+Example: font:1:normal bold 20pt Arial
+
+Use Case 2 Body Text
+Standard readable text
+Font size 10pt to 12pt
+Normal weight
+Arial Verdana or serif family
+Example: font:1:normal normal 12pt Arial
+
+Use Case 3 Code Snippets
+Monospace fonts for code
+Courier New primary choice
+Size 10pt to 12pt
+Example: font:1:normal normal 12pt 'Courier New',monospace
+
+Use Case 4 Emphasis
+Italic style for emphasis
+Keep size same as body
+Can combine with bold
+Example: font:1:italic normal 12pt Arial
+
+Use Case 5 Warnings Alerts
+Bold with larger size
+Red color combination
+Size 14pt or larger
+Example: font:1:normal bold 14pt Arial with color:1:rgb(255,0,0)
+
+Use Case 6 Fine Print Legal Text
+Smaller font size
+8pt to 10pt
+Italic optional
+Example: font:1:italic normal 10pt Arial
+
+Use Case 7 Display Headlines
+Very large sizes 32pt to 72pt
+Bold weight
+Impact or bold sans-serif
+Example: font:1:normal bold 48pt Impact,sans-serif
+
+Use Case 8 Form Labels
+Bold for labels
+Normal for input areas
+Same size different weights
+Example: font:1:normal bold 12pt Arial for labels, font:2:normal normal 12pt Arial for inputs
+
+Use Case 9 Table Headers
+Bold weight distinguishes from data
+Slightly larger than body
+Same family as data
+Example: font:1:normal bold 14pt Arial for headers, font:2:normal normal 12pt Arial for data
+
+Use Case 10 Footnotes References
+Smaller size than body
+Italic style optional
+8pt to 10pt typical
+Example: font:1:italic normal 9pt Arial
+
+Use Case 11 Book Typography
+Title large bold serif
+Chapter medium bold italic serif
+Body normal serif
+Example hierarchy with Georgia
+
+Use Case 12 Professional Documents
+Times New Roman or Georgia for formal
+12pt body text
+Bold for headings
+Example: 'Times New Roman',serif family
+
+Use Case 13 Modern Web Style
+Arial Helvetica sans-serif stack
+Multiple fallbacks
+Example: Arial,Helvetica,sans-serif
+
+Use Case 14 Technical Documentation
+Monospace for code
+Sans-serif for descriptions
+Clear size distinction
+Example: 'Courier New' for code, Arial for text
+
+Use Case 15 Marketing Materials
+Impact for headlines
+Varied sizes for hierarchy
+Bold emphasis throughout
+Example: Impact for titles, Arial for body
+
+WILDCARD USAGE PATTERNS
+
+Wildcard Style Allows Any
+font:1:* bold 12pt Arial
+Style can be normal or italic
+System chooses appropriate
+
+Wildcard Weight Allows Any
+font:1:italic * 12pt Arial
+Weight can be normal or bold
+System chooses appropriate
+
+Wildcard Size Allows Any
+font:1:normal bold * Arial
+Size determined by system defaults
+Useful for relative sizing
+
+Wildcard Family Allows Any
+font:1:normal bold 12pt *
+Family chosen by system
+Uses default font
+
+All Wildcards Maximum Flexibility
+font:1:* * * *
+All properties system determined
+Minimal specification
+
+SIZE RANGE GUIDELINES
+
+Minimum Readable Size
+6pt absolute minimum
+8pt more practical minimum
+Below 8pt difficult to read
+
+Standard Body Text Size
+10pt small body text
+12pt standard body text
+14pt large body text
+
+Heading Size Range
+16pt small heading
+18pt medium heading
+20pt large heading
+24pt extra large heading
+
+Display Size Range
+32pt small display
+48pt medium display
+72pt large display
+Above 72pt for posters
+
+Pixel Size Equivalents
+12px approximately 9pt
+14px approximately 10.5pt
+16px approximately 12pt
+18px approximately 13.5pt
+20px approximately 15pt
+
+FONT FAMILY RECOMMENDATIONS
+
+Sans-Serif Professional
+Arial standard professional
+Helvetica classic clean
+Verdana screen optimized
+Tahoma compact readable
+
+Serif Traditional
+Times New Roman formal traditional
+Georgia screen friendly serif
+Palatino elegant refined
+Garamond classic book style
+
+Monospace Technical
+Courier New standard monospace
+Courier classic typewriter
+Consolas modern coding font
+
+Display Impact
+Impact bold compressed
+Comic Sans casual friendly
+Trebuchet modern geometric
+
+FONT COMBINATION PATTERNS
+
+Pattern 1 Sans-Serif Hierarchy
+Title: Arial bold 20pt
+Subtitle: Arial bold 16pt
+Body: Arial normal 12pt
+Caption: Arial italic 10pt
+
+Pattern 2 Serif Document
+Title: Georgia bold 24pt
+Heading: Georgia bold 18pt
+Body: Georgia normal 12pt
+Note: Times italic 10pt
+
+Pattern 3 Mixed Technical
+Heading: Arial bold 16pt
+Body: Arial normal 12pt
+Code: Courier New normal 10pt
+Note: Arial italic 9pt
+
+Pattern 4 Modern Web
+Hero: Impact bold 48pt
+Subtitle: Arial italic 18pt
+Body: Verdana normal 12pt
+Link: Arial normal 12pt
+
+Pattern 5 Form Design
+Label: Arial bold 12pt
+Input: Courier New normal 12pt
+Help: Arial italic 10pt
+Button: Arial bold 14pt
+
+TECHNICAL SPECIFICATIONS
+
+Font Number Range
+Positive integers starting at 1
+No maximum limit defined
+Sequential numbering recommended
+Gaps allowed but discouraged
+
+Component Order Fixed
+Position 1: style normal italic or wildcard
+Position 2: weight normal bold or wildcard
+Position 3: size with unit or named or wildcard
+Position 4: family name or stack or wildcard
+
+Space Delimiter Required
+Single space between components
+No commas between style weight size family
+Commas only in font family fallback chain
+
+Quote Requirements
+Single quotes for names with spaces
+No quotes for single word names
+Quotes around entire name not each word
+
+Fallback Chain Syntax
+Comma separated family names
+No spaces after commas
+Generic family last in chain
+Example: Arial,Helvetica,sans-serif
+
+Multiple Font Definitions
+Each font separate line
+Independent numbering
+No dependencies between fonts
+All accessible from cells
+
+Cell Reference Mechanism
+f: attribute links cell to font
+Number after f: matches font number
+One font per cell
+Multiple cells can share font
+
+Color Independence
+Font and color separate properties
+Both can apply to same cell
+Font handles typography
+Color handles appearance
+
+VALIDATION RULES
+
+Font Number Must Exist
+Every f: reference needs matching font: definition
+Error if cell references undefined font number
+
+Style Must Be Valid
+Only normal italic or wildcard accepted
+Any other value causes error
+
+Weight Must Be Valid
+Only normal bold or wildcard accepted
+Numeric values not accepted
+
+Size Must Have Unit
+Point sizes need pt suffix
+Pixel sizes need px suffix
+Named sizes no suffix
+Wildcard no suffix
+
+Family Must Be Specified
+At least one family name required
+Can be wildcard
+Empty not allowed
+
+Component Count Check
+Minimum four components required
+style weight size family
+Less than four causes error
+
+Order Validation
+Components in fixed order
+Wrong order causes parsing error
+Cannot rearrange
+
+Quote Matching
+Opening quote needs closing quote
+Mismatched quotes cause error
+
+Fallback Chain Format
+Comma separated properly
+No syntax errors in chain
+
+50 POSITIVE TRAINING EXAMPLES INCLUDED
+Examples cover all font properties
+Style variations normal italic wildcard
+Weight variations normal bold wildcard
+Size ranges 6pt to 72pt and px units and named sizes
+Family options sans-serif serif monospace display cursive
+Wildcard patterns all combinations
+Multiple fonts in single document
+Font with color combinations
+Typography hierarchies
+Professional patterns
+
+10 NEGATIVE EXAMPLES DEMONSTRATING ERRORS
+Missing font definition error
+Wrong component order error
+Invalid style value error
+Invalid weight value error
+Missing size unit error
+Wrong font reference error
+Missing family error
+Incomplete definition error
+Invalid named size error
+Unquoted space name error
+
+COMPLETE DATASET VALIDATED
+All positive examples pass validation
+All negative examples produce expected errors
+Scripts provided for conversion and validation
+JSON and JSONL formats available
+Training data ready for LLM consumption

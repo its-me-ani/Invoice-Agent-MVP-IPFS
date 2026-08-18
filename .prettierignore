@@ -1,0 +1,6 @@
+# Ignore Jinja2 templates - formatters break the {{ }} syntax
+templates/
+*.html
+
+# Ignore vendor files
+static/vendor/

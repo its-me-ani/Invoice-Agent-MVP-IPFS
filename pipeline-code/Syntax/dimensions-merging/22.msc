@@ -1,0 +1,11 @@
+version:1.5
+cell:A1:t:Logo:rowspan:3
+cell:A2:t:
+cell:A3:t:
+cell:B1:t:Company Name
+cell:B2:t:Address Line 1
+cell:B3:t:Address Line 2
+cell:C1:t:Invoice
+cell:C2:t:Date
+cell:C3:t:Number
+sheet:c:3:r:3

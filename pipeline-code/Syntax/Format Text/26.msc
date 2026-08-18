@@ -1,0 +1,7 @@
+version:1.5
+cell:A1:t:<img src="https\c//example.com/signature.png" width="200" height="60" alt="Signature" />:tvf:1
+cell:A2:t:John Doe:tvf:2
+cell:A3:t:CEO:tvf:2
+sheet:c:1:r:3
+valueformat:1:text-html
+valueformat:2:text-plain

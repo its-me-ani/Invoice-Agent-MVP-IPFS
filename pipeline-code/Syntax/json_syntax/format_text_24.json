@@ -1,0 +1,11 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Invoice Header:tvf:1\ncell:B1:t:<svg width=\"80\" height=\"80\"><rect width=\"80\" height=\"80\" fill=\"#4A90E2\"/><circle cx=\"40\" cy=\"40\" r=\"30\" fill=\"white\"/><text x=\"40\" y=\"45\" fill=\"#4A90E2\" text-anchor=\"middle\" font-size=\"24\" font-weight=\"bold\">$</text></svg>:tvf:2\nsheet:c:2:r:1\nvalueformat:1:text-plain\nvalueformat:2:text-html\n"
+      }
+    }
+  }
+}

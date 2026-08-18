@@ -1,0 +1,23 @@
+version:1.5
+cell:B2:t:Report Title:colspan:4:rowspan:2
+cell:C2:t:
+cell:D2:t:
+cell:E2:t:
+cell:B3:t:
+cell:C3:t:
+cell:D3:t:
+cell:E3:t:
+cell:B4:t:Section A:colspan:2
+cell:C4:t:
+cell:D4:t:Section B:colspan:2
+cell:E4:t:
+cell:B5:t:Data 1
+cell:C5:t:Value 1
+cell:D5:t:Data 2
+cell:E5:t:Value 2
+sheet:c:5:r:6
+col:A:w:30
+col:B:w:150
+col:C:w:150
+col:D:w:150
+col:E:w:150

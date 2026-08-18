@@ -1,0 +1,11 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:<svg width=\"200\" height=\"100\" xmlns=\"http\\c//www.w3.org/2000/svg\"><rect width=\"200\" height=\"100\" fill=\"#2E86AB\"/><text x=\"100\" y=\"50\" font-family=\"Verdana\" font-size=\"28\" fill=\"white\" text-anchor=\"middle\" alignment-baseline=\"middle\">TechCorp</text><circle cx=\"30\" cy=\"30\" r=\"15\" fill=\"#A23B72\"/><circle cx=\"170\" cy=\"70\" r=\"15\" fill=\"#F18F01\"/></svg>:tvf:1\nsheet:c:1:r:1\nvalueformat:1:text-html\n"
+      }
+    }
+  }
+}

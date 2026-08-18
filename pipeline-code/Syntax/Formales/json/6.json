@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:v:10\ncell:A2:v:20\ncell:A3:v:30\ncell:A4:v:40\ncell:A5:v:50\ncell:A6:vtf:n:30:AVERAGE(A1\\cA5)\nsheet:c:1:r:6"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

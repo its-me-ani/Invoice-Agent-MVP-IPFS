@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:vtf:nl:1:TRUE()
+cell:A2:vtf:nl:0:FALSE()
+sheet:c:1:r:2

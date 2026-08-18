@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:Home<https\\c//website.com>:tvf:1\ncell:B1:t:About<<https\\c//website.com/about>>:tvf:1\ncell:C1:t:Contact<mailto\\chello@website.com>:tvf:1\nsheet:c:3:r:1\nvalueformat:1:text-link\n"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

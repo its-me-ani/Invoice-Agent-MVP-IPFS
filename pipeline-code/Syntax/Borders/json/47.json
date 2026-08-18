@@ -1,0 +1,14 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "currentname": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:B2:t:Course Schedule:b:1:1:1:1:l:1:cf:1:f:1:bg:1:colspan:5\ncell:C2:b:1:1:1:1:bg:1\ncell:D2:b:1:1:1:1:bg:1\ncell:E2:b:1:1:1:1:bg:1\ncell:F2:b:1:1:1:1:bg:1\ncell:B3:t:Time:b:0:1:0:1:bg:2:cf:2:f:2:l:2\ncell:C3:t:Monday:b:0:1:0:1:bg:2:cf:2:f:2:l:2\ncell:D3:t:Tuesday:b:0:1:0:1:bg:2:cf:2:f:2:l:2\ncell:E3:t:Wednesday:b:0:1:0:1:bg:2:cf:2:f:2:l:2\ncell:F3:t:Thursday:b:0:1:0:1:bg:2:cf:2:f:2:l:2\ncell:B4:t:9-10 AM:b:0:1:0:1:bg:3:cf:3:l:3\ncell:C4:b:0:1:0:0:l:3\ncell:D4:b:0:1:0:0:l:3\ncell:E4:b:0:1:0:0:l:3\ncell:F4:b:0:1:0:0:l:3\ncell:B5:t:10-11 AM:b:0:1:0:1:bg:3:cf:3:l:3\ncell:C5:b:0:1:0:0:l:3\ncell:D5:b:0:1:0:0:l:3\ncell:E5:b:0:1:0:0:l:3\ncell:F5:b:0:1:0:0:l:3\ncell:B6:t:11-12 PM:b:0:1:0:1:bg:3:cf:3:l:3\ncell:C6:b:0:1:0:0:l:3\ncell:D6:b:0:1:0:0:l:3\ncell:E6:b:0:1:0:0:l:3\ncell:F6:b:0:1:0:0:l:3\ncell:B7:t:12-1 PM:b:0:1:0:1:bg:4:cf:3:l:3\ncell:C7:t:LUNCH:b:0:1:0:0:bg:4:cf:1:colspan:4\ncell:D7:b:0:1:0:0:bg:4\ncell:E7:b:0:1:0:0:bg:4\ncell:F7:b:0:1:0:0:bg:4\ncell:B8:t:1-2 PM:b:0:1:0:1:bg:3:cf:3:l:3\ncell:C8:b:0:1:0:0:l:3\ncell:D8:b:0:1:0:0:l:3\ncell:E8:b:0:1:0:0:l:3\ncell:F8:b:0:1:0:0:l:3\ncell:B9:t:2-3 PM:b:0:1:0:1:bg:3:cf:3:l:3\ncell:C9:b:0:1:0:0:l:3\ncell:D9:b:0:1:0:0:l:3\ncell:E9:b:0:1:0:0:l:3\ncell:F9:b:0:1:0:0:l:3\ncell:B10:t:3-4 PM:b:0:1:0:1:bg:3:cf:3:l:3\ncell:C10:b:0:1:0:0:l:3\ncell:D10:b:0:1:0:0:l:3\ncell:E10:b:0:1:0:0:l:3\ncell:F10:b:0:1:0:0:l:3\ncell:B11:t:4-5 PM:b:0:1:0:1:bg:3:cf:3:l:3\ncell:C11:b:0:1:0:0:l:3\ncell:D11:b:0:1:0:0:l:3\ncell:E11:b:0:1:0:0:l:3\ncell:F11:b:0:1:0:0:l:3\ncell:B12:b:0:1:0:1:bg:2\ncell:C12:b:0:1:0:1:bg:2\ncell:D12:b:0:1:0:1:bg:2\ncell:E12:b:0:1:0:1:bg:2\ncell:F12:b:0:1:0:1:bg:2\ncol:A:w:10\ncol:B:w:85\ncol:C:w:95\ncol:D:w:95\ncol:E:w:95\ncol:F:w:95\nsheet:c:6:r:12\nborder:1:1px solid rgb(0,0,0)\ncolor:1:rgb(255,140,0)\ncolor:2:rgb(255,228,181)\ncolor:3:rgb(255,250,240)\ncolor:4:rgb(255,222,173)\nfont:1:normal bold 15pt Courier New\nfont:2:normal bold 9pt Courier New\ncellformat:1:center\ncellformat:2:center\ncellformat:3:center\nlayout:1:padding:10px * 10px *;vertical-align:middle;\nlayout:2:padding:8px * 8px *;vertical-align:middle;\nlayout:3:padding:7px * 7px *;vertical-align:middle;"
+      },
+      "name": "sheet1",
+      "hidden": "0"
+    }
+  }
+}

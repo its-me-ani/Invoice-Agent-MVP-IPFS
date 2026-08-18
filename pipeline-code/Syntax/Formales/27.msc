@@ -1,0 +1,5 @@
+version:1.5
+cell:A1:v:1
+cell:A2:v:1
+cell:A3:vtf:nl:1:AND(A1,A2)
+sheet:c:1:r:3

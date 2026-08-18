@@ -1,0 +1,469 @@
+MULTILINE INPUT SYNTAX - COMPLETE REFERENCE
+
+PROPERTY NAME
+Multiline text input using escape sequences in cell text values
+
+ESCAPE SEQUENCE
+\n - Newline character that creates line breaks within cell text content
+
+SYNTAX STRUCTURE
+cell:<cell_reference>:t:<text_with_\n_escapes>
+
+CORE PROPERTIES
+Escape sequence: \n
+Cell type: t (text)
+Valueformat: None (plain text cells only)
+Rendering: Line breaks are rendered as actual newlines in cell display
+Context: Used within text content portion of cell definition
+
+BASIC SYNTAX PATTERNS
+
+Pattern 1: Two lines
+cell:A1:t:Line 1\nLine 2
+
+Pattern 2: Three lines
+cell:A1:t:First\nSecond\nThird
+
+Pattern 3: Multiple lines
+cell:A1:t:Line 1\nLine 2\nLine 3\nLine 4\nLine 5
+
+Pattern 4: Blank lines between content
+cell:A1:t:Paragraph 1\n\nParagraph 2\n\nParagraph 3
+
+Pattern 5: Combined with colon separator
+cell:A1:t:Name\cJohn Doe\nAge\c30\nCity\cNew York
+
+COMPLETE TRAINING EXAMPLES
+
+Example 1: Basic two-line text
+version:1.5
+cell:A1:t:Line 1\nLine 2
+sheet:c:1:r:1
+
+Example 2: Three-line text
+version:1.5
+cell:A1:t:First\nSecond\nThird
+sheet:c:1:r:1
+
+Example 3: Header-body-footer structure
+version:1.5
+cell:A1:t:Header\nBody\nFooter
+cell:A2:v:100
+sheet:c:1:r:2
+
+Example 4: Key-value pairs with newlines and colons
+version:1.5
+cell:A1:t:Name\cJohn Doe\nAge\c30\nCity\cNew York
+sheet:c:1:r:1
+
+Example 5: Five-line content
+version:1.5
+cell:A1:t:Line 1\nLine 2\nLine 3\nLine 4\nLine 5
+sheet:c:1:r:1
+
+Example 6: List format with bullet points
+version:1.5
+cell:A1:t:TODO\c\n- Item 1\n- Item 2\n- Item 3
+sheet:c:1:r:1
+
+Example 7: Address with font formatting
+version:1.5
+cell:A1:t:Address\c\n123 Main St\nApt 4B\nNew York, NY 10001:f:1
+cell:B1:t:Contact\c\n+1-555-0123\nemail@example.com
+sheet:c:2:r:1
+font:1:* bold * *
+
+Example 8: Paragraphs with blank lines
+version:1.5
+cell:A1:t:Paragraph 1\n\nParagraph 2\n\nParagraph 3
+sheet:c:1:r:1
+
+Example 9: Code snippet with indentation
+version:1.5
+cell:A1:t:Code\c\nfunction test() {\n  return 42;\n}
+cell:B1:t:Output\c\n42
+sheet:c:2:r:1
+
+Example 10: Multiple cells with multiline content and alignment
+version:1.5
+cell:A1:t:Description\nMultiline text with\nmultiple lines\nspanning several rows:cf:1
+cell:A2:t:Another\nMultiline\nCell
+cell:B1:v:100
+cell:B2:v:200
+sheet:c:2:r:2
+cellformat:1:left
+
+COMBINATION WITH OTHER PROPERTIES
+
+Multiline + Font formatting
+cell:A1:t:Bold Title\nRegular body text\nMore content:f:1
+font:1:* bold * *
+
+Multiline + Cell alignment
+cell:A1:t:Left aligned\nmultiple lines\nof text:cf:1
+cellformat:1:left
+
+Multiline + Vertical alignment
+cell:A1:t:Top aligned\nMultiline\nContent:l:1
+layout:1:padding:* * * *;vertical-align:top;
+
+Multiline + Colon separator
+cell:A1:t:Label\cValue Line 1\nValue Line 2\nValue Line 3
+
+Multiline + Background color
+cell:A1:t:Highlighted\nMultiline\nText:bg:1
+color:1:rgb(255,255,0)
+
+Multiline + Border
+cell:A1:t:Bordered\nMultiline\nContent:b:1
+border:1:2px solid rgb(0,0,0)
+
+Multiline + Padding
+cell:A1:t:Padded\nMultiline\nText:l:1
+layout:1:padding:10px 15px 10px 15px;vertical-align:middle;
+
+USE CASES
+
+Use Case 1: Contact information storage
+Store complete address with street, city, state, zip code in single cell using line breaks to separate components
+
+Use Case 2: List creation within cells
+Create bullet lists, numbered lists, or todo lists within a single cell without needing multiple rows
+
+Use Case 3: Multi-line labels or headers
+Display headers with subtitles or descriptions where main title and supporting text need line breaks
+
+Use Case 4: Text formatting preservation
+Preserve line breaks in copied text such as poetry, song lyrics, or formatted paragraphs
+
+Use Case 5: Structured data display
+Display key-value pairs vertically within single cell using combination of colon separator and newlines
+
+Use Case 6: Code or command display
+Show code snippets, terminal commands, or script content with preserved line breaks and indentation
+
+Use Case 7: Notes and comments
+Add multi-line notes, descriptions, or annotations to cells without expanding to multiple rows
+
+Use Case 8: Form field simulation
+Create form-like structures with labels and input areas using multiline formatting
+
+Use Case 9: Compact data presentation
+Display multiple related data points in compact space using vertical stacking with line breaks
+
+Use Case 10: Multi-line cell in tables
+Create table cells containing multiple lines of information while maintaining table structure
+
+ESCAPE SEQUENCE RULES
+
+Rule 1: Use \n for single line break
+Creates one newline between content
+
+Rule 2: Use \n\n for blank line
+Creates empty line by placing two consecutive newline characters
+
+Rule 3: Literal backslash requires escaping
+To display actual backslash character use \\ 
+
+Rule 4: No valueformat required
+Multiline text works with plain text cells (type t) without special valueformat
+
+Rule 5: Preserve all spacing
+Spaces before and after \n are preserved in rendered output
+
+Rule 6: Works with any text content
+Can be combined with any text including special characters, numbers, or symbols
+
+Rule 7: No limit on line count
+Can use unlimited \n sequences to create any number of lines within cell
+
+Rule 8: Compatible with cell properties
+Works alongside fonts, borders, backgrounds, alignment, and other cell properties
+
+TECHNICAL SPECIFICATIONS
+
+Escape sequence: \n (backslash followed by lowercase n)
+Cell type requirement: t (text type cells only)
+Value type restriction: Cannot be used in numeric cells (v type) or formula cells (f type)
+Rendering behavior: Each \n converts to actual line break in visual display
+Content length: No specific limit on total text length or number of line breaks
+Property interaction: Compatible with all cell properties (fonts, colors, borders, alignment, padding)
+Sheet dimension impact: Does not increase row count, all lines stay within single cell
+Text flow: Line breaks occur at exact \n position regardless of cell width
+
+COMBINATION PATTERNS
+
+Pattern A: Multiline with colon separator for labels
+cell:A1:t:Field Name\cValue line 1\nValue line 2\nValue line 3
+
+Pattern B: Multiline with bold font
+cell:A1:t:Bold Header\nRegular line 1\nRegular line 2:f:1
+font:1:* bold * *
+
+Pattern C: Multiline with center alignment
+cell:A1:t:Centered\nMultiple\nLines:cf:1
+cellformat:1:center
+
+Pattern D: Multiline with vertical alignment top
+cell:A1:t:Top aligned\nLine 2\nLine 3:l:1
+layout:1:padding:* * * *;vertical-align:top;
+
+Pattern E: Multiline with background color
+cell:A1:t:Colored\nBackground\nText:bg:1
+color:1:rgb(200,200,255)
+
+Pattern F: Multiline list with leading newline
+cell:A1:t:TODO\c\n- Item 1\n- Item 2\n- Item 3\n- Item 4
+
+Pattern G: Multiple multiline cells in row
+cell:A1:t:First\nMultiline
+cell:B1:t:Second\nMultiline
+cell:C1:t:Third\nMultiline
+sheet:c:3:r:1
+
+Pattern H: Multiline with padding and middle vertical align
+cell:A1:t:Padded\nCentered\nContent:l:1
+layout:1:padding:20px 10px 20px 10px;vertical-align:middle;
+
+VALIDATION EXAMPLES
+
+Valid Example 1: Simple two-line text
+cell:A1:t:Line 1\nLine 2
+
+Valid Example 2: Three lines with blank line
+cell:A1:t:Section 1\n\nSection 2
+
+Valid Example 3: With colon separator
+cell:A1:t:Name\cJohn\nAge\c25
+
+Valid Example 4: With font reference
+cell:A1:t:Title\nSubtitle:f:1
+
+Valid Example 5: With cellformat reference
+cell:A1:t:Aligned\nText:cf:1
+
+Valid Example 6: With layout reference
+cell:A1:t:Padded\nContent:l:1
+
+Valid Example 7: With border reference
+cell:A1:t:Bordered\nText:b:1
+
+Valid Example 8: With background reference
+cell:A1:t:Colored\nText:bg:1
+
+Valid Example 9: Five lines
+cell:A1:t:L1\nL2\nL3\nL4\nL5
+
+Valid Example 10: Complex combination
+cell:A1:t:Header\nContent line 1\nContent line 2:cf:1:f:1:bg:1
+
+COMMON ERRORS TO AVOID
+
+Error 1: Missing colon before property reference
+Wrong: cell:A1:t:Text\nMore:f
+Correct: cell:A1:t:Text\nMore:f:1
+
+Error 2: Starting text with newline without content
+Wrong: cell:A1:t:\nContent
+Better: cell:A1:t:Header\nContent
+
+Error 3: Too many consecutive blank lines
+Wrong: cell:A1:t:Text\n\n\n\nMore
+Better: cell:A1:t:Text\n\nMore
+
+Error 4: Invalid property reference after multiline text
+Wrong: cell:A1:t:Text\nMore:c:99
+Correct: cell:A1:t:Text\nMore:c:1
+
+Error 5: Missing property definition for reference
+Wrong: cell:A1:t:Text\nMore:cf:1 (without cellformat:1 definition)
+Correct: cell:A1:t:Text\nMore:cf:1 + cellformat:1:left
+
+Error 6: Using with non-text cell type
+Wrong: cell:A1:v:100\n200
+Correct: cell:A1:t:100\n200
+
+Error 7: Invalid property abbreviation
+Wrong: cell:A1:t:Text\nMore:colspan
+Correct: cell:A1:t:Text\nMore:colspan:2
+
+Error 8: Multiple invalid references
+Wrong: cell:A1:t:Text\nMore:b:1:1:1
+Correct: cell:A1:t:Text\nMore:b:1
+
+Error 9: Invalid background reference
+Wrong: cell:A1:t:Text\nMore:bg:99
+Correct: cell:A1:t:Text\nMore:bg:1
+
+Error 10: Invalid border combination
+Wrong: cell:A1:t:Text\nMore:b:1:1 (without proper border definition)
+Correct: cell:A1:t:Text\nMore:b:1 + border:1:1px solid rgb(0,0,0)
+
+ADVANCED USAGE PATTERNS
+
+Advanced Pattern 1: Form-like structure
+cell:A1:t:Name\c
+cell:A2:t:Email\c
+cell:A3:t:Phone\c
+cell:B1:t:John Doe\nSenior Developer
+cell:B2:t:john@example.com\njohn.backup@example.com
+cell:B3:t:+1-555-0123\n+1-555-0124
+sheet:c:2:r:3
+
+Advanced Pattern 2: Multi-line headers in table
+cell:A1:t:Employee\nName:cf:1:f:1
+cell:B1:t:Department\n& Role:cf:1:f:1
+cell:C1:t:Contact\nInformation:cf:1:f:1
+cell:A2:t:John Doe
+cell:B2:t:Engineering
+cell:C2:t:john@example.com
+sheet:c:3:r:2
+cellformat:1:center
+font:1:* bold * *
+
+Advanced Pattern 3: Multi-section cell with formatting
+cell:A1:t:SECTION 1\c\nItem A\nItem B\n\nSECTION 2\c\nItem X\nItem Y:f:1:l:1
+font:1:* bold * *
+layout:1:padding:15px 10px 15px 10px;vertical-align:top;
+
+Advanced Pattern 4: Code documentation
+cell:A1:t:Function\cgetUser():f:1
+cell:A2:t:Code\c\nfunction getUser(id) {\n  return db.find(id);\n}
+cell:A3:t:Returns\cUser object or null
+sheet:c:1:r:3
+font:1:* bold * *
+
+Advanced Pattern 5: Compact invoice item
+cell:A1:t:Product Name\nSKU: ABC-123\nQty: 5:b:1:l:1
+cell:B1:t:$50.00\nper unit:b:1:l:2
+sheet:c:2:r:1
+border:1:1px solid rgb(200,200,200)
+layout:1:padding:10px 10px 10px 10px;vertical-align:top;
+layout:2:padding:10px 10px 10px 10px;vertical-align:middle;
+
+RENDERING BEHAVIOR
+
+Input format: cell:A1:t:Line 1\nLine 2\nLine 3
+Rendered output: 
+Line 1
+Line 2
+Line 3
+
+Input format: cell:A1:t:Header\n\nContent
+Rendered output:
+Header
+
+Content
+
+Input format: cell:A1:t:Label\cValue line 1\nValue line 2
+Rendered output:
+Label: Value line 1
+       Value line 2
+
+PROPERTY REFERENCE SYNTAX
+
+Basic cell with multiline: cell:A1:t:Text\nMore
+With font: cell:A1:t:Text\nMore:f:1
+With cellformat: cell:A1:t:Text\nMore:cf:1
+With layout: cell:A1:t:Text\nMore:l:1
+With border: cell:A1:t:Text\nMore:b:1
+With background: cell:A1:t:Text\nMore:bg:1
+With color: cell:A1:t:Text\nMore:c:1
+Multiple properties: cell:A1:t:Text\nMore:f:1:cf:1:bg:1:b:1
+
+COMPLETE SAVESTR EXAMPLES
+
+Example A: Single multiline cell
+version:1.5
+cell:A1:t:Line 1\nLine 2\nLine 3
+sheet:c:1:r:1
+
+Example B: Multiline with alignment
+version:1.5
+cell:A1:t:Left Text\nLine 2\nLine 3:cf:1
+sheet:c:1:r:1
+cellformat:1:left
+
+Example C: Multiline with font and color
+version:1.5
+cell:A1:t:Bold Text\nLine 2:f:1:c:1
+sheet:c:1:r:1
+font:1:* bold * *
+color:1:rgb(255,0,0)
+
+Example D: Multiple multiline cells with borders
+version:1.5
+cell:A1:t:Cell 1\nLine 2:b:1
+cell:B1:t:Cell 2\nLine 2:b:1
+sheet:c:2:r:1
+border:1:1px solid rgb(0,0,0)
+
+Example E: Multiline with full formatting
+version:1.5
+cell:A1:t:Title\nSubtitle\nDescription:f:1:cf:1:bg:1:b:1:l:1
+sheet:c:1:r:1
+font:1:Arial bold 14pt *
+cellformat:1:center
+color:1:rgb(240,240,255)
+border:1:2px solid rgb(100,100,200)
+layout:1:padding:15px 10px 15px 10px;vertical-align:middle;
+
+WHEN TO USE MULTILINE INPUT
+
+Use when content naturally spans multiple lines such as addresses or lists
+Use when preserving line breaks from source text like poetry or formatted documents
+Use when creating compact displays with multiple data points in single cell
+Use when simulating form fields with labels and multi-line values
+Use when displaying code snippets or terminal output with preserved formatting
+Use when creating structured content with headers and body text in one cell
+Use when building tables with multi-line headers or data cells
+Use when space is limited and vertical stacking is more efficient than horizontal expansion
+Use when maintaining readability requires visual separation of text components
+Use when copying formatted text that requires line break preservation
+
+WHEN NOT TO USE MULTILINE INPUT
+
+Do not use when each line represents independent data that should be in separate rows
+Do not use when line-by-line analysis or filtering is required
+Do not use when each line needs individual formatting different from others in same cell
+Do not use in formula cells or numeric value cells
+Do not use when lines need different property assignments like individual borders or backgrounds
+Do not use when export to other formats requires one value per row
+Do not use when sorting or grouping by individual line content is needed
+Do not use when screen readers or accessibility tools need to parse lines separately
+Do not use when each line represents separate database records or entities
+Do not use when downstream processing expects one line per cell
+
+PROPERTY COMPATIBILITY MATRIX
+
+Compatible with font property: YES - Apply font to entire multiline cell
+Compatible with cellformat property: YES - Apply alignment to entire multiline cell
+Compatible with layout property: YES - Apply padding and vertical alignment to entire cell
+Compatible with border property: YES - Border surrounds entire multiline cell
+Compatible with color background: YES - Background fills entire multiline cell area
+Compatible with color foreground: YES - Text color applies to all lines
+Compatible with colspan property: YES - Multiline cell can span columns
+Compatible with rowspan property: YES - Multiline cell can span rows
+Compatible with valueformat property: NO - Multiline is plain text only
+Compatible with formula type: NO - Cannot use \n in formula cells
+Compatible with numeric type: NO - Only works with text type cells
+Compatible with colon separator: YES - Can combine \c and \n in same cell
+
+DATA VALIDATION RULES
+
+Rule: Cell type must be t (text)
+Rule: Property references must have corresponding definitions
+Rule: Font references must point to defined font entries
+Rule: Cellformat references must point to defined cellformat entries
+Rule: Layout references must point to defined layout entries
+Rule: Border references must point to defined border entries
+Rule: Color references must point to defined color entries
+Rule: Sheet dimensions must accommodate all defined cells
+Rule: Escape sequences must be properly formatted as \n
+Rule: Multiple properties must be separated by colons
+Rule: Property reference indices must be positive integers
+Rule: All referenced properties must exist before cell reference
+
+SUMMARY
+
+Multiline input allows text cells to contain multiple lines using \n escape sequence. Works exclusively with text type cells (type t). Compatible with all cell properties including fonts, alignment, padding, borders, colors, and spanning. Primary use cases include addresses, lists, notes, code snippets, and structured multi-line content. Cannot be used with formulas or numeric values. Renders as actual line breaks in cell display. No limit on number of lines. Can be combined with colon separator for label-value pairs. Properties apply to entire multiline cell not individual lines.

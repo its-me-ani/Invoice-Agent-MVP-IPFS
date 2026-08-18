@@ -1,0 +1,10 @@
+version:1.5
+cell:A1:t:Title:f:1
+cell:A2:t:Subtitle:f:2
+cell:A3:t:Content:f:3
+cell:A4:t:Note:f:4
+sheet:c:1:r:4
+font:1:normal bold 20pt Arial
+font:2:italic normal 16pt Arial
+font:3:normal normal 12pt Arial
+font:4:italic normal 10pt 'Times New Roman',serif

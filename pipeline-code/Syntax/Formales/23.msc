@@ -1,0 +1,4 @@
+version:1.5
+cell:A1:t:hello
+cell:A2:vtf:t:ell:MID(A1,2,3)
+sheet:c:1:r:2

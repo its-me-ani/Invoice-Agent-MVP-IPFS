@@ -1,0 +1,11 @@
+{
+  "numsheets": 1,
+  "currentid": "sheet1",
+  "sheetArr": {
+    "sheet1": {
+      "sheetstr": {
+        "savestr": "version:1.5\ncell:A1:t:<svg width=\"100\" height=\"100\"><defs><linearGradient id=\"grad1\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" style=\"stop-color\\crgb(255,255,0);stop-opacity\\c1\" /><stop offset=\"100%\" style=\"stop-color\\crgb(255,0,0);stop-opacity\\c1\" /></linearGradient></defs><rect width=\"100\" height=\"100\" fill=\"url(#grad1)\" /></svg>:tvf:1\nsheet:c:1:r:1\nvalueformat:1:text-html\n"
+      }
+    }
+  }
+}

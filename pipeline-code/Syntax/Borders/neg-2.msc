@@ -1,0 +1,6 @@
+version:1.5
+cell:A1:t:Product:b:1:1:1:1
+cell:B1:t:Price:b:1:1:1:1
+sheet:c:2:r:1
+border:1:1px solid rgb(0,0,0)
+border:2:2px dashed blue

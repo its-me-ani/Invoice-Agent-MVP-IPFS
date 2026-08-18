@@ -1,0 +1,7 @@
+version:1.5
+cell:A1:t:Title:cf:1
+cell:A2:t:Subtitle:cf:1
+cell:A3:t:Content:cf:2
+sheet:c:1:r:3
+cellformat:1:center
+cellformat:2:left

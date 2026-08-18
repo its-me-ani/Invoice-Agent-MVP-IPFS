@@ -1,0 +1,8 @@
+version:1.5
+cell:A1:v:100:b:1:0:0:0
+cell:A2:v:200:b:0:0:0:0
+cell:A3:v:300:b:0:0:1:0
+cell:A4:vtf:n:600:SUM(A1\cA3):b:2:2:2:2
+sheet:c:1:r:4
+border:1:1px solid rgb(0,0,0)
+border:2:2px solid rgb(0,0,0)

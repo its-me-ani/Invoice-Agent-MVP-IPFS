@@ -1,0 +1,628 @@
+PADDING LAYOUT SYNTAX - COMPLETE REFERENCE
+
+PROPERTY NAME
+Cell padding using layout property with padding values
+
+LAYOUT PROPERTY
+layout:<index>:padding:<top> <right> <bottom> <left>;vertical-align:<alignment>;
+
+SYNTAX STRUCTURE
+Cell reference: cell:<cell_reference>:t:<text>:l:<layout_index>
+Layout definition: layout:<index>:padding:<top> <right> <bottom> <left>;vertical-align:<alignment>;
+
+CORE PROPERTIES
+Property name: padding
+Format: padding:TOP RIGHT BOTTOM LEFT;
+Order: Top Right Bottom Left (clockwise from top)
+Units: px (pixels)
+Wildcard: * (asterisk represents default/no padding)
+Reference: l:<index> in cell definition
+Combination: Always paired with vertical-align property in same layout definition
+
+PADDING VALUE ORDER
+Position 1: Top padding
+Position 2: Right padding
+Position 3: Bottom padding
+Position 4: Left padding
+
+WILDCARD USAGE
+Symbol: *
+Meaning: Use default value (typically 0px or no padding)
+Usage: Replace any position with * to skip that padding side
+Example: padding:10px * * * (only top padding)
+Example: padding:* * * 15px (only left padding)
+Example: padding:* * * * (no padding on any side)
+
+BASIC SYNTAX PATTERNS
+
+Pattern 1: Top padding only
+layout:1:padding:10px * * *;vertical-align:*;
+cell:A1:t:Content:l:1
+
+Pattern 2: Right padding only
+layout:1:padding:* 10px * *;vertical-align:*;
+cell:A1:t:Content:l:1
+
+Pattern 3: Bottom padding only
+layout:1:padding:* * 10px *;vertical-align:*;
+cell:A1:t:Content:l:1
+
+Pattern 4: Left padding only
+layout:1:padding:* * * 15px;vertical-align:*;
+cell:A1:t:Content:l:1
+
+Pattern 5: Uniform padding all sides
+layout:1:padding:20px 20px 20px 20px;vertical-align:*;
+cell:A1:t:Content:l:1
+
+Pattern 6: Top and bottom only
+layout:1:padding:15px * 15px *;vertical-align:*;
+cell:A1:t:Content:l:1
+
+Pattern 7: Left and right only
+layout:1:padding:* 10px * 10px;vertical-align:*;
+cell:A1:t:Content:l:1
+
+Pattern 8: Different values each side
+layout:1:padding:5px 10px 15px 20px;vertical-align:*;
+cell:A1:t:Content:l:1
+
+Pattern 9: No padding specified
+layout:1:padding:* * * *;vertical-align:*;
+cell:A1:t:Content:l:1
+
+COMPLETE TRAINING EXAMPLES
+
+Example 1: Top padding only
+version:1.5
+cell:A1:t:Simple Padding - Top Only:l:1
+sheet:c:1:r:1
+layout:1:padding:10px * * *;vertical-align:*;
+
+Example 2: Left padding only
+version:1.5
+cell:A1:t:Padding - Left Only:l:1
+sheet:c:1:r:1
+layout:1:padding:* * * 15px;vertical-align:*;
+
+Example 3: Uniform padding all sides
+version:1.5
+cell:A1:t:Uniform Padding - All Sides:l:1
+sheet:c:1:r:1
+layout:1:padding:20px 20px 20px 20px;vertical-align:*;
+
+Example 4: Asymmetric padding
+version:1.5
+cell:A1:t:Asymmetric Padding:l:1
+sheet:c:1:r:1
+layout:1:padding:5px 10px 15px 20px;vertical-align:*;
+
+Example 5: Padding with top vertical alignment
+version:1.5
+cell:A1:t:Padding with Top Align:l:1
+sheet:c:1:r:1
+layout:1:padding:* * * *;vertical-align:top;
+
+Example 6: Padding with middle vertical alignment
+version:1.5
+cell:A1:t:Padding with Middle Align:l:1
+sheet:c:1:r:1
+layout:1:padding:10px 10px 10px 10px;vertical-align:middle;
+
+Example 7: Padding with bottom vertical alignment
+version:1.5
+cell:A1:t:Padding with Bottom Align:l:1
+sheet:c:1:r:1
+layout:1:padding:15px * * 15px;vertical-align:bottom;
+
+Example 8: Multiple cells with different padding
+version:1.5
+cell:A1:t:Large Padding:l:1
+cell:B1:t:Small Padding:l:2
+sheet:c:2:r:1
+layout:1:padding:30px 30px 30px 30px;vertical-align:middle;
+layout:2:padding:2px 2px 2px 2px;vertical-align:*;
+
+Example 9: Vertical and horizontal padding combinations
+version:1.5
+cell:A1:t:Top and Bottom Padding:l:1
+cell:A2:t:Left and Right Padding:l:2
+sheet:c:1:r:2
+layout:1:padding:25px * 25px *;vertical-align:*;
+layout:2:padding:* 25px * 25px;vertical-align:*;
+
+Example 10: Multiple cells with varied padding and alignment
+version:1.5
+cell:A1:t:Minimal Top:l:1
+cell:A2:t:Medium All:l:2
+cell:A3:t:Heavy Bottom:l:3
+sheet:c:1:r:3
+layout:1:padding:1px * * *;vertical-align:top;
+layout:2:padding:12px 12px 12px 12px;vertical-align:middle;
+layout:3:padding:* * 40px *;vertical-align:bottom;
+
+VERTICAL ALIGNMENT OPTIONS
+
+Value: top
+Effect: Aligns content to top of cell
+Syntax: vertical-align:top;
+
+Value: middle
+Effect: Centers content vertically in cell
+Syntax: vertical-align:middle;
+
+Value: bottom
+Effect: Aligns content to bottom of cell
+Syntax: vertical-align:bottom;
+
+Value: *
+Effect: Default vertical alignment (typically top)
+Syntax: vertical-align:*;
+
+COMBINATION WITH OTHER PROPERTIES
+
+Padding + Font
+layout:1:padding:10px 10px 10px 10px;vertical-align:*;
+font:1:Arial bold 12pt *
+cell:A1:t:Padded Bold Text:l:1:f:1
+
+Padding + Border
+layout:1:padding:15px 15px 15px 15px;vertical-align:middle;
+border:1:2px solid rgb(0,0,0)
+cell:A1:t:Padded with Border:l:1:b:1
+
+Padding + Background Color
+layout:1:padding:20px 20px 20px 20px;vertical-align:*;
+color:1:rgb(240,240,240)
+cell:A1:t:Padded with Background:l:1:bg:1
+
+Padding + Cell Format Alignment
+layout:1:padding:10px 10px 10px 10px;vertical-align:middle;
+cellformat:1:center
+cell:A1:t:Centered and Padded:l:1:cf:1
+
+Padding + Text Color
+layout:1:padding:12px 12px 12px 12px;vertical-align:*;
+color:1:rgb(255,0,0)
+cell:A1:t:Red Padded Text:l:1:c:1
+
+Padding + Multiple Properties
+layout:1:padding:15px 15px 15px 15px;vertical-align:middle;
+font:1:Arial bold 14pt *
+border:1:1px solid rgb(100,100,100)
+color:2:rgb(250,250,250)
+cellformat:1:center
+cell:A1:t:Full Styled Cell:l:1:f:1:b:1:bg:2:cf:1
+
+USE CASES
+
+Use Case 1: Visual breathing room
+Apply uniform padding to all cells in table for improved readability and professional appearance
+
+Use Case 2: Text indentation
+Use left padding to create indented text for hierarchical lists or nested content structures
+
+Use Case 3: Header spacing
+Apply top and bottom padding to header rows to visually separate them from data rows
+
+Use Case 4: Button-like appearance
+Use uniform padding on all sides to create clickable button-style cells with centered text
+
+Use Case 5: Form field spacing
+Apply padding to form input cells to create comfortable touch targets and visual separation
+
+Use Case 6: Invoice line items
+Use padding to space out invoice line items for clarity and professional presentation
+
+Use Case 7: Dashboard tiles
+Apply large uniform padding to dashboard metric cells for prominent display
+
+Use Case 8: Menu items
+Use left padding combined with borders to create menu-style navigation cells
+
+Use Case 9: Content cards
+Apply padding to cells containing multiline content to create card-like visual groupings
+
+Use Case 10: Table cell spacing
+Use padding instead of cell spacing to control internal cell spacing in complex table layouts
+
+Use Case 11: Nested content hierarchy
+Use increasing left padding values to show parent-child relationships in tree structures
+
+Use Case 12: Calendar cells
+Apply uniform padding to calendar date cells for consistent day cell sizing
+
+Use Case 13: Label-value pairs
+Use right padding on label cells and left padding on value cells for visual separation
+
+Use Case 14: Icon and text combinations
+Use left padding to add space between cell border and icon/text content
+
+Use Case 15: Banner cells
+Apply large top and bottom padding to create banner-style cells spanning multiple columns
+
+PADDING SIZE RECOMMENDATIONS
+
+Minimal: 1px to 3px
+Purpose: Subtle spacing in dense layouts
+Example: layout:1:padding:2px 2px 2px 2px;vertical-align:*;
+
+Small: 5px to 8px
+Purpose: Compact tables with slight breathing room
+Example: layout:1:padding:5px 5px 5px 5px;vertical-align:*;
+
+Medium: 10px to 15px
+Purpose: Standard comfortable spacing for most applications
+Example: layout:1:padding:12px 12px 12px 12px;vertical-align:*;
+
+Large: 20px to 30px
+Purpose: Prominent cells, buttons, dashboard tiles
+Example: layout:1:padding:25px 25px 25px 25px;vertical-align:*;
+
+Extra Large: 40px and above
+Purpose: Hero sections, large banners, special emphasis
+Example: layout:1:padding:40px 40px 40px 40px;vertical-align:*;
+
+LAYOUT REFERENCE SYNTAX
+
+Cell property: :l:<index>
+Layout definition: layout:<index>:padding:VALUES;vertical-align:ALIGN;
+Index range: Positive integers starting from 1
+Multiple layouts: Each layout needs unique index
+Reference before definition: Cell can reference layout defined later in savestr
+
+COMMON PADDING PATTERNS
+
+Pattern A: Indented text levels
+layout:1:padding:* * * 10px;vertical-align:*;
+layout:2:padding:* * * 20px;vertical-align:*;
+layout:3:padding:* * * 30px;vertical-align:*;
+cell:A1:t:Level 1:l:1
+cell:A2:t:Level 2:l:2
+cell:A3:t:Level 3:l:3
+
+Pattern B: Header and content differentiation
+layout:1:padding:15px 10px 15px 10px;vertical-align:middle;
+layout:2:padding:5px 10px 5px 10px;vertical-align:*;
+cell:A1:t:HEADER:l:1:f:1
+cell:A2:t:Content:l:2
+font:1:* bold * *
+
+Pattern C: Card-like cells
+layout:1:padding:20px 20px 20px 20px;vertical-align:middle;
+border:1:1px solid rgb(200,200,200)
+color:1:rgb(250,250,250)
+cell:A1:t:Card Content:l:1:b:1:bg:1
+
+Pattern D: Button row
+layout:1:padding:12px 24px 12px 24px;vertical-align:middle;
+cellformat:1:center
+cell:A1:t:Button 1:l:1:cf:1
+cell:B1:t:Button 2:l:1:cf:1
+cell:C1:t:Button 3:l:1:cf:1
+
+Pattern E: Form field with label
+layout:1:padding:* 10px * *;vertical-align:middle;
+layout:2:padding:* * * 10px;vertical-align:middle;
+cell:A1:t:Name::l:1:f:1
+cell:B1:t:Enter name here:l:2
+font:1:* bold * *
+
+Pattern F: Table with comfortable spacing
+layout:1:padding:8px 12px 8px 12px;vertical-align:*;
+cell:A1:t:Column 1:l:1
+cell:B1:t:Column 2:l:1
+cell:C1:t:Column 3:l:1
+
+Pattern G: Asymmetric emphasis
+layout:1:padding:5px 5px 20px 5px;vertical-align:*;
+border:1:* * 3px solid rgb(0,100,200) *
+cell:A1:t:Emphasized Bottom:l:1:b:1
+
+VALIDATION EXAMPLES
+
+Valid Example 1: Top padding only
+layout:1:padding:10px * * *;vertical-align:*;
+cell:A1:t:Content:l:1
+
+Valid Example 2: All sides equal
+layout:1:padding:15px 15px 15px 15px;vertical-align:middle;
+cell:A1:t:Content:l:1
+
+Valid Example 3: Two sides
+layout:1:padding:10px * 10px *;vertical-align:*;
+cell:A1:t:Content:l:1
+
+Valid Example 4: All wildcards
+layout:1:padding:* * * *;vertical-align:top;
+cell:A1:t:Content:l:1
+
+Valid Example 5: Different each side
+layout:1:padding:5px 10px 15px 20px;vertical-align:bottom;
+cell:A1:t:Content:l:1
+
+Valid Example 6: Multiple layouts
+layout:1:padding:10px * * *;vertical-align:*;
+layout:2:padding:* * * 20px;vertical-align:*;
+cell:A1:t:Top Padded:l:1
+cell:A2:t:Left Padded:l:2
+
+Valid Example 7: With border
+layout:1:padding:12px 12px 12px 12px;vertical-align:*;
+border:1:1px solid rgb(0,0,0)
+cell:A1:t:Content:l:1:b:1
+
+Valid Example 8: With background
+layout:1:padding:20px 20px 20px 20px;vertical-align:middle;
+color:1:rgb(255,255,200)
+cell:A1:t:Content:l:1:bg:1
+
+Valid Example 9: With font
+layout:1:padding:10px 10px 10px 10px;vertical-align:*;
+font:1:Arial bold 12pt *
+cell:A1:t:Content:l:1:f:1
+
+Valid Example 10: Complex combination
+layout:1:padding:15px 15px 15px 15px;vertical-align:middle;
+font:1:Arial bold 14pt *
+border:1:2px solid rgb(100,100,100)
+color:2:rgb(240,240,255)
+cellformat:1:center
+cell:A1:t:Styled Cell:l:1:f:1:b:1:bg:2:cf:1
+
+COMMON ERRORS TO AVOID
+
+Error 1: Missing layout value after reference
+Wrong: cell:A1:t:Content:layout
+Correct: cell:A1:t:Content:l:1
+
+Error 2: Missing layout index
+Wrong: cell:A1:t:Content:l:
+Correct: cell:A1:t:Content:l:1
+
+Error 3: Layout definition without cell reference
+Wrong: layout:1:padding:10px * * *;vertical-align:*;
+Correct: layout:1:padding:10px * * *;vertical-align:*;
+         cell:A1:t:Content:l:1
+
+Error 4: Undefined layout reference
+Wrong: cell:A1:t:Content:l:99 (without layout:99 definition)
+Correct: cell:A1:t:Content:l:1 + layout:1:padding:* * * *;vertical-align:*;
+
+Error 5: Missing semicolons in layout definition
+Wrong: layout:1:padding:10px * * * vertical-align:*
+Correct: layout:1:padding:10px * * *;vertical-align:*;
+
+Error 6: Wrong padding value order
+Wrong: layout:1:padding:10px 15px 20px;vertical-align:*; (missing fourth value)
+Correct: layout:1:padding:10px 15px 20px 25px;vertical-align:*;
+
+Error 7: Missing vertical-align property
+Wrong: layout:1:padding:10px * * *;
+Correct: layout:1:padding:10px * * *;vertical-align:*;
+
+Error 8: Using px without value
+Wrong: layout:1:padding:px * * *;vertical-align:*;
+Correct: layout:1:padding:10px * * *;vertical-align:*;
+
+Error 9: Mixing different units
+Wrong: layout:1:padding:10px 2em 5% 15px;vertical-align:*;
+Correct: layout:1:padding:10px 20px 50px 15px;vertical-align:*;
+
+Error 10: Missing colon separator
+Wrong: cell:A1:t:Content:l1
+Correct: cell:A1:t:Content:l:1
+
+Error 11: Invalid vertical-align value
+Wrong: layout:1:padding:* * * *;vertical-align:center;
+Correct: layout:1:padding:* * * *;vertical-align:middle;
+
+Error 12: Combining with undefined border
+Wrong: cell:A1:t:Content:l:1:b:99 (without border:99 definition)
+Correct: cell:A1:t:Content:l:1:b:1 + border:1:1px solid rgb(0,0,0)
+
+Error 13: Combining with undefined font
+Wrong: cell:A1:t:Content:l:1:f:99 (without font:99 definition)
+Correct: cell:A1:t:Content:l:1:f:1 + font:1:Arial * 12pt *
+
+Error 14: Combining with undefined color
+Wrong: cell:A1:t:Content:l:1:c:99 (without color:99 definition)
+Correct: cell:A1:t:Content:l:1:c:1 + color:1:rgb(255,0,0)
+
+Error 15: Incomplete property reference chain
+Wrong: cell:A1:t:Content:l:1:b:1:1
+Correct: cell:A1:t:Content:l:1:b:1
+
+ADVANCED USAGE PATTERNS
+
+Advanced Pattern 1: Nested indentation hierarchy
+layout:1:padding:* * * 0px;vertical-align:*;
+layout:2:padding:* * * 15px;vertical-align:*;
+layout:3:padding:* * * 30px;vertical-align:*;
+layout:4:padding:* * * 45px;vertical-align:*;
+cell:A1:t:Root Level:l:1
+cell:A2:t:Child Level 1:l:2
+cell:A3:t:Child Level 2:l:3
+cell:A4:t:Child Level 3:l:4
+sheet:c:1:r:4
+
+Advanced Pattern 2: Dashboard tile grid
+layout:1:padding:30px 30px 30px 30px;vertical-align:middle;
+border:1:1px solid rgb(220,220,220)
+color:1:rgb(245,248,250)
+cellformat:1:center
+font:1:Arial bold 18pt *
+cell:A1:t:Metric 1\n1,234:l:1:b:1:bg:1:cf:1:f:1
+cell:B1:t:Metric 2\n5,678:l:1:b:1:bg:1:cf:1:f:1
+cell:A2:t:Metric 3\n9,012:l:1:b:1:bg:1:cf:1:f:1
+cell:B2:t:Metric 4\n3,456:l:1:b:1:bg:1:cf:1:f:1
+sheet:c:2:r:2
+
+Advanced Pattern 3: Form with aligned labels and inputs
+layout:1:padding:8px 10px 8px 0px;vertical-align:middle;
+layout:2:padding:8px 0px 8px 10px;vertical-align:middle;
+border:1:* * 1px solid rgb(230,230,230) *
+cellformat:1:right
+font:1:* bold * *
+cell:A1:t:Name::l:1:cf:1:f:1
+cell:B1:t:John Doe:l:2:b:1
+cell:A2:t:Email::l:1:cf:1:f:1
+cell:B2:t:john@example.com:l:2:b:1
+cell:A3:t:Phone::l:1:cf:1:f:1
+cell:B3:t:555-0123:l:2:b:1
+sheet:c:2:r:3
+
+Advanced Pattern 4: Card-based layout with sections
+layout:1:padding:20px 20px 10px 20px;vertical-align:top;
+layout:2:padding:10px 20px 20px 20px;vertical-align:*;
+border:1:1px solid rgb(200,200,200)
+color:1:rgb(255,255,255)
+font:1:Arial bold 16pt *
+cell:A1:t:CARD TITLE:l:1:b:1:bg:1:f:1
+cell:A2:t:Card content with description and details here:l:2:b:1:bg:1
+sheet:c:1:r:2
+
+Advanced Pattern 5: Button bar with spacing
+layout:1:padding:10px 20px 10px 20px;vertical-align:middle;
+layout:2:padding:* 5px * 5px;vertical-align:*;
+border:1:2px solid rgb(0,120,215)
+color:1:rgb(0,120,215)
+color:2:rgb(255,255,255)
+cellformat:1:center
+font:1:Arial bold 12pt rgb(255,255,255)
+cell:A1:t:Save:l:1:b:1:bg:1:cf:1:f:1
+cell:B1:t::l:2
+cell:C1:t:Cancel:l:1:b:1:bg:2:cf:1
+cell:D1:t::l:2
+cell:E1:t:Delete:l:1:b:1:bg:2:cf:1
+sheet:c:5:r:1
+
+Advanced Pattern 6: Pricing table columns
+layout:1:padding:15px 15px 15px 15px;vertical-align:middle;
+layout:2:padding:20px 20px 20px 20px;vertical-align:middle;
+border:1:1px solid rgb(230,230,230)
+color:1:rgb(250,250,250)
+color:2:rgb(240,248,255)
+cellformat:1:center
+font:1:Arial bold 14pt *
+font:2:Arial * 24pt *
+cell:A1:t:BASIC:l:1:b:1:bg:1:cf:1:f:1
+cell:B1:t:PRO:l:1:b:1:bg:2:cf:1:f:1
+cell:C1:t:ENTERPRISE:l:1:b:1:bg:1:cf:1:f:1
+cell:A2:t:$9/mo:l:2:b:1:cf:1:f:2
+cell:B2:t:$29/mo:l:2:b:1:cf:1:f:2
+cell:C2:t:$99/mo:l:2:b:1:cf:1:f:2
+sheet:c:3:r:2
+
+Advanced Pattern 7: Invoice line items with padding
+layout:1:padding:10px 15px 10px 0px;vertical-align:*;
+layout:2:padding:10px 0px 10px 15px;vertical-align:*;
+border:1:* * 1px solid rgb(200,200,200) *
+cellformat:1:left
+cellformat:2:right
+cell:A1:t:Product Description:l:1:b:1:cf:1
+cell:B1:t:Quantity:l:2:b:1:cf:2
+cell:C1:t:Price:l:2:b:1:cf:2
+cell:D1:t:Total:l:2:b:1:cf:2
+cell:A2:t:Widget A - Premium:l:1:b:1:cf:1
+cell:B2:v:5:l:2:b:1:cf:2
+cell:C2:v:29.99:l:2:b:1:cf:2
+cell:D2:v:149.95:l:2:b:1:cf:2
+sheet:c:4:r:2
+
+RENDERING BEHAVIOR
+
+Input: layout:1:padding:10px * * *;vertical-align:*;
+Effect: Adds 10 pixels of space between cell top border and content
+
+Input: layout:1:padding:* * * 15px;vertical-align:*;
+Effect: Adds 15 pixels of space between cell left border and content
+
+Input: layout:1:padding:20px 20px 20px 20px;vertical-align:*;
+Effect: Adds 20 pixels of space on all four sides between border and content
+
+Input: layout:1:padding:* * * *;vertical-align:middle;
+Effect: No padding but centers content vertically in cell
+
+Input: layout:1:padding:5px 10px 15px 20px;vertical-align:*;
+Effect: Top 5px, Right 10px, Bottom 15px, Left 20px spacing
+
+PROPERTY COMPATIBILITY MATRIX
+
+Compatible with font property: YES - Layout and font can be combined on same cell
+Compatible with cellformat property: YES - Padding works with text alignment
+Compatible with border property: YES - Padding creates space inside border
+Compatible with color background: YES - Background fills area including padding
+Compatible with color foreground: YES - Text color applies to padded content
+Compatible with colspan property: YES - Padding applies to merged cell
+Compatible with rowspan property: YES - Padding applies to merged cell
+Compatible with multiline text: YES - Padding applies to all lines in cell
+Compatible with valueformat: YES - Padding works with formatted values
+Compatible with formula cells: YES - Padding can be applied to formula results
+Compatible with numeric cells: YES - Padding works with numeric values
+
+TECHNICAL SPECIFICATIONS
+
+Property syntax: layout:<index>:padding:<values>;vertical-align:<align>;
+Index requirement: Positive integer starting from 1
+Value format: Number followed by px unit or * wildcard
+Value count: Exactly 4 values required (top right bottom left)
+Separator: Space character between padding values
+Terminator: Semicolon after padding values and after vertical-align
+Reference syntax: :l:<index> in cell definition
+Multiple layouts: Each layout must have unique index
+Vertical align required: Must always specify vertical-align even if using wildcard
+Vertical align values: top, middle, bottom, or * (wildcard)
+Units supported: px (pixels) only
+Wildcard meaning: Use default or no padding for that side
+Property combination: Can combine with f, cf, b, bg, c, colspan, rowspan in same cell
+
+DATA VALIDATION RULES
+
+Rule: Layout index must be positive integer
+Rule: Padding requires exactly 4 space-separated values
+Rule: Each padding value must be numeric with px unit or * wildcard
+Rule: Semicolon required after padding values
+Rule: Vertical-align property required in every layout definition
+Rule: Vertical-align must be top, middle, bottom, or *
+Rule: Semicolon required after vertical-align value
+Rule: Cell reference :l:<index> must point to defined layout
+Rule: Layout can be defined before or after cell reference
+Rule: Multiple cells can share same layout definition
+Rule: Each layout definition must have unique index
+Rule: Sheet dimensions must accommodate all cells using layouts
+
+WHEN TO USE PADDING
+
+Use when content needs visual breathing room from cell borders
+Use when creating button-like cells requiring internal spacing
+Use when building forms with comfortable touch targets
+Use when indenting text to show hierarchy or nesting levels
+Use when separating header content from surrounding cells
+Use when creating card-based layouts with internal spacing
+Use when spacing invoice line items or table rows
+Use when building dashboard tiles with prominent metrics
+Use when creating menu items with comfortable click areas
+Use when designing pricing tables with clear section separation
+Use when text should not touch cell borders for readability
+Use when combining borders and content requires visual buffer
+Use when creating professional forms with labeled fields
+Use when building navigation bars with padded items
+Use when designing banners requiring internal content spacing
+
+WHEN NOT TO USE PADDING
+
+Do not use when cell borders should directly touch content
+Do not use when space constraints require maximum density
+Do not use when padding would make cells too large for layout
+Do not use when external cell spacing (row height/column width) is sufficient
+Do not use when all cells need identical spacing (use global styles instead)
+Do not use when padding causes content wrapping issues
+Do not use when print layouts have strict size requirements
+Do not use when exporting to formats that do not support padding
+Do not use when accessibility requires content at cell edges
+Do not use when padding breaks visual alignment with adjacent cells
+
+SUMMARY
+
+Padding layout property controls internal cell spacing using four values for top right bottom left sides. Specified in layout definitions with padding:VALUES;vertical-align:ALIGN; format. Referenced in cells using :l:INDEX syntax. Values can be pixel measurements or * wildcard for default. Always combined with vertical-align property. Compatible with all cell properties including fonts, borders, colors, alignment, and spanning. Primary use cases include buttons, forms, cards, tables, indentation, and spacing. Renders as space between cell border and content. No limit on padding size. Multiple cells can share same layout. Each layout must have unique index.
